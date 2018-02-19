@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d558651-cc29-4e15-a0b6-35bfe6fbb6a0" name="Default" comment="">
+    <list default="true" id="1d558651-cc29-4e15-a0b6-35bfe6fbb6a0" name="Default" comment="no-smoking">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/no-smoking/asset-manifest.json" afterPath="$PROJECT_DIR$/no-smoking/asset-manifest.json" />
-      <change beforePath="$PROJECT_DIR$/no-smoking/index.html" afterPath="$PROJECT_DIR$/no-smoking/index.html" />
-      <change beforePath="$PROJECT_DIR$/no-smoking/service-worker.js" afterPath="$PROJECT_DIR$/no-smoking/service-worker.js" />
-      <change beforePath="$PROJECT_DIR$/no-smoking/static/css/main.9f96a5f3.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/no-smoking/static/css/main.9f96a5f3.css.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/no-smoking/static/js/main.ff5aa927.js.map" afterPath="$PROJECT_DIR$/no-smoking/static/js/main.ff5aa927.js.map" />
+      <change beforePath="$PROJECT_DIR$/no-smoking/static/css/main.9f96a5f3.css" afterPath="$PROJECT_DIR$/no-smoking/static/css/main.40fa8791.css" />
+      <change beforePath="$PROJECT_DIR$/no-smoking/static/css/main.9f96a5f3.css.map" afterPath="$PROJECT_DIR$/no-smoking/static/css/main.40fa8791.css.map" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/no-smoking/index.html">
+      <file leaf-file-name="main.40fa8791.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/no-smoking/static/css/main.40fa8791.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="3820" lean-forward="false" selection-start-line="0" selection-start-column="3818" selection-end-line="0" selection-end-column="3820" />
               <folding />
             </state>
           </provider>
@@ -82,6 +78,48 @@
               <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="media" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="main.40fa8791.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="no-smoking" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="main.ff5aa927.js" type="620a8d5e:NestingTreeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -117,7 +155,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1519080769635</updated>
-      <workItem from="1519080771258" duration="1037000" />
+      <workItem from="1519080771258" duration="1716000" />
     </task>
     <task id="LOCAL-00001" summary="no-smoking">
       <created>1519080839095</created>
@@ -133,14 +171,22 @@
       <option name="project" value="LOCAL" />
       <updated>1519081060472</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="no-smoking">
+      <created>1519082492779</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519082492779</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1037000" />
+    <option name="totallyTimeSpent" value="1716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1021" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -150,7 +196,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -181,6 +227,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/no-smoking/static/css/main.40fa8791.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="3820" lean-forward="false" selection-start-line="0" selection-start-column="3818" selection-end-line="0" selection-end-column="3820" />
           <folding />
         </state>
       </provider>
