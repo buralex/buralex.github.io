@@ -1,55 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d558651-cc29-4e15-a0b6-35bfe6fbb6a0" name="Default" comment="no-smoking">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/project_1.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Burlachenko_cv.doc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/com-js.service.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/common-js.module.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/font-awesome.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/main.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/main.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/css/main.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/favicon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/FontAwesome.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/fonts/russoOne/russoOne.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/blue1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/com.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/company.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/concrete-wall.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/face-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/i_back.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/i_front.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/loader3.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/logo_3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/music-player-play.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/night.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/night_mobile.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/path2-min.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/shop.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/side-down3.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/side-up.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/web-dev.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/web-dev_mobile.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/main.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/trianglify.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/view_en/view_en.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/view_en/view_en.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/view_ru/view_ru.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/view_ru/view_ru.js" />
+    <list default="true" id="1d558651-cc29-4e15-a0b6-35bfe6fbb6a0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/view_en/view_en.html" afterPath="$PROJECT_DIR$/view_en/view_en.html" />
+      <change beforePath="$PROJECT_DIR$/view_ru/view_ru.html" afterPath="$PROJECT_DIR$/view_ru/view_ru.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,11 +31,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-792">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_en.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view_en/view_en.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="129" column="31" lean-forward="false" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_ru.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view_ru/view_ru.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1219">
+              <caret line="127" column="54" lean-forward="false" selection-start-line="127" selection-start-column="54" selection-end-line="127" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -90,6 +75,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/view_ru/view_ru.html" />
+        <option value="$PROJECT_DIR$/view_en/view_en.html" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -125,6 +118,16 @@
             <path>
               <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view_en" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="view_ru" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -170,7 +173,7 @@
       <updated>1519080769635</updated>
       <workItem from="1519080771258" duration="1734000" />
       <workItem from="1519150977840" duration="31000" />
-      <workItem from="1519151331517" duration="566000" />
+      <workItem from="1519151331517" duration="2862000" />
     </task>
     <task id="LOCAL-00001" summary="no-smoking">
       <created>1519080839095</created>
@@ -200,11 +203,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519083317280</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="main page">
+      <created>1519151937466</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1519151937466</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2331000" />
+    <option name="totallyTimeSpent" value="4627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1021" extended-state="6" />
@@ -218,7 +228,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34118968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2020202" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -238,7 +248,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="no-smoking" />
-    <option name="LAST_COMMIT_MESSAGE" value="no-smoking" />
+    <MESSAGE value="main page" />
+    <option name="LAST_COMMIT_MESSAGE" value="main page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -279,7 +290,31 @@
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view_ru/view_ru.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1219">
+          <caret line="127" column="54" lean-forward="false" selection-start-line="127" selection-start-column="54" selection-end-line="127" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view_en/view_en.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="129" column="31" lean-forward="false" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
           <folding />
         </state>
       </provider>
