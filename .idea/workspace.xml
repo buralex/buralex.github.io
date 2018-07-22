@@ -2,83 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac6120b6-ee26-470c-bfbb-eb37b1e3bbca" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/asset-manifest.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/manifest.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/service-worker.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/css/main.b4aad536.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/css/main.b4aad536.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/main.0e014744.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/main.0e014744.js.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/game1.f213263a.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/glyphicons-halflings-regular.448c34a5.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/glyphicons-halflings-regular.89889688.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/glyphicons-halflings-regular.e18bbf61.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/glyphicons-halflings-regular.f4769f9b.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/glyphicons-halflings-regular.fa277232.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/media/logo.5d5d9eef.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/.htaccess.bin" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/0.227d3e53425184f7f1e5.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/1.3903506771f9100e5de1.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/2.6e1435614d8f5f41f9fd.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/3.52d7847d70ce196b591a.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/3cd6e316b2008ee75776f17aa90029df.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/4.9ea623b39595c318f09d.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/5.5f299a3cddaca0ccd4d0.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/73d3fa50faf9d4899d34583980d2cb44.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/93d49fe0d67766149b405642a533ceb6.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/c936108f66ed4335f3e05f9388cdef43.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/icon_48x48.62bfd1bc950d24337676b08103c92a31.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/main.e650c4f9fda8e656c83a.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/manifest.7b2621ac4b63f96cd26196c50b423538.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/runtime~main.d23926ba3968b24588e6.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/sw.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/abz-test/vendors~main.62d5ae17253f4fd9369d.chunk.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/package-lock.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/package.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/public/Burlachenko_cv.doc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/public/favicon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/public/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/public/lib/trianglify.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/public/manifest.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/App.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/App.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/App.test.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/View.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/FontAwesome.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/fontawesome-webfont.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/fontawesome-webfont.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/fontawesome-webfont.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/fontawesome-webfont.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/fontawesome-webfont.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/fonts/russoOne/russoOne.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/functions/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/blue1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/com.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/company.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/concrete-wall.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/face-up.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/game1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/i_back.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/i_front.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/loader3.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/logo_3.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/music-player-play.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/night.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/night_mobile.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/path2-min.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/shop.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/side-down3.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/side-up.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/web-dev.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/img/web-dev_mobile.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/index.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/logo.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/registerServiceWorker.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/styles/font-awesome.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/styles/main.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/frontend/src/styles/main.scss" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Burlachenko_cv.doc" afterPath="$PROJECT_DIR$/Burlachenko_cv.doc" />
-      <change beforePath="$PROJECT_DIR$/app.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/com-js.service.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/common-js.module.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/css/font-awesome.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/css/main.css.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/css/main.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/css/main.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/FontAwesome.otf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/static/media/fontawesome-webfont.674f50d2.eot" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/static/media/fontawesome-webfont.acf3dcb7.svg" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/static/media/fontawesome-webfont.b06871f2.ttf" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/static/media/fontawesome-webfont.fee66e71.woff" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff2" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/static/media/fontawesome-webfont.af7ae505.woff2" />
-      <change beforePath="$PROJECT_DIR$/fonts/russoOne/russoOne.ttf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/fonts/russoOne/russoOne.ttf" afterPath="$PROJECT_DIR$/static/media/russoOne.d14e8736.ttf" />
-      <change beforePath="$PROJECT_DIR$/img/blue1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/blue1.jpg" afterPath="$PROJECT_DIR$/static/media/blue1.ed11fc4a.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/com.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/com.png" afterPath="$PROJECT_DIR$/static/media/com.ce7f4849.png" />
-      <change beforePath="$PROJECT_DIR$/img/company.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/company.jpg" afterPath="$PROJECT_DIR$/static/media/company.41bdaaff.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/concrete-wall.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/face-up.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/face-up.svg" afterPath="$PROJECT_DIR$/static/media/face-up.8d595ae5.svg" />
-      <change beforePath="$PROJECT_DIR$/img/i_back.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/i_back.jpg" afterPath="$PROJECT_DIR$/static/media/i_back.188f8d24.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/i_front.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/i_front.jpg" afterPath="$PROJECT_DIR$/static/media/i_front.fa99b4f3.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/loader3.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/logo_3.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/logo_3.svg" afterPath="$PROJECT_DIR$/static/media/logo_3.a0d8fcfd.svg" />
-      <change beforePath="$PROJECT_DIR$/img/music-player-play.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/night.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/night.jpg" afterPath="$PROJECT_DIR$/static/media/night.2fe88215.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/night_mobile.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/night_mobile.jpg" afterPath="$PROJECT_DIR$/static/media/night_mobile.a2ba2c15.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/path2-min.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/shop.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/shop.jpg" afterPath="$PROJECT_DIR$/static/media/shop.e32a6853.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/side-down3.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/side-up.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/web-dev.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/web-dev.jpg" afterPath="$PROJECT_DIR$/static/media/web-dev.c110ea0d.jpg" />
-      <change beforePath="$PROJECT_DIR$/img/web-dev_mobile.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/img/web-dev_mobile.jpg" afterPath="$PROJECT_DIR$/static/media/web-dev_mobile.8ac57e0c.jpg" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/main.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/trianglify.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/trianglify.min.js" afterPath="$PROJECT_DIR$/lib/trianglify.min.js" />
-      <change beforePath="$PROJECT_DIR$/view_en/view_en.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/view_en/view_en.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/view_ru/view_ru.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/view_ru/view_ru.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/0.308c397026ab53b4d0d9.chunk.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/1.224d302954f9851c03bf.chunk.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/2.48d763cf08c7bb0bcfea.chunk.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/640b1e5072d3f3ec6073f540d62b5609.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/6431a1a5ca749101193980715cf9cf99.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/bc338d9769740ef2b5f894d1d454cf7a.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/abz-test/index.html" afterPath="$PROJECT_DIR$/abz-test/index.html" />
+      <change beforePath="$PROJECT_DIR$/abz-test/main.8c0aa828aa3c2be03c06.js" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,11 +84,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
               <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trianglify.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/public/lib/trianglify.min.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess.bin" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/abz-test/.htaccess.bin">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,6 +162,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/frontend/node_modules" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="7" />
@@ -178,6 +196,11 @@
               <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="buralex.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="buralex.github.io" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -191,8 +214,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\buralex.github.io" />
       <recent name="D:\OSPanel\domains\buralex.github.io\abz-test" />
+      <recent name="D:\OSPanel\domains\buralex.github.io\frontend" />
+      <recent name="D:\OSPanel\domains\buralex.github.io" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -261,16 +285,24 @@
       <option name="project" value="LOCAL" />
       <updated>1530972670847</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="abz">
+      <created>1532246232243</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532246232243</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3702000" />
+    <option name="totallyTimeSpent" value="5790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="-5" width="1930" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34100643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34100643" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -525,6 +557,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/public/lib/trianglify.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/abz-test/.htaccess.bin">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

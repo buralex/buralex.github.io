@@ -1,0 +1,17 @@
+{
+  "icons": [
+    {
+      "src": "/icon_48x48.62bfd1bc950d24337676b08103c92a31.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ],
+  "name": "test denteez",
+  "short_name": "test denteez",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "test denteez",
+  "background_color": "#fafafa",
+  "theme_color": "#87b448"
+}
