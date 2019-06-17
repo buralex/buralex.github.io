@@ -1,15 +1,8 @@
 @import '../../styles/variables';
 
 .header {
-  //display: flex;
-  //justify-content: space-between;
-  //align-items: center;
-  position: fixed;
-  width: 100%;
   height: $frameSize;
   z-index: 100;
-  top: 0;
-  //margin: 0 $frameSize;
 
   .logo {
     position: fixed;
@@ -21,10 +14,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.3);
-
-    //img {
-    //  //margin-right: 1px;
-    //}
+    z-index: 100;
   }
 }
 
@@ -35,9 +25,8 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  position: fixed;
-  right: calc(20px + #{$frameSize});
-  top: 10px;
+  position: relative;
+  z-index: 100;
 
   display: inline-block;
   float: right;
@@ -78,83 +67,6 @@
     &:hover {
       color: $white;
     }
-
-    //&::before, &::after {
-    //  z-index: 90;
-    //
-    //  color: #1b3c72 ;
-    //  position: relative;
-    //  bottom: 1px;
-    //  display: inline-block;
-    //  opacity: 0;
-    //  -webkit-transition: 0.3s;
-    //  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-    //  transition: transform 0.3s, opacity 0.2s;
-    //}
-    //
-    //&::before {
-    //  left:0;
-    //  margin-right: 10px;
-    //  content: '[';
-    //  -webkit-transform: translateX(20px);
-    //  -moz-transform: translateX(20px);
-    //  transform: translateX(20px);
-    //}
-    //
-    //&:hover::before {
-    //  opacity: 1;
-    //  -webkit-transform: translateX(0px);
-    //  -moz-transform: translateX(0px);
-    //  transform: translateX(0px);
-    //}
-    //&::after {
-    //  right: 0;
-    //  margin-left: 10px;
-    //  content: ']';
-    //  -webkit-transform: translateX(-20px);
-    //  -moz-transform: translateX(-20px);
-    //  transform: translateX(-20px);
-    //}
-    //
-    //&:hover::after {
-    //  opacity: 1;
-    //  -webkit-transform: translateX(0px);
-    //  -moz-transform: translateX(0px);
-    //  transform: translateX(0px);
-    //}
   }
 
-
-
 }
-
-
-
-//ul {
-//  list-style-type: none;
-//  margin: 0;
-//  padding: 0;
-//  overflow: hidden;
-//  border: 1px solid #e7e7e7;
-//  background-color: #f3f3f3;
-//}
-//
-//li {
-//  display: inline-block;
-//}
-//
-//li a {
-//  display: block;
-//  text-align: center;
-//  padding: 14px 16px;
-//  text-decoration: none;
-//}
-//
-//li a:hover:not(.active) {
-//  //background-color: #ddd;
-//}
-//
-//li a.active {
-//  color: white;
-//  background-color: #4CAF50;
-//}

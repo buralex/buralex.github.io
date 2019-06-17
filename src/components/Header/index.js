@@ -6,8 +6,8 @@ import Logo from 'src/images/logo.svg';
 import "./styles.scss"
 
 const Header = ({siteTitle}) => (
-    <header className="header">
-        <div className="max-width">
+    <header className="header py-2 px-5">
+        <div className="container-fluid">
             <div className="logo">
                 <img
                     src={Logo}
@@ -16,11 +16,14 @@ const Header = ({siteTitle}) => (
                     alt="logo"
                 />
             </div>
-            <ul className="navbar ">
-                <li><Link to="/" activeClassName="active">About</Link></li>
-                <li><Link to="/projects" activeClassName="active">Projects</Link></li>
-                <li><Link to="/contact" activeClassName="active">Contact</Link></li>
-            </ul>
+            <div className="d-flex justify-content-between">
+                <h4 className="mb-0">Alexandr Burlachenko</h4>
+                <ul className="navbar">
+                    <li><Link to="/" activeClassName="active">About</Link></li>
+                    <li><Link to="/projects" activeClassName="active">Projects</Link></li>
+                    <li><Link to="/contact" activeClassName="active">Contact</Link></li>
+                </ul>
+            </div>
         </div>
     </header>
 )

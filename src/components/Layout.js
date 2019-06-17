@@ -37,8 +37,8 @@ const Layout = ({children}) => (
 
                 <Frame />
 
-                <div className="content">
-                    <main className="content">{children}</main>
+                <div className="container-fluid">
+                    {children}
                 </div>
 
                 <footer className="footer">
