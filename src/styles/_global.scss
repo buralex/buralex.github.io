@@ -22,9 +22,17 @@ body {
 //                             Layout
 //----------------------------------------------------------------------------------
 
+.container-fluid {
+  max-width: $maxWidth;
+}
+
+.container {
+  max-width: $maxWidth;
+}
 
 .frame {
   background: $white;
+  z-index: 50;
 
   & > div {
     position: fixed;
@@ -60,15 +68,15 @@ body {
 
 }
 
-.content {
-  min-height: calc(100vh - (#{$frameSize} * 2));
-  //margin-top: $frameSize;
-  position: relative;
-  top: $frameSize;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+//.content {
+//  min-height: calc(100vh - (#{$frameSize} * 2));
+//  //margin-top: $frameSize;
+//  position: relative;
+//  top: $frameSize;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//}
 
 
 .absolute-left {
