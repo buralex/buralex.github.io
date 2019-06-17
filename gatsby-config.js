@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Alexandr Burlachenko`,
@@ -7,14 +9,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /images/
-        }
-      }
-    },
+    'gatsby-plugin-root-import',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

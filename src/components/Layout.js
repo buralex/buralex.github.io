@@ -11,6 +11,15 @@ import {StaticQuery, graphql} from "gatsby"
 
 import Header from "../components/Header"
 
+const Frame = () => (
+    <div className="frame">
+        <div className="frame--top" />
+        <div className="frame--right" />
+        <div className="frame--bottom" />
+        <div className="frame--left" />
+    </div>
+)
+
 const Layout = ({children}) => (
     <StaticQuery
         query={graphql`
@@ -24,11 +33,15 @@ const Layout = ({children}) => (
         `}
         render={data => (
             <>
+                <Header siteTitle={data.site.siteMetadata.title}/>
+
+                <Frame />
+
                 <div className="content">
-                    <Header siteTitle={data.site.siteMetadata.title}/>
-                    <main>{children}</main>
+                    <main className="content">{children}</main>
                 </div>
-                <footer>
+
+                <footer className="footer">
                     {new Date().getFullYear()}, Built by Alexandr
                 </footer>
             </>

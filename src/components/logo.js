@@ -17,16 +17,21 @@ const Logo = () => (
         // `}
         query={graphql`
           query {
-            placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+            placeholderImage: file(relativePath: { eq: "logo.svg" }) {
               childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }
+                extension
+                publicURL
             }
           }
         `}
-        render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid}/>}
+        render={data => {
+            console.log('aaaaaaaaaaaaaaaaaaa',data);
+            return <Img fluid={data.placeholderImage.childImageSharp.fluid}/>
+        }}
     />
 )
 export default Logo
