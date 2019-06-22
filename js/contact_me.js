@@ -1,5 +1,12 @@
 $(function() {
 
+
+  console.log('UUUUUUUUUUU');
+  window.navigator.serviceWorker.getRegistrations().then(function(registrations) {
+    for(let registration of registrations) {
+      registration.unregister()
+    } })
+
   $("#contactForm input,#contactForm textarea").jqBootstrapValidation({
     preventSubmit: true,
     submitError: function($form, event, errors) {
