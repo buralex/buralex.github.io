@@ -23,6 +23,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "lint-staged": "^8.0.4",
     "eslint-config-react-app": "^4.0.1",
     "gatsby-plugin-root-import": "^2.0.5",
     "eslint-config-airbnb": "^17.1.0",
@@ -40,6 +41,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "precommit": "lint-staged",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
