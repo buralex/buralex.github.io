@@ -1,6 +1,8 @@
 .masthead {
   //padding-top: calc(0rem + 74px);
   //padding-top: calc(0rem + 74px);
+  position: relative;
+  padding-top: 12rem;
   padding-bottom: 6rem;
   .masthead-heading {
     font-size: 2.75rem;
@@ -8,9 +10,25 @@
   }
   .masthead-subheading {
     font-size: 1.25rem;
+    // TODO fix next
+    margin-bottom: 25rem;
   }
   .masthead-avatar {
     width: 15rem;
+  }
+
+  .bg-image-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    .bg-image {
+      //fill: red;
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -28,10 +46,4 @@
     }
 
   }
-}
-
-.bg-image {
-  //fill: red;
-  width: 100%;
-  height: auto;
 }
