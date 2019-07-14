@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import Layout from 'src/layouts';
+import Layout from 'src/layouts_old';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
@@ -10,7 +10,7 @@ const Nav = () => (
     <nav className="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div className="container">
             <a className="navbar-brand js-scroll-trigger" href="#page-top">
-                Start Bootstrap
+                Start Bootstrap!!!!!
             </a>
             <button
                 className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
