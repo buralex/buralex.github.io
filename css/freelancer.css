@@ -10577,9 +10577,8 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-.about {
-  background: -webkit-gradient(linear, left top, right top, from(#2611C9), to(#4762E2));
-  background: linear-gradient(90deg, #2611C9, #4762E2);
+.bg-gradient {
+  background: radial-gradient(at top left, #112FC9, #4762E2);
 }
 
 .divider-custom {
@@ -10699,6 +10698,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 @media (min-width: 992px) {
   #mainNav {
+    background: transparent;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
@@ -10723,6 +10723,10 @@ a.text-dark:hover, a.text-dark:focus {
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    background: -webkit-gradient(linear, left top, right top, from(#112FC9), to(#4762E2));
+    background: linear-gradient(90deg, #112FC9, #4762E2);
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.5em;
@@ -10730,6 +10734,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .masthead {
+  padding-top: calc(0rem + 74px);
   position: relative;
   padding-top: 12rem;
   padding-bottom: 6rem;

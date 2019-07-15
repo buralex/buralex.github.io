@@ -32,6 +32,7 @@
 }
 @include media-breakpoint-up(lg) {
   #mainNav {
+    background: transparent;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     transition: padding-top 0.3s, padding-bottom 0.3s;
@@ -53,9 +54,14 @@
       }
     }
   }
+
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    //background-color: linear-gradient(90deg, $persian-blue, $royal-blue);
+    background: linear-gradient(90deg, $persian-blue, $royal-blue);
+    //border-bottom: 1px solid #dee2e6;
+    transition: all 0.3s ease-in-out;
     .navbar-brand {
       font-size: 1.5em;
     }

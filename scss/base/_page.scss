@@ -14,6 +14,8 @@
   }
 }
 
-.about {
-  background: linear-gradient(90deg, #2611C9, #4762E2);
+.bg-gradient {
+  //background: linear-gradient(90deg, $persian-blue, $royal-blue);
+  background: radial-gradient(at top left, $persian-blue, $royal-blue);
 }
+
