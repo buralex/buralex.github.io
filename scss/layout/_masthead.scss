@@ -2,30 +2,38 @@
   //padding-top: calc(0rem + 74px);
   padding-top: calc(0rem + 74px);
   position: relative;
-  padding-top: 12rem;
   padding-bottom: 6rem;
+
+  .name {
+    position: absolute;
+    z-index: 1;
+    //top: 255px;
+    //left: 120px;
+    top: 15%;
+    left: 10%;
+  }
   .masthead-heading {
     font-size: 2.75rem;
     line-height: 2.75rem;
   }
   .masthead-subheading {
     font-size: 1.25rem;
+    //position: absolute;
     // TODO fix next
-    margin-bottom: 25rem;
+    //margin-bottom: 25rem;
   }
   .masthead-avatar {
     width: 15rem;
   }
 
   .bg-image-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    //position: absolute;
+    //top: 0;
+    //left: 0;
+    //width: 100%;
     z-index: -1;
 
     .bg-image {
-      //fill: red;
       width: 100%;
       height: auto;
     }
@@ -35,7 +43,7 @@
 @include media-breakpoint-up(lg) {
   .masthead {
     //padding-top: calc(0rem + 104px);
-    //padding-top: calc(0rem + 104px);
+    padding-top: 0;
     padding-bottom: 6rem;
     .masthead-heading {
       font-size: 4rem;

@@ -1,9 +1,14 @@
 // Styling for the navbar
+
+//$navBoxShadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+$navBoxShadow: 0 -5px 15px 10px rgba(0, 0, 0, 0.8);
+
 #mainNav {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
+  box-shadow: $navBoxShadow;
   .navbar-brand {
     color: $white;
   }
@@ -30,12 +35,14 @@
     padding: 0.8rem;
   }
 }
+
 @include media-breakpoint-up(lg) {
   #mainNav {
     background: transparent;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     transition: padding-top 0.3s, padding-bottom 0.3s;
+    box-shadow: none;
     .navbar-brand {
       font-size: 1.75em;
       transition: font-size 0.3s;
@@ -58,9 +65,8 @@
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    //background-color: linear-gradient(90deg, $persian-blue, $royal-blue);
     background: linear-gradient(90deg, $persian-blue, $royal-blue);
-    //border-bottom: 1px solid #dee2e6;
+    box-shadow: $navBoxShadow;
     transition: all 0.3s ease-in-out;
     .navbar-brand {
       font-size: 1.5em;
