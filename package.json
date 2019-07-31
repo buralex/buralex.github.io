@@ -43,9 +43,9 @@
   "scripts": {
     "precommit": "lint-staged",
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --port 3005",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop -p 3005",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "deploy": "gatsby build && gh-pages -d public -b master",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
