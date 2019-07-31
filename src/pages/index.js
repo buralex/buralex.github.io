@@ -137,7 +137,7 @@ const IndexPage = () => (
                                     <i className="fas fa-plus fa-3x" />
                                 </div>
                             </div>
-                            <img className="img-fluid" src="img/portfolio/circus.png" alt="" />
+                            <img className="img-fluid" src={Drawing} alt="" />
                         </div>
                     </div>
 
