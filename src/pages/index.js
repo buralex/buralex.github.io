@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'gatsby';
 
 import Layout from 'src/layouts_old';
+import Header from 'src/components/Header';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
@@ -47,25 +48,25 @@ const Nav = () => (
     </nav>
 );
 
-const Header = () => (
-    <header className="masthead bg-primary text-white text-center">
-        <div className="container d-flex align-items-center flex-column">
-            <img className="masthead-avatar mb-5" src="img/avataaars.svg" alt="" />
-
-            <h1 className="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-
-            <div className="divider-custom divider-light">
-                <div className="divider-custom-line" />
-                <div className="divider-custom-icon">
-                    <i className="fas fa-star" />
-                </div>
-                <div className="divider-custom-line" />
-            </div>
-
-            <p className="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
-        </div>
-    </header>
-);
+// const Header = () => (
+//     <header className="masthead bg-primary text-white text-center">
+//         <div className="container d-flex align-items-center flex-column">
+//             <img className="masthead-avatar mb-5" src="img/avataaars.svg" alt="" />
+//
+//             <h1 className="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
+//
+//             <div className="divider-custom divider-light">
+//                 <div className="divider-custom-line" />
+//                 <div className="divider-custom-icon">
+//                     <i className="fas fa-star" />
+//                 </div>
+//                 <div className="divider-custom-line" />
+//             </div>
+//
+//             <p className="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+//         </div>
+//     </header>
+// );
 
 const IndexPage = () => (
     <div>
@@ -84,7 +85,7 @@ const IndexPage = () => (
         {/* /> */}
         {/* <Link to="/contact/">Go to contact</Link> */}
 
-        <Nav />
+        {/* <Nav /> */}
 
         <Header />
 
