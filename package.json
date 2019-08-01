@@ -43,7 +43,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "build": "gatsby build",
-    "develop": "gatsby develop --port 3005",
+    "develop": "gatsby develop --port 4000",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
