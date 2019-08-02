@@ -1,7 +1,8 @@
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
+import throttle from 'lodash/throttle';
 
 import './styles.scss';
 
@@ -27,22 +28,34 @@ import './styles.scss';
 //         </div>
 //     </header>
 // )
-
-let prevScrollpos = window.pageYOffset;
-const makeScrollHandler = navElement => () => {
-    const currentScrollPos = window.pageYOffset;
-    console.log(currentScrollPos);
-    console.log('prev', prevScrollpos);
+const hideOrShowHeader = ({currentScrollPos, prevScrollpos, navElement}) => {
     if (prevScrollpos > currentScrollPos) {
         // document.getElementById('navbar').style.top = '0';
-        console.log('navElement', navElement);
-        // navElement.style.top = '0';
-        navElement.classList.add('fixed-header');
-    } else if (currentScrollPos > 200) {
+        console.log('navElement UUUUUUUUUU', navElement);
+        navElement.style.top = '0';
+        // navElement.classList.add('fixed-header');
+    } else if (currentScrollPos > 210) {
+        console.log('__DDDDDDDDDDDD', navElement);
         // document.getElementById('navbar').style.top = '-50px';
-        // navElement.style.top = '-50px';
+        navElement.style.top = '-70px';
+        // navElement.classList.remove('fixed-header');
+    }
+}
+let prevScrollpos = window.pageYOffset;
+const makeScrollHandler = navElement => () => {
+    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    const SCROLL_TOP_LIMIT = 200;
+    console.log(currentScrollPos);
+    console.log('prev', prevScrollpos);
+
+    if (currentScrollPos > SCROLL_TOP_LIMIT) {
+        navElement.classList.add('fixed-header');
+        hideOrShowHeader({currentScrollPos, prevScrollpos, navElement})
+    } else {
         navElement.classList.remove('fixed-header');
     }
+
+
     prevScrollpos = currentScrollPos;
 };
 
@@ -55,9 +68,10 @@ const Header = ({siteTitle}) => {
         console.log('______OnCE');
         const nav = navElem.current;
         const scrollHandler = makeScrollHandler(nav);
-        window.addEventListener('scroll', scrollHandler);
+        const THROTTLE_MS = 50;
+        window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
         return () => {
-            window.removeEventListener('scroll', scrollHandler);
+            window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
         };
     }, []);
 
