@@ -1,9 +1,12 @@
 // Styling for the navbar
+$navTransition: all 0.3s;
 #mainNav {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
+  transition: $navTransition;
+
   .navbar-brand {
     color: $white;
   }
@@ -30,11 +33,12 @@
     padding: 0.8rem;
   }
 }
+
 @include media-breakpoint-up(lg) {
   #mainNav {
+    transition: $navTransition;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    transition: padding-top 0.3s, padding-bottom 0.3s;
     .navbar-brand {
       font-size: 1.75em;
       transition: font-size 0.3s;
@@ -53,11 +57,11 @@
       }
     }
   }
-  #mainNav.navbar-shrink {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    .navbar-brand {
-      font-size: 1.5em;
-    }
-  }
+  //#mainNav.navbar-shrink {
+  //  padding-top: 0.5rem;
+  //  padding-bottom: 0.5rem;
+  //  .navbar-brand {
+  //    font-size: 1.5em;
+  //  }
+  //}
 }
