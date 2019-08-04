@@ -29,53 +29,90 @@ import './styles.scss';
 //     </header>
 // )
 
-const changeNavTransparency = ({currentScrollPos, navElemClass}) => {
-    const SCROLL_TOP_LIMIT_TO_HIDE_NAV = 105;
-    const SCROLL_TOP_LIMIT_TO_SHOW_NAV = 20;
-    if (currentScrollPos > SCROLL_TOP_LIMIT_TO_HIDE_NAV) {
-        navElemClass.remove('bg-transparent');
-        navElemClass.add('bg-secondary');
-    } else if (currentScrollPos <= SCROLL_TOP_LIMIT_TO_SHOW_NAV || currentScrollPos === 0) {
-        navElemClass.remove('bg-secondary');
-        navElemClass.add('bg-transparent');
-    }
-};
+// const changeNavTransparency = ({currentScrollPos, navElemClass}) => {
+//     const SCROLL_TOP_LIMIT_TO_HIDE_NAV = 105;
+//     const SCROLL_TOP_LIMIT_TO_SHOW_NAV = 20;
+//     if (currentScrollPos > SCROLL_TOP_LIMIT_TO_HIDE_NAV) {
+//         navElemClass.remove('bg-transparent');
+//         navElemClass.add('bg-secondary');
+//     } else if (currentScrollPos <= SCROLL_TOP_LIMIT_TO_SHOW_NAV || currentScrollPos === 0) {
+//         navElemClass.remove('bg-secondary');
+//         navElemClass.add('bg-transparent');
+//     }
+// };
 
-const makeScrollHandler = navElement => {
-    let prevScrollpos = window.pageYOffset;
+// const makeScrollHandler = navElement => {
+//     let prevScrollpos = window.pageYOffset;
+//
+//     return () => {
+//         const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+//         const navElemClass = navElement.classList;
+//         const scrollingUp = prevScrollpos > currentScrollPos;
+//
+//         changeNavTransparency({currentScrollPos, navElemClass});
+//
+//         if (scrollingUp) {
+//             console.log('navElement __UP', currentScrollPos);
+//             navElement.style.top = '0';
+//         } else {
+//             console.log('__DOWN', currentScrollPos);
+//             navElement.style.top = '-110px';
+//         }
+//         prevScrollpos = currentScrollPos;
+//     };
+// };
 
-    return () => {
-        const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
-        const navElemClass = navElement.classList;
-        const scrollingUp = prevScrollpos > currentScrollPos;
-
-        changeNavTransparency({currentScrollPos, navElemClass});
-
-        if (scrollingUp) {
-            console.log('navElement __UP', currentScrollPos);
-            navElement.style.top = '0';
-        } else {
-            console.log('__DOWN', currentScrollPos);
-            navElement.style.top = '-110px';
-        }
-        prevScrollpos = currentScrollPos;
-    };
-};
+let prevScrollpos = window.pageYOffset;
 
 const Header = ({siteTitle}) => {
-    // document.body.scrollTop > 20 || document.documentElement.scrollTop > 20
-    // var st = Math.max(document.body.scrollTop , window.pageYOffset,  document.documentElement.scrollTop);
     const navElem = useRef(null);
+    const [navStyle, setNavStyle] = useState({top: '0'});
+    const [navClass, setNavClass] = useState('bg-transparent');
+    const NAV_TOP_HIDDEN_PX = '-110px';
+
+    const changeNavTransparency = ({currentScrollPos}) => {
+        const SCROLL_TOP_LIMIT_TO_HIDE_NAV = 105;
+        const SCROLL_TOP_LIMIT_TO_SHOW_NAV = 20;
+        if (currentScrollPos > SCROLL_TOP_LIMIT_TO_HIDE_NAV) {
+            setNavClass('bg-secondary');
+        } else if (currentScrollPos <= SCROLL_TOP_LIMIT_TO_SHOW_NAV || currentScrollPos === 0) {
+            setNavClass('bg-transparent');
+        }
+    };
 
     useEffect(() => {
-        console.log('______OnCE111');
-        const nav = navElem.current;
-        const scrollHandler = makeScrollHandler(nav);
         const THROTTLE_MS = 100;
+        const scrollHandler = () => {
+            const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollingUp = prevScrollpos > currentScrollPos;
+
+            changeNavTransparency({currentScrollPos});
+
+            if (scrollingUp) {
+                console.log('navElement __UP', currentScrollPos);
+                setNavStyle(state => {
+                    if (state.top !== '0') {
+                        console.log('uuuuuuuuuuuuuuuuuuuu', state);
+                        return {top: '0'};
+                    }
+                    return state;
+                });
+            } else {
+                console.log('__DOWN', currentScrollPos, navStyle.top);
+                // setNavStyle({top: NAV_TOP_HIDDEN_PX})
+                setNavStyle(state => {
+                    if (state.top !== NAV_TOP_HIDDEN_PX) {
+                        console.log('ssss', state);
+                        return {top: NAV_TOP_HIDDEN_PX};
+                    }
+                    return state;
+                });
+            }
+            prevScrollpos = currentScrollPos;
+        };
+
         window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        // window.addEventListener('scroll', scrollHandler);
         return () => {
-            // window.removeEventListener('scroll', scrollHandler);
             window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
         };
     }, []);
@@ -85,10 +122,10 @@ const Header = ({siteTitle}) => {
         // navElem.current.focus();
     };
 
-    console.log('RENDER______NAV');
+    console.log('RENDER______NAV', navStyle);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
-        <nav ref={navElem} className="navbar bg-transparent fixed-top navbar-expand-lg text-uppercase" id="mainNav">
+        <nav style={navStyle} className={`${navClass} navbar fixed-top navbar-expand-lg text-uppercase`} id="mainNav">
             <div className="container">
                 <a className="navbar-brand js-scroll-trigger" href="#page-top">
                     Start Bootstrap!
