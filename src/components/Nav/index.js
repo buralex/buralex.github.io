@@ -7,7 +7,7 @@ import throttle from 'lodash/throttle';
 
 import './styles.scss';
 
-let prevScrollpos = window.pageYOffset;
+let prevScrollpos = 0;
 
 const getScrollingPosition = () => {
     const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
