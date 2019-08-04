@@ -28,39 +28,38 @@ import './styles.scss';
 //         </div>
 //     </header>
 // )
-const hideOrShowNav = ({currentScrollPos, prevScrollpos, navElement}) => {
-    if (prevScrollpos > currentScrollPos) {
-        // document.getElementById('navbar').style.top = '0';
-        console.log('navElement UUUUUUUUUU', navElement);
-        navElement.style.top = '0';
-        // navElement.classList.add('fixed-header');
-    } else if (currentScrollPos > 200) {
-        console.log('__DDDDDDDDDDDD', navElement);
-        // document.getElementById('navbar').style.top = '-50px';
-        navElement.style.top = '-110px';
-        // navElement.classList.remove('fixed-header');
+
+const changeNavTransparency = ({currentScrollPos, navElemClass}) => {
+    const SCROLL_TOP_LIMIT_TO_HIDE_NAV = 105;
+    const SCROLL_TOP_LIMIT_TO_SHOW_NAV = 20;
+    if (currentScrollPos > SCROLL_TOP_LIMIT_TO_HIDE_NAV) {
+        navElemClass.remove('bg-transparent');
+        navElemClass.add('bg-secondary');
+    } else if (currentScrollPos <= SCROLL_TOP_LIMIT_TO_SHOW_NAV || currentScrollPos === 0) {
+        navElemClass.remove('bg-secondary');
+        navElemClass.add('bg-transparent');
     }
 };
-let prevScrollpos = window.pageYOffset;
-const makeScrollHandler = navElement => () => {
-    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
-    const SCROLL_TOP_LIMIT = 200;
-    console.log(currentScrollPos);
-    console.log('prev', prevScrollpos);
 
-    if (currentScrollPos > SCROLL_TOP_LIMIT) {
-        // navElement.classList.add('fixed-top');
-        hideOrShowNav({currentScrollPos, prevScrollpos, navElement});
+const makeScrollHandler = navElement => {
+    let prevScrollpos = window.pageYOffset;
 
-        navElement.classList.remove('bg-transparent');
-        navElement.classList.add('bg-secondary');
-    } else {
-        // navElement.classList.remove('fixed-top');
-        navElement.classList.remove('bg-secondary');
-        navElement.classList.add('bg-transparent');
-    }
+    return () => {
+        const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        const navElemClass = navElement.classList;
+        const scrollingUp = prevScrollpos > currentScrollPos;
 
-    prevScrollpos = currentScrollPos;
+        changeNavTransparency({currentScrollPos, navElemClass});
+
+        if (scrollingUp) {
+            console.log('navElement __UP', currentScrollPos);
+            navElement.style.top = '0';
+        } else {
+            console.log('__DOWN', currentScrollPos);
+            navElement.style.top = '-110px';
+        }
+        prevScrollpos = currentScrollPos;
+    };
 };
 
 const Header = ({siteTitle}) => {
@@ -69,15 +68,15 @@ const Header = ({siteTitle}) => {
     const navElem = useRef(null);
 
     useEffect(() => {
-        console.log('______OnCE');
+        console.log('______OnCE111');
         const nav = navElem.current;
         const scrollHandler = makeScrollHandler(nav);
         const THROTTLE_MS = 100;
-        // window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        window.addEventListener('scroll', scrollHandler);
+        window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+        // window.addEventListener('scroll', scrollHandler);
         return () => {
-            window.removeEventListener('scroll', scrollHandler);
-            // window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+            // window.removeEventListener('scroll', scrollHandler);
+            window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
         };
     }, []);
 
@@ -87,12 +86,12 @@ const Header = ({siteTitle}) => {
     };
 
     console.log('RENDER______NAV');
-// <nav ref={navElem} className="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
+    // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav ref={navElem} className="navbar bg-transparent fixed-top navbar-expand-lg text-uppercase" id="mainNav">
             <div className="container">
                 <a className="navbar-brand js-scroll-trigger" href="#page-top">
-                    Start Bootstrap!!!!!
+                    Start Bootstrap!
                 </a>
                 <button
                     className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
