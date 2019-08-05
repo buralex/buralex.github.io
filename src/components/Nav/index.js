@@ -8,6 +8,11 @@ import throttle from 'lodash/throttle';
 import './styles.scss';
 
 let prevScrollpos = 0;
+const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 200;
+const SCROLL_TOP_LIMIT_TO_REVERT_NAV_BG = 20;
+const navBackGroundClass = 'bg-secondary';
+const navTransparentClass = 'bg-transparent';
+const navHiddenClass = 'hidden';
 
 const getScrollingPosition = () => {
     const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
@@ -16,23 +21,17 @@ const getScrollingPosition = () => {
 };
 
 const getIsNavHidden = navElem => {
-    const hiddenClass = 'hidden';
-    return navElem.classList.contains(hiddenClass);
+    return navElem.classList.contains(navHiddenClass);
 };
 
 const changeNavBackGround = ({currentScrollPos, navElem, setNavBgClass}) => {
-    const SCROLL_TOP_LIMIT_TO_HIDE_NAV = 200;
-    const SCROLL_TOP_LIMIT_TO_SHOW_NAV = 20;
-    const backGroundClass = 'bg-secondary';
-    const transparentClass = 'bg-transparent';
-
-    if (currentScrollPos > SCROLL_TOP_LIMIT_TO_HIDE_NAV && !navElem.classList.contains(backGroundClass)) {
-        setNavBgClass(backGroundClass);
+    if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG && !navElem.classList.contains(navBackGroundClass)) {
+        setNavBgClass(navBackGroundClass);
     } else if (
-        !navElem.classList.contains(transparentClass) &&
-        (currentScrollPos <= SCROLL_TOP_LIMIT_TO_SHOW_NAV || currentScrollPos === 0)
+        !navElem.classList.contains(navTransparentClass) &&
+        (currentScrollPos <= SCROLL_TOP_LIMIT_TO_REVERT_NAV_BG || currentScrollPos === 0)
     ) {
-        setNavBgClass(transparentClass);
+        setNavBgClass(navTransparentClass);
     }
 };
 
@@ -44,7 +43,7 @@ const showOrHideNav = ({scrollingUp, isNavHidden, currentScrollPos, setNavHidden
             setNavHiddenClass('');
         }
     } else if (!isNavHidden && currentScrollPos > SCROLL_OFFSET) {
-        setNavHiddenClass('hidden');
+        setNavHiddenClass(navHiddenClass);
     }
 };
 
@@ -52,7 +51,13 @@ const Header = ({siteTitle}) => {
     const navElemRef = useRef(null);
     const isNavClicked = useRef(false);
 
-    const [navBgClass, setNavBgClass] = useState('bg-transparent');
+    const [navBgClass, setNavBgClass] = useState(() => {
+        const {currentScrollPos, scrollingUp} = getScrollingPosition();
+        if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
+            return navBackGroundClass
+        }
+        return navTransparentClass;
+    });
     const [navHiddenClass, setNavHiddenClass] = useState('');
 
     const scrollHandler = () => {
