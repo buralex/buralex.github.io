@@ -7,7 +7,7 @@ import throttle from 'lodash/throttle';
 
 import './styles.scss';
 
-let prevScrollpos = 0;
+const prevScrollpos = 0;
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 200;
 const SCROLL_TOP_LIMIT_TO_REVERT_NAV_BG = 20;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
@@ -49,62 +49,87 @@ const showOrHideNav = ({scrollingUp, isNavHidden, currentScrollPos, setNavHidden
     }
 };
 
+const getProperNavBackground = () => {
+    if (typeof window === 'undefined') {
+        return {};
+    }
+    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    return currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG ? navBackGroundClass : navTransparentClass
+}
+
 const Header = ({siteTitle}) => {
-    const navElemRef = useRef(null);
-    const isNavClicked = useRef(false);
+    // const navElemRef = useRef(null);
+    // const isNavClicked = useRef(false);
+    let currentScrollPos = 0;
+    if (typeof window !== 'undefined') {
+        currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    }
+    console.log('cuscr', currentScrollPos);
 
-    const [navBgClass, setNavBgClass] = useState(() => {
-        const {currentScrollPos} = getScrollingPosition();
-        console.log('__CALCULATE____BG_CLASS', currentScrollPos, navBackGroundClass);
-        if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
-            console.log('__BG_CLASS_SECOND', currentScrollPos, navBackGroundClass);
-            return navBackGroundClass;
-        }
-        return navTransparentClass;
-    });
-    const [navHiddenClass, setNavHiddenClass] = useState(() => {
-        const {currentScrollPos} = getScrollingPosition();
-        console.log('__calc_hidden', currentScrollPos);
-        if (currentScrollPos > SCROLL_OFFSET_TO_HIDE_NAV) {
-            return navHiddenClassName;
-        }
-        return '';
-    });
+    const [navBgClass, setNavBgClass] = useState(
+        currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG ? navBackGroundClass : navTransparentClass,
+    );
+    // const [navBgClass, setNavBgClass] = useState(() => {
+    //     const {currentScrollPos} = getScrollingPosition();
+    //     console.log('__CALCULATE____BG_CLASS', currentScrollPos, navBackGroundClass);
+    //     if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
+    //         console.log('__BG_CLASS_SECOND', currentScrollPos, navBackGroundClass);
+    //         return navBackGroundClass;
+    //     }
+    //     return navTransparentClass;
+    // });
+    // const [navHiddenClass, setNavHiddenClass] = useState(() => {
+    //     const {currentScrollPos} = getScrollingPosition();
+    //     console.log('__calc_hidden', currentScrollPos);
+    //     if (currentScrollPos > SCROLL_OFFSET_TO_HIDE_NAV) {
+    //         return navHiddenClassName;
+    //     }
+    //     return '';
+    // });
 
-    const scrollHandler = () => {
-        if (isNavClicked.current) {
-            isNavClicked.current = false;
-            return;
-        }
-
-        const navElem = navElemRef.current;
-        const {currentScrollPos, scrollingUp} = getScrollingPosition();
-        const isNavHidden = getIsNavHidden(navElem);
-
-        changeNavBackGround({currentScrollPos, navElem, setNavBgClass});
-        showOrHideNav({scrollingUp, isNavHidden, currentScrollPos, setNavHiddenClass});
-
-        prevScrollpos = currentScrollPos;
-    };
-
+    // const scrollHandler = () => {
+    //     if (isNavClicked.current) {
+    //         isNavClicked.current = false;
+    //         return;
+    //     }
+    //
+    //     const navElem = navElemRef.current;
+    //     const {currentScrollPos, scrollingUp} = getScrollingPosition();
+    //     const isNavHidden = getIsNavHidden(navElem);
+    //
+    //     changeNavBackGround({currentScrollPos, navElem, setNavBgClass});
+    //     showOrHideNav({scrollingUp, isNavHidden, currentScrollPos, setNavHiddenClass});
+    //
+    //     prevScrollpos = currentScrollPos;
+    // };
+    //
+    // useEffect(() => {
+    //     const THROTTLE_MS = 100;
+    //     window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+    //     return () => {
+    //         window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+    //     };
+    // }, []);
+    //
+    // const linkClickHandler = () => {
+    //     isNavClicked.current = true;
+    // };
     useEffect(() => {
-        const THROTTLE_MS = 100;
-        window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        return () => {
-            window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        };
+        const bg = getProperNavBackground();
+        console.log('use effect bg', bg);
+        setNavBgClass(bg)
     }, []);
-
     const linkClickHandler = () => {
-        isNavClicked.current = true;
+        console.log('click');
     };
 
-    console.log('RENDER______NAV__', navBgClass);
+    console.log('RENDER______NAV__', navBgClass, currentScrollPos);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav
-            ref={navElemRef}
-            className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
+            // ref={navElemRef}
+            // className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
+            className={`${navBgClass} navbar fixed-top navbar-expand-lg text-uppercase`}
             id="mainNav"
         >
             <div className="container">
