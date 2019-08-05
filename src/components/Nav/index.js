@@ -15,12 +15,12 @@ const navTransparentClass = 'bg-transparent';
 const navHiddenClass = 'hidden';
 
 const getScrollingPosition = () => {
-    if (typeof window !== 'undefined') {
-        const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollingUp = prevScrollpos > currentScrollPos;
-        return {currentScrollPos, scrollingUp};
+    if (typeof window === 'undefined') {
+        return {};
     }
-    return {};
+    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollingUp = prevScrollpos > currentScrollPos;
+    return {currentScrollPos, scrollingUp};
 };
 
 const getIsNavHidden = navElem => {
