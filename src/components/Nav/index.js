@@ -10,9 +10,10 @@ import './styles.scss';
 let prevScrollpos = 0;
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 200;
 const SCROLL_TOP_LIMIT_TO_REVERT_NAV_BG = 20;
+const SCROLL_OFFSET_TO_HIDE_NAV = 100;
 const navBackGroundClass = 'bg-secondary';
 const navTransparentClass = 'bg-transparent';
-const navHiddenClass = 'hidden';
+const navHiddenClassName = 'hidden';
 
 const getScrollingPosition = () => {
     if (typeof window === 'undefined') {
@@ -24,7 +25,7 @@ const getScrollingPosition = () => {
 };
 
 const getIsNavHidden = navElem => {
-    return navElem.classList.contains(navHiddenClass);
+    return navElem.classList.contains(navHiddenClassName);
 };
 
 const changeNavBackGround = ({currentScrollPos, navElem, setNavBgClass}) => {
@@ -39,14 +40,12 @@ const changeNavBackGround = ({currentScrollPos, navElem, setNavBgClass}) => {
 };
 
 const showOrHideNav = ({scrollingUp, isNavHidden, currentScrollPos, setNavHiddenClass}) => {
-    const SCROLL_OFFSET = 100;
-
     if (scrollingUp) {
         if (isNavHidden) {
             setNavHiddenClass('');
         }
-    } else if (!isNavHidden && currentScrollPos > SCROLL_OFFSET) {
-        setNavHiddenClass(navHiddenClass);
+    } else if (!isNavHidden && currentScrollPos > SCROLL_OFFSET_TO_HIDE_NAV) {
+        setNavHiddenClass(navHiddenClassName);
     }
 };
 
@@ -63,7 +62,14 @@ const Header = ({siteTitle}) => {
         }
         return navTransparentClass;
     });
-    const [navHiddenClass, setNavHiddenClass] = useState('');
+    const [navHiddenClass, setNavHiddenClass] = useState(() => {
+        const {currentScrollPos} = getScrollingPosition();
+        console.log('__calc_hidden', currentScrollPos);
+        if (currentScrollPos > SCROLL_OFFSET_TO_HIDE_NAV) {
+            return navHiddenClassName;
+        }
+        return '';
+    });
 
     const scrollHandler = () => {
         if (isNavClicked.current) {
