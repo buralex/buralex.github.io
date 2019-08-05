@@ -15,9 +15,12 @@ const navTransparentClass = 'bg-transparent';
 const navHiddenClass = 'hidden';
 
 const getScrollingPosition = () => {
-    const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollingUp = prevScrollpos > currentScrollPos;
-    return {currentScrollPos, scrollingUp};
+    if (typeof window !== 'undefined') {
+        const currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollingUp = prevScrollpos > currentScrollPos;
+        return {currentScrollPos, scrollingUp};
+    }
+    return {};
 };
 
 const getIsNavHidden = navElem => {
@@ -52,9 +55,9 @@ const Header = ({siteTitle}) => {
     const isNavClicked = useRef(false);
 
     const [navBgClass, setNavBgClass] = useState(() => {
-        const {currentScrollPos, scrollingUp} = getScrollingPosition();
+        const {currentScrollPos} = getScrollingPosition();
         if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
-            return navBackGroundClass
+            return navBackGroundClass;
         }
         return navTransparentClass;
     });
