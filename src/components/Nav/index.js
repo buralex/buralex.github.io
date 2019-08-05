@@ -56,7 +56,9 @@ const Header = ({siteTitle}) => {
 
     const [navBgClass, setNavBgClass] = useState(() => {
         const {currentScrollPos} = getScrollingPosition();
+        console.log('__CALCULATE____BG_CLASS', currentScrollPos, navBackGroundClass);
         if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
+            console.log('__BG_CLASS_SECOND', currentScrollPos, navBackGroundClass);
             return navBackGroundClass;
         }
         return navTransparentClass;
@@ -91,7 +93,7 @@ const Header = ({siteTitle}) => {
         isNavClicked.current = true;
     };
 
-    console.log('RENDER______NAV');
+    console.log('RENDER______NAV__', navBgClass);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav
