@@ -4,6 +4,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import throttle from 'lodash/throttle';
 // import debounce from 'lodash/debounce';
+import {useWindowScroll} from 'react-use';
 
 import './styles.scss';
 
@@ -49,48 +50,59 @@ const showOrHideNav = ({scrollingUp, isNavHidden, currentScrollPos, setNavHidden
     }
 };
 
+const getScrollYDirection = ({prevScrollY, currentScrollY}) => {
+    const scrollingUp = prevScrollY > currentScrollY;
+    return {scrollingUp};
+};
+let prevScrollY = 0;
 const Header = ({siteTitle}) => {
-    const navElemRef = useRef(null);
-    const isNavClicked = useRef(false);
+    // const navElemRef = useRef(null);
+    // const isNavClicked = useRef(false);
+    //
+    // const [navBgClass, setNavBgClass] = useState(navTransparentClass);
+    // const [navHiddenClass, setNavHiddenClass] = useState('');
+    //
+    // const scrollHandler = () => {
+    //     if (isNavClicked.current) {
+    //         isNavClicked.current = false;
+    //         return;
+    //     }
+    //
+    //     const navElem = navElemRef.current;
+    //     const {currentScrollPos, scrollingUp} = getScrollingPosition();
+    //     const isNavHidden = getIsNavHidden(navElem);
+    //
+    //     changeNavBackGround({currentScrollPos, navElem, setNavBgClass});
+    //     showOrHideNav({scrollingUp, isNavHidden, currentScrollPos, setNavHiddenClass});
+    //
+    //     prevScrollpos = currentScrollPos;
+    // };
+    //
+    // useEffect(() => {
+    //     const THROTTLE_MS = 100;
+    //     window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+    //     scrollHandler();
+    //     return () => {
+    //         window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+    //     };
+    // }, []);
 
-    const [navBgClass, setNavBgClass] = useState(navTransparentClass);
-    const [navHiddenClass, setNavHiddenClass] = useState('');
-
-    const scrollHandler = () => {
-        if (isNavClicked.current) {
-            isNavClicked.current = false;
-            return;
-        }
-
-        const navElem = navElemRef.current;
-        const {currentScrollPos, scrollingUp} = getScrollingPosition();
-        const isNavHidden = getIsNavHidden(navElem);
-
-        changeNavBackGround({currentScrollPos, navElem, setNavBgClass});
-        showOrHideNav({scrollingUp, isNavHidden, currentScrollPos, setNavHiddenClass});
-
-        prevScrollpos = currentScrollPos;
-    };
-
-    useEffect(() => {
-        const THROTTLE_MS = 100;
-        window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        scrollHandler();
-        return () => {
-            window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        };
-    }, []);
+    const {y: currentScrollY} = useWindowScroll();
+    const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
+    prevScrollY = currentScrollY;
 
     const linkClickHandler = () => {
-        isNavClicked.current = true;
+        // isNavClicked.current = true;
     };
 
-    console.log('RENDER______NAV__', navBgClass);
+    // console.log('RENDER______NAV__', navBgClass);
+    console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav
-            ref={navElemRef}
-            className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
+            // ref={navElemRef}
+            // className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
+            className={` navbar fixed-top navbar-expand-lg text-uppercase`}
             id="mainNav"
         >
             <div className="container">
