@@ -8,9 +8,9 @@ import {useWindowScroll} from 'react-use';
 
 import './styles.scss';
 
-let prevScrollpos = 0;
+const prevScrollpos = 0;
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 200;
-const SCROLL_TOP_LIMIT_TO_REVERT_NAV_BG = 20;
+const SCROLL_TOP_LIMIT_TO_REVERT_TRANSPARENT_NAV_BG = 20;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
 const navBackGroundClass = 'bg-secondary';
 const navTransparentClass = 'bg-transparent';
@@ -34,7 +34,7 @@ const changeNavBackGround = ({currentScrollPos, navElem, setNavBgClass}) => {
         setNavBgClass(navBackGroundClass);
     } else if (
         !navElem.classList.contains(navTransparentClass) &&
-        (currentScrollPos <= SCROLL_TOP_LIMIT_TO_REVERT_NAV_BG || currentScrollPos === 0)
+        (currentScrollPos <= SCROLL_TOP_LIMIT_TO_REVERT_TRANSPARENT_NAV_BG || currentScrollPos === 0)
     ) {
         setNavBgClass(navTransparentClass);
     }
@@ -86,23 +86,38 @@ const Header = ({siteTitle}) => {
     //         window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
     //     };
     // }, []);
-
     const {y: currentScrollY} = useWindowScroll();
     const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
+
+    let navBgClass = '';
     prevScrollY = currentScrollY;
+    navBgClass = currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG ? navBackGroundClass : navTransparentClass;
+
+    const [aaa, setAaa] = useState('');
+    // const [navBgClass, setNavBgClass] = useState('');
+    // if (typeof window !== 'undefined') {
+    //     console.log('WWWWWWWWWWWWWw', window);
+    //
+    //     // const [navBgClass, setNavBgClass] = useState(initialNavBgClass);
+    // }
+
+    useEffect(() => {
+        console.log('initial_____________-');
+        setAaa('aaa');
+    }, []);
 
     const linkClickHandler = () => {
         // isNavClicked.current = true;
     };
 
     // console.log('RENDER______NAV__', navBgClass);
-    console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY, 'isUp = ', scrollingUp);
+    console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY, 'isUp = ', scrollingUp, 'navCls=', navBgClass);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav
             // ref={navElemRef}
             // className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
-            className={` navbar fixed-top navbar-expand-lg text-uppercase`}
+            className={`${navBgClass} ${''} navbar fixed-top navbar-expand-lg text-uppercase`}
             id="mainNav"
         >
             <div className="container">
