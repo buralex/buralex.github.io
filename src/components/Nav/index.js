@@ -96,7 +96,7 @@ const Header = ({siteTitle}) => {
     };
 
     // console.log('RENDER______NAV__', navBgClass);
-    console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY);
+    console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY, 'isUp = ', scrollingUp);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav
