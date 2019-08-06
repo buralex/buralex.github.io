@@ -53,23 +53,8 @@ const Header = ({siteTitle}) => {
     const navElemRef = useRef(null);
     const isNavClicked = useRef(false);
 
-    const [navBgClass, setNavBgClass] = useState(() => {
-        const {currentScrollPos} = getScrollingPosition();
-        console.log('__CALCULATE____BG_CLASS', currentScrollPos, navBackGroundClass);
-        if (currentScrollPos > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
-            console.log('__BG_CLASS_SECOND', currentScrollPos, navBackGroundClass);
-            return navBackGroundClass;
-        }
-        return navTransparentClass;
-    });
-    const [navHiddenClass, setNavHiddenClass] = useState(() => {
-        const {currentScrollPos} = getScrollingPosition();
-        console.log('__calc_hidden', currentScrollPos);
-        if (currentScrollPos > SCROLL_OFFSET_TO_HIDE_NAV) {
-            return navHiddenClassName;
-        }
-        return '';
-    });
+    const [navBgClass, setNavBgClass] = useState(navTransparentClass);
+    const [navHiddenClass, setNavHiddenClass] = useState('');
 
     const scrollHandler = () => {
         if (isNavClicked.current) {
@@ -90,6 +75,7 @@ const Header = ({siteTitle}) => {
     useEffect(() => {
         const THROTTLE_MS = 100;
         window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+        scrollHandler();
         return () => {
             window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
         };
