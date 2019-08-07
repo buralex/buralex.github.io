@@ -4,12 +4,10 @@ import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import {isClient} from 'src/utils';
 import throttle from 'lodash/throttle';
-// import debounce from 'lodash/debounce';
 import raf from 'raf';
 
 import './styles.scss';
 
-const prevScrollpos = 0;
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 200;
 const SCROLL_TOP_LIMIT_TO_REVERT_TRANSPARENT_NAV_BG = 20;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
@@ -61,8 +59,9 @@ const getScrollYDirection = ({prevScrollY, currentScrollY}) => {
 let prevScrollY = 0;
 const Header = ({siteTitle}) => {
     const navElemRef = useRef(null);
+    const requestFrameId = useRef(0);
     const isNavClicked = useRef(false);
-
+    console.log('___NNN', navElemRef);
     const [navBgClass, setNavBgClass] = useState(navTransparentClass);
     const [navHiddenClass, setNavHiddenClass] = useState('');
 
@@ -72,92 +71,33 @@ const Header = ({siteTitle}) => {
             return;
         }
 
-        const navElem = navElemRef.current;
-        const {y: currentScrollY} = getScrollPosition(isClient);
-        const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
-        const isNavHidden = getIsNavHidden(navElem);
+        raf.cancel(requestFrameId.current);
+        requestFrameId.current = raf(() => {
+            const navElem = navElemRef.current;
+            const {y: currentScrollY} = getScrollPosition(isClient);
+            const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
+            const isNavHidden = getIsNavHidden(navElem);
 
-        // changeNavBackGround({currentScrollY, navElem, setNavBgClass});
-        changeNavBackGround({currentScrollY, navElem, setNavBgClass});
-        showOrHideNav({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass});
+            changeNavBackGround({currentScrollY, navElem, setNavBgClass});
+            showOrHideNav({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass});
 
-        prevScrollY = currentScrollY;
+            prevScrollY = currentScrollY;
+        });
     };
 
     useEffect(() => {
         window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+        // for initial nav class
         scrollHandler();
+
         return () => {
+            raf.cancel(requestFrameId.current);
             window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
         };
     }, []);
 
-    // const [navBgClass, setNavBgClass] = useState('');
-    // if (typeof window !== 'undefined') {
-    //     console.log('WWWWWWWWWWWWWw', window);
-    //
-    //     // const [navBgClass, setNavBgClass] = useState(initialNavBgClass);
-    // }
-    //
-    // const [navBgClass, setNavBgClass] = useState(navTransparentClass);
-    //
-    // const changeNavStyles = () => {
-    //     // if (isNavClicked.current) {
-    //     //     isNavClicked.current = false;
-    //     //     return;
-    //     // }
-    //
-    //     // const navElem = navElemRef.current;
-    //     // const {currentScrollPos, scrollingUp} = getScrollingPosition();
-    //     // const isNavHidden = getIsNavHidden(navElem);
-    //     //
-    //     // changeNavBackGround({currentScrollPos, navElem, setNavBgClass});
-    //     // showOrHideNav({scrollingUp, isNavHidden, currentScrollPos, setNavHiddenClass});
-    //     //
-    //     // prevScrollpos = currentScrollPos;
-    //
-    //     const {y: currentScrollY} = getScrollPosition({isClientSide: isClient});
-    //     prevScrollY = currentScrollY;
-    //     const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
-    //
-    //     const newNavBgClass =
-    //         currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG ? navBackGroundClass : navTransparentClass;
-    //     setNavBgClass(newNavBgClass);
-    //     console.log('nnn______', newNavBgClass);
-    // };
-    // const scrollHandler = () => {
-    //     //raf.cancel(requestFrameId.current);
-    //     // requestFrameId.current = requestAnimationFrame(changeNavStyles);
-    //     changeNavStyles()
-    // };
-    //
-    // const requestFrameId = useRef(0);
-    // useEffect(() => {
-    //
-    //
-    //     // window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS), {
-    //     //     capture: false,
-    //     //     passive: true,
-    //     // });
-    //
-    //     window.addEventListener('scroll', throttle(changeNavStyles, THROTTLE_MS));
-    //
-    //     // // for initial nav class
-    //     // scrollHandler();
-    //
-    //     return () => {
-    //         //raf.cancel(requestFrameId.current);
-    //         window.removeEventListener('scroll', throttle(changeNavStyles, THROTTLE_MS));
-    //     };
-    // }, []);
-    //
-    // // useEffect(() => {
-    // //     // for initial nav class
-    // //     scrollHandler();
-    // // }, []);
-
     const linkClickHandler = () => {
-        // isNavClicked.current = true;
+        isNavClicked.current = true;
     };
 
     // console.log('RENDER______NAV__', navBgClass);
