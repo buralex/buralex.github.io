@@ -9,52 +9,51 @@ import raf from 'raf';
 
 import './styles.scss';
 
-const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 200;
-const SCROLL_TOP_LIMIT_TO_REVERT_TRANSPARENT_NAV_BG = 20;
+const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
-const THROTTLE_MS = 100;
-const navBackGroundClass = 'bg-secondary';
-const navTransparentClass = 'bg-transparent';
-const navHiddenClassName = 'hidden';
+const NAV_BG_CLASS = 'bg-secondary';
+const NAV_TRANSPARENT_CLASS = 'bg-transparent';
+const NAV_HIDDEN_CLASS = 'hidden';
 
-const getIsNavHidden = navElem => {
-    return navElem.classList.contains(navHiddenClassName);
-};
-
-const changeNavBackGround = ({currentScrollY, navElem, setNavBgClass}) => {
-    if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG && !navElem.classList.contains(navBackGroundClass)) {
-        setNavBgClass(navBackGroundClass);
-    } else if (
-        !navElem.classList.contains(navTransparentClass) &&
-        (currentScrollY <= SCROLL_TOP_LIMIT_TO_REVERT_TRANSPARENT_NAV_BG || currentScrollY === 0)
-    ) {
-        setNavBgClass(navTransparentClass);
+const getNextNavBgClass = ({currentScrollY}) => {
+    if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
+        return NAV_BG_CLASS;
     }
+    return NAV_TRANSPARENT_CLASS;
 };
 
-const showOrHideNav = ({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass}) => {
+const getHiddenNavClass = ({scrollingUp, isNavHidden, currentScrollY}) => {
     if (scrollingUp) {
         if (isNavHidden) {
-            setNavHiddenClass('');
+            return '';
         }
-    } else if (!isNavHidden && currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
-        setNavHiddenClass(navHiddenClassName);
+    } else if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
+        return NAV_HIDDEN_CLASS;
     }
+    return '';
 };
 
 const Header = ({siteTitle}) => {
-    const navElemRef = useRef(null);
+    const prevNavBgClassRef = useRef(NAV_TRANSPARENT_CLASS);
+    const prevHiddenClassRef = useRef('');
     const isNavClicked = useRef(false);
-    console.log('___NNN', navElemRef);
-    const [navBgClass, setNavBgClass] = useState(navTransparentClass);
+
+    const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
-        const navElem = navElemRef.current;
-        const isNavHidden = getIsNavHidden(navElem);
-        changeNavBackGround({currentScrollY, navElem, setNavBgClass});
-        showOrHideNav({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass});
-    })
+        const nextNavBgClass = getNextNavBgClass({currentScrollY});
+        const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
+
+        if (prevNavBgClassRef.current !== nextNavBgClass) {
+            setNavBgClass(nextNavBgClass);
+            prevNavBgClassRef.current = nextNavBgClass;
+        }
+        if (prevHiddenClassRef.current !== nextHideNavClass) {
+            setNavHiddenClass(nextHideNavClass);
+            prevHiddenClassRef.current = nextHideNavClass;
+        }
+    });
 
     const linkClickHandler = () => {
         isNavClicked.current = true;
@@ -66,9 +65,7 @@ const Header = ({siteTitle}) => {
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
     return (
         <nav
-            ref={navElemRef}
             className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
-            // className={`${navBgClass} ${''} navbar fixed-top navbar-expand-lg text-uppercase`}
             id="mainNav"
         >
             <div className="container">
