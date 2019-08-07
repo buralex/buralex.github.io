@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import {isClient} from 'src/utils';
+import useWindowScroll from 'src/hooks/useWindowScroll';
 import throttle from 'lodash/throttle';
 import raf from 'raf';
 
@@ -41,60 +42,19 @@ const showOrHideNav = ({scrollingUp, isNavHidden, currentScrollY, setNavHiddenCl
     }
 };
 
-const getScrollPosition = isClientSide => {
-    if (!isClientSide) {
-        return {x: 0, y: 0};
-    }
-    return {
-        x: window.pageXOffset,
-        y: window.pageYOffset,
-    };
-};
-
-const getScrollYDirection = ({prevScrollY, currentScrollY}) => {
-    const scrollingUp = prevScrollY > currentScrollY;
-    return {scrollingUp};
-};
-
-let prevScrollY = 0;
 const Header = ({siteTitle}) => {
     const navElemRef = useRef(null);
-    const requestFrameId = useRef(0);
     const isNavClicked = useRef(false);
     console.log('___NNN', navElemRef);
     const [navBgClass, setNavBgClass] = useState(navTransparentClass);
     const [navHiddenClass, setNavHiddenClass] = useState('');
 
-    const scrollHandler = () => {
-        if (isNavClicked.current) {
-            isNavClicked.current = false;
-            return;
-        }
-
-        raf.cancel(requestFrameId.current);
-        requestFrameId.current = raf(() => {
-            const navElem = navElemRef.current;
-            const {y: currentScrollY} = getScrollPosition(isClient);
-            const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
-            const isNavHidden = getIsNavHidden(navElem);
-
-            changeNavBackGround({currentScrollY, navElem, setNavBgClass});
-            showOrHideNav({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass});
-
-            prevScrollY = currentScrollY;
-        });
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        // for initial nav class
-        scrollHandler();
-
-        return () => {
-            raf.cancel(requestFrameId.current);
-            window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        };
-    }, []);
+    useWindowScroll(({currentScrollY, scrollingUp}) => {
+        const navElem = navElemRef.current;
+        const isNavHidden = getIsNavHidden(navElem);
+        changeNavBackGround({currentScrollY, navElem, setNavBgClass});
+        showOrHideNav({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass});
+    })
 
     const linkClickHandler = () => {
         isNavClicked.current = true;
