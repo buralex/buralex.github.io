@@ -1,8 +1,7 @@
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useRef} from 'react';
 import {isClient} from 'src/utils';
 import raf from 'raf';
 import throttle from 'lodash/throttle';
-// import * as aaa from 'src/utils';
 
 const THROTTLE_MS = 100;
 
@@ -21,61 +20,18 @@ const getScrollYDirection = ({prevScrollY, currentScrollY}) => {
     return {scrollingUp};
 };
 
-let prevScrollY = 0;
-
 const useWindowScroll = callBack => {
-    // const frame = useRef(0);
-    // const [state, setState] = useState({
-    //     x: isClient ? window.pageXOffset : 0,
-    //     y: isClient ? window.pageYOffset : 0,
-    // });
-    //
-    // useEffect(() => {
-    //     const handler = () => {
-    //         console.log('IIIII', isClient);
-    //         cancelAnimationFrame(frame.current);
-    //         frame.current = requestAnimationFrame(() => {
-    //             // setState({
-    //             //     x: window.pageXOffset,
-    //             //     y: window.pageYOffset,
-    //             // });
-    //             callBack(window.pageYOffset)
-    //         });
-    //     };
-    //
-    //     window.addEventListener('scroll', handler, {
-    //         capture: false,
-    //         passive: true,
-    //     });
-    //
-    //     return () => {
-    //         cancelAnimationFrame(frame.current);
-    //         window.removeEventListener('scroll', handler);
-    //     };
-    // }, []);
-    //
-    // return state;
-
     const requestFrameId = useRef(0);
+    const prevScrollYRef = useRef(0);
 
     const scrollHandler = () => {
-        // if (isNavClicked.current) {
-        //     isNavClicked.current = false;
-        //     return;
-        // }
-
         raf.cancel(requestFrameId.current);
         requestFrameId.current = raf(() => {
-            // const navElem = navElemRef.current;
             const {y: currentScrollY} = getScrollPosition(isClient);
-            const {scrollingUp} = getScrollYDirection({prevScrollY, currentScrollY});
+            const {scrollingUp} = getScrollYDirection({prevScrollY: prevScrollYRef.current, currentScrollY});
             callBack({currentScrollY, scrollingUp});
-            // const isNavHidden = getIsNavHidden(navElem);
-            //
-            // changeNavBackGround({currentScrollY, navElem, setNavBgClass});
-            // showOrHideNav({scrollingUp, isNavHidden, currentScrollY, setNavHiddenClass});
 
-            prevScrollY = currentScrollY;
+            prevScrollYRef.current = currentScrollY;
         });
     };
 
