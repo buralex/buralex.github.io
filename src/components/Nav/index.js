@@ -14,6 +14,7 @@ const SCROLL_OFFSET_TO_HIDE_NAV = 100;
 const NAV_BG_CLASS = 'bg-secondary';
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 const NAV_HIDDEN_CLASS = 'hidden';
+const SHOW_COLLAPSED_NAV_CLASS = 'show';
 
 const getNextNavBgClass = ({currentScrollY}) => {
     if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
@@ -40,6 +41,7 @@ const Header = ({siteTitle}) => {
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
+    const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
         const nextNavBgClass = getNextNavBgClass({currentScrollY});
@@ -54,6 +56,11 @@ const Header = ({siteTitle}) => {
             prevHiddenClassRef.current = nextHideNavClass;
         }
     });
+
+    const toggleCollapsedNav = () => {
+        console.log('TTTTTTOOOGGGGGLE');
+        setShowCollapsedNavClass(showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS);
+    };
 
     const linkClickHandler = () => {
         isNavClicked.current = true;
@@ -75,16 +82,17 @@ const Header = ({siteTitle}) => {
                 <button
                     className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
                     type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+                    // data-toggle="collapse"
+                    // data-target="#navbarResponsive"
+                    // aria-controls="navbarResponsive"
+                    // aria-expanded="false"
+                    // aria-label="Toggle navigation"
+                    onClick={toggleCollapsedNav}
                 >
                     Menu
                     <i className="fas fa-bars" />
                 </button>
-                <div className="collapse navbar-collapse" id="navbarResponsive">
+                <div className={`collapse navbar-collapse ${showCollapsedNavClass}`} id="navbarResponsive">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item mx-0 mx-lg-1">
                             <a
