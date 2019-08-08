@@ -13,7 +13,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
-                analyzerPort: '3002',
+                analyzerPort: '3010',
             },
         },
         // `gatsby-plugin-layout`,
