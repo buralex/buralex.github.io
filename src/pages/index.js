@@ -45,7 +45,7 @@ const IndexPage = () => (
         {/* /> */}
         {/* <Link to="/contact/">Go to contact</Link> */}
 
-         <Nav />
+        <Nav />
 
         <Header />
 
@@ -53,7 +53,7 @@ const IndexPage = () => (
         <section className="page-section portfolio" id="portfolio">
             <div className="container">
                 {/* Portfolio Section Heading */}
-                <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+                <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">test</h2>
 
                 {/* Icon Divider */}
                 <div className="divider-custom">
@@ -98,7 +98,7 @@ const IndexPage = () => (
                                     <i className="fas fa-plus fa-3x" />
                                 </div>
                             </div>
-                            {/*<img className="img-fluid" src={Drawing} alt="" />*/}
+                            {/* <img className="img-fluid" src={Drawing} alt="" /> */}
                             <img className="img-fluid" src="img/portfolio/game.png" alt="" />
                         </div>
                     </div>
