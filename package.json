@@ -27,17 +27,18 @@
     "react-scroll": "^1.7.12"
   },
   "devDependencies": {
-    "lint-staged": "^8.0.4",
-    "eslint-config-react-app": "^4.0.1",
-    "gatsby-plugin-root-import": "^2.0.5",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
+    "eslint-config-react-app": "^4.0.1",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.6.0",
     "eslint-plugin-react-hooks": "^1.0.0",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.5",
     "gh-pages": "^2.0.1",
+    "lint-staged": "^8.0.4",
     "prettier": "^1.18.2"
   },
   "keywords": [
