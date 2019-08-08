@@ -10,6 +10,12 @@ module.exports = {
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         'gatsby-plugin-root-import',
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                analyzerPort: '3002',
+            },
+        },
         // `gatsby-plugin-layout`,
         {
             resolve: `gatsby-source-filesystem`,

@@ -119,6 +119,7 @@ const Header = ({siteTitle}) => {
                             {/*>*/}
                             {/*    Contact*/}
                             {/*</a>*/}
+
                             <ScrollLink
                                 activeClass="active"
                                 className="nav-link py-3 px-0 px-lg-3 rounded"
