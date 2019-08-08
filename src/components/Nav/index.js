@@ -4,8 +4,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import {isClient} from 'src/utils';
 import useWindowScroll from 'src/hooks/useWindowScroll';
-import throttle from 'lodash/throttle';
-import raf from 'raf';
+import {Link as ScrollLink, DirectLink, Element as ScrollToElement, Events, animateScroll, scrollSpy, scroller} from 'react-scroll';
 
 import './styles.scss';
 
@@ -113,13 +112,24 @@ const Header = ({siteTitle}) => {
                             </a>
                         </li>
                         <li className="nav-item mx-0 mx-lg-1">
-                            <a
-                                className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="#contact"
-                                onClick={linkClickHandler}
+                            {/*<a*/}
+                            {/*    className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"*/}
+                            {/*    href="#contact"*/}
+                            {/*    onClick={linkClickHandler}*/}
+                            {/*>*/}
+                            {/*    Contact*/}
+                            {/*</a>*/}
+                            <ScrollLink
+                                activeClass="active"
+                                className="nav-link py-3 px-0 px-lg-3 rounded"
+                                to="test1"
+                                spy={true}
+                                // smooth={true}
+                                smooth="easeInOutQuart"
+                                duration={1000}
                             >
-                                Contact
-                            </a>
+                                Test 1
+                            </ScrollLink>
                         </li>
                     </ul>
                 </div>
