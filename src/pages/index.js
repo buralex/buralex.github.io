@@ -4,10 +4,19 @@ import {Link} from 'gatsby';
 import Layout from 'src/layouts_old';
 import Header from 'src/components/Header';
 import Nav from 'src/components/Nav';
+import ScrollAnimation from 'react-animate-on-scroll';
+import {
+    Link as ScrollLink,
+    DirectLink,
+    Element as ScrollToElement,
+    Events,
+    animateScroll,
+    scrollSpy,
+    scroller,
+} from 'react-scroll';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
-import {Link as ScrollLink, DirectLink, Element as ScrollToElement, Events, animateScroll, scrollSpy, scroller} from 'react-scroll';
 // const Header = () => (
 //     <header className="masthead bg-primary text-white text-center">
 //         <div className="container d-flex align-items-center flex-column">
@@ -51,96 +60,101 @@ const IndexPage = () => (
 
         {/* Portfolio Section */}
         <section className="page-section portfolio" id="portfolio">
-            <div className="container">
-                {/* Portfolio Section Heading */}
-                <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">test</h2>
+            <ScrollAnimation animateIn="fadeIn" animateOnce>
+                <div className="container">
+                    {/* Portfolio Section Heading */}
+                    <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">test</h2>
 
-                {/* Icon Divider */}
-                <div className="divider-custom">
-                    <div className="divider-custom-line" />
-                    <div className="divider-custom-icon">
-                        <i className="fas fa-star" />
+                    {/* Icon Divider */}
+                    <div className="divider-custom">
+                        <div className="divider-custom-line" />
+                        <div className="divider-custom-icon">
+                            <i className="fas fa-star" />
+                        </div>
+                        <div className="divider-custom-line" />
                     </div>
-                    <div className="divider-custom-line" />
+
+                    {/* Portfolio Grid Items */}
+                    <div className="row">
+                        {/* Portfolio Item 1 */}
+                        <div className="col-md-6 col-lg-4">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        <i className="fas fa-plus fa-3x" />
+                                    </div>
+                                </div>
+                                test1
+                                <img className="img-fluid" src="img/portfolio/cabin.png" alt="" />
+                            </div>
+                        </div>
+
+                        {/* Portfolio Item 2 */}
+                        <div className="col-md-6 col-lg-4">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        <i className="fas fa-plus fa-3x" />
+                                    </div>
+                                </div>
+                                test2
+                                <img className="img-fluid" src="img/portfolio/cake.png" alt="" />
+                            </div>
+                        </div>
+
+                        {/* Portfolio Item 3 */}
+                        <div className="col-md-6 col-lg-4">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        <i className="fas fa-plus fa-3x" />
+                                    </div>
+                                </div>
+                                {/* <img className="img-fluid" src={Drawing} alt="" /> */}
+                                test3
+                                <img className="img-fluid" src="img/portfolio/game.png" alt="" />
+                            </div>
+                        </div>
+
+                        {/* Portfolio Item 4 */}
+                        <div className="col-md-6 col-lg-4">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        <i className="fas fa-plus fa-3x" />
+                                    </div>
+                                </div>
+                                <img className="img-fluid" src="img/portfolio/game.png" alt="" />
+                            </div>
+                        </div>
+
+                        {/* Portfolio Item 5 */}
+                        <div className="col-md-6 col-lg-4">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        <i className="fas fa-plus fa-3x" />
+                                    </div>
+                                </div>
+                                <img className="img-fluid" src="img/portfolio/safe.png" alt="" />
+                            </div>
+                        </div>
+
+                        {/* Portfolio Item 6 */}
+                        <div className="col-md-6 col-lg-4">
+                            <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
+                                <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                    <div className="portfolio-item-caption-content text-center text-white">
+                                        <i className="fas fa-plus fa-3x" />
+                                    </div>
+                                </div>
+                                <img className="img-fluid" src="img/portfolio/submarine.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    {/* /.row */}
                 </div>
-
-                {/* Portfolio Grid Items */}
-                <div className="row">
-                    {/* Portfolio Item 1 */}
-                    <div className="col-md-6 col-lg-4">
-                        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                            <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div className="portfolio-item-caption-content text-center text-white">
-                                    <i className="fas fa-plus fa-3x" />
-                                </div>
-                            </div>
-                            <img className="img-fluid" src="img/portfolio/cabin.png" alt="" />
-                        </div>
-                    </div>
-
-                    {/* Portfolio Item 2 */}
-                    <div className="col-md-6 col-lg-4">
-                        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                            <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div className="portfolio-item-caption-content text-center text-white">
-                                    <i className="fas fa-plus fa-3x" />
-                                </div>
-                            </div>
-                            <img className="img-fluid" src="img/portfolio/cake.png" alt="" />
-                        </div>
-                    </div>
-
-                    {/* Portfolio Item 3 */}
-                    <div className="col-md-6 col-lg-4">
-                        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                            <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div className="portfolio-item-caption-content text-center text-white">
-                                    <i className="fas fa-plus fa-3x" />
-                                </div>
-                            </div>
-                            {/* <img className="img-fluid" src={Drawing} alt="" /> */}
-                            <img className="img-fluid" src="img/portfolio/game.png" alt="" />
-                        </div>
-                    </div>
-
-                    {/* Portfolio Item 4 */}
-                    <div className="col-md-6 col-lg-4">
-                        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                            <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div className="portfolio-item-caption-content text-center text-white">
-                                    <i className="fas fa-plus fa-3x" />
-                                </div>
-                            </div>
-                            <img className="img-fluid" src="img/portfolio/game.png" alt="" />
-                        </div>
-                    </div>
-
-                    {/* Portfolio Item 5 */}
-                    <div className="col-md-6 col-lg-4">
-                        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                            <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div className="portfolio-item-caption-content text-center text-white">
-                                    <i className="fas fa-plus fa-3x" />
-                                </div>
-                            </div>
-                            <img className="img-fluid" src="img/portfolio/safe.png" alt="" />
-                        </div>
-                    </div>
-
-                    {/* Portfolio Item 6 */}
-                    <div className="col-md-6 col-lg-4">
-                        <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                            <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div className="portfolio-item-caption-content text-center text-white">
-                                    <i className="fas fa-plus fa-3x" />
-                                </div>
-                            </div>
-                            <img className="img-fluid" src="img/portfolio/submarine.png" alt="" />
-                        </div>
-                    </div>
-                </div>
-                {/* /.row */}
-            </div>
+            </ScrollAnimation>
         </section>
 
         {/* About Section */}
@@ -275,7 +289,6 @@ const IndexPage = () => (
                 </div>
             </section>
         </ScrollToElement>
-
 
         {/* Footer */}
         <footer className="footer text-center">
