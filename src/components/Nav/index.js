@@ -2,9 +2,17 @@ import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
-import {isClient} from 'src/utils';
+import {isClient, getScrollPosition} from 'src/utils';
 import useWindowScroll from 'src/hooks/useWindowScroll';
-import {Link as ScrollLink, DirectLink, Element as ScrollToElement, Events, animateScroll, scrollSpy, scroller} from 'react-scroll';
+import {
+    Link as ScrollLink,
+    DirectLink,
+    Element as ScrollToElement,
+    Events,
+    animateScroll,
+    scrollSpy,
+    scroller,
+} from 'react-scroll';
 
 import './styles.scss';
 
@@ -15,7 +23,7 @@ const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 const NAV_HIDDEN_CLASS = 'hidden';
 const SHOW_COLLAPSED_NAV_CLASS = 'show';
 
-const getNextNavBgClass = ({currentScrollY}) => {
+const getNavBgClass = ({currentScrollY}) => {
     if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
         return NAV_BG_CLASS;
     }
@@ -43,7 +51,7 @@ const Header = ({siteTitle}) => {
     const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
-        const nextNavBgClass = getNextNavBgClass({currentScrollY});
+        const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
 
         if (prevNavBgClassRef.current !== nextNavBgClass) {
@@ -58,7 +66,19 @@ const Header = ({siteTitle}) => {
 
     const toggleCollapsedNav = () => {
         console.log('TTTTTTOOOGGGGGLE');
-        setShowCollapsedNavClass(showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS);
+
+        const positionClass = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS;
+        setShowCollapsedNavClass(positionClass);
+
+        const bgClass = navBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS;
+        console.log('_______________set_bgClass', bgClass);
+        console.log('_______________navBgClass', navBgClass);
+        setNavBgClass(bgClass);
+
+        // if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
+        //     const bgClass = navBgClass === NAV_BG_CLASS ? '' : NAV_TRANSPARENT_CLASS;
+        //     setNavBgClass(bgClass);
+        // }
     };
 
     const linkClickHandler = () => {
@@ -112,13 +132,13 @@ const Header = ({siteTitle}) => {
                             </a>
                         </li>
                         <li className="nav-item mx-0 mx-lg-1">
-                            {/*<a*/}
-                            {/*    className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"*/}
-                            {/*    href="#contact"*/}
-                            {/*    onClick={linkClickHandler}*/}
-                            {/*>*/}
-                            {/*    Contact*/}
-                            {/*</a>*/}
+                            {/* <a */}
+                            {/*    className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" */}
+                            {/*    href="#contact" */}
+                            {/*    onClick={linkClickHandler} */}
+                            {/* > */}
+                            {/*    Contact */}
+                            {/* </a> */}
 
                             <ScrollLink
                                 activeClass="active"
