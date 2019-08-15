@@ -1,24 +1,6 @@
 import {useEffect, useRef} from 'react';
-import {isClient} from 'src/utils';
+import {getScrollPosition, getScrollYDirection} from 'src/utils';
 import raf from 'raf';
-import throttle from 'lodash/throttle';
-
-const THROTTLE_MS = 100;
-
-const getScrollPosition = isClientSide => {
-    if (!isClientSide) {
-        return {x: 0, y: 0};
-    }
-    return {
-        x: window.pageXOffset,
-        y: window.pageYOffset,
-    };
-};
-
-const getScrollYDirection = ({prevScrollY, currentScrollY}) => {
-    const scrollingUp = prevScrollY > currentScrollY;
-    return {scrollingUp};
-};
 
 const useWindowScroll = callBack => {
     const requestFrameId = useRef(0);
@@ -27,7 +9,7 @@ const useWindowScroll = callBack => {
     const scrollHandler = () => {
         raf.cancel(requestFrameId.current);
         requestFrameId.current = raf(() => {
-            const {y: currentScrollY} = getScrollPosition(isClient);
+            const {y: currentScrollY} = getScrollPosition();
             const {scrollingUp} = getScrollYDirection({prevScrollY: prevScrollYRef.current, currentScrollY});
             callBack({currentScrollY, scrollingUp});
 
@@ -36,13 +18,13 @@ const useWindowScroll = callBack => {
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+        window.addEventListener('scroll', scrollHandler);
         // for initial values after page is loaded
         scrollHandler();
 
         return () => {
             raf.cancel(requestFrameId.current);
-            window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+            window.removeEventListener('scroll', scrollHandler);
         };
     }, []);
 };
