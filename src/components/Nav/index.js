@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import {isClient, getScrollPosition} from 'src/utils';
+import AnimateHeight from 'react-animate-height';
 import useWindowScroll from 'src/hooks/useWindowScroll';
 import {
     Link as ScrollLink,
@@ -15,7 +16,7 @@ import {
 } from 'react-scroll';
 
 import './styles.scss';
-import throttle from "lodash/throttle";
+import throttle from 'lodash/throttle';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
@@ -42,6 +43,21 @@ const getHiddenNavClass = ({scrollingUp, isNavHidden, currentScrollY}) => {
     return '';
 };
 
+const LinkWithScroll = ({content, onClick, scrollTo}) => {
+    return (
+        <ScrollLink
+            activeClass="active"
+            className="nav-link py-3 px-0 px-lg-3 rounded"
+            to={scrollTo}
+            spy={true}
+            smooth="easeInOutQuart"
+            duration={1000}
+            onClick={onClick}
+        >
+            {content}
+        </ScrollLink>
+    );
+};
 
 const Header = ({siteTitle}) => {
     const prevNavBgClassRef = useRef(NAV_TRANSPARENT_CLASS);
@@ -51,7 +67,10 @@ const Header = ({siteTitle}) => {
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
+    // todo remove next
     const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
+    // const [heightCollapsibleNav, setHeightCollapsibleNav] = useState(0);
+    const [heightCollapsibleNav, setHeightCollapsibleNav] = useState(0);
 
     useEffect(() => {
         console.log('______use_after_nav_clicked', isScrollingByNavClickRef.current);
@@ -63,7 +82,7 @@ const Header = ({siteTitle}) => {
         }
 
         Events.scrollEvent.register('end', function(to, element) {
-            console.log("end", arguments);
+            console.log('end', arguments);
             // isScrollingByNavClickRef.current = false;
             isScrollingByClickFinishedRef.current = true;
 
@@ -71,7 +90,6 @@ const Header = ({siteTitle}) => {
             // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
             // setShowCollapsedNavClass('');
         });
-
     }, []);
 
     // useEffect(() => {
@@ -104,6 +122,7 @@ const Header = ({siteTitle}) => {
         const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
 
+        const setNavbarClass = () => {};
 
         if (prevNavBgClassRef.current !== nextNavBgClass) {
             setNavBgClass(nextNavBgClass);
@@ -122,6 +141,11 @@ const Header = ({siteTitle}) => {
         const positionClass = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS;
         setShowCollapsedNavClass(positionClass);
 
+        const navHeight = heightCollapsibleNav === 0 ? 'auto' : 0;
+        // const navHeight = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? 'auto' : 0;
+        // const navHeight = 'auto' ;
+        setHeightCollapsibleNav(navHeight);
+
         const bgClass = navBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS;
         console.log('_______________set_bgClass', bgClass);
         console.log('_______________navBgClass', navBgClass);
@@ -136,7 +160,6 @@ const Header = ({siteTitle}) => {
     const linkClickHandler = () => {
         isScrollingByNavClickRef.current = true;
         // isScrollingByClickFinishedRef.current = true;
-
 
         console.log('HHHHHHHHHHHH_____');
         setNavHiddenClass(NAV_HIDDEN_CLASS);
@@ -160,57 +183,28 @@ const Header = ({siteTitle}) => {
                 <button
                     className="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
                     type="button"
-                    // data-toggle="collapse"
-                    // data-target="#navbarResponsive"
-                    // aria-controls="navbarResponsive"
-                    // aria-expanded="false"
-                    // aria-label="Toggle navigation"
                     onClick={toggleCollapsedNav}
                 >
                     Menu
                     <i className="fas fa-bars" />
                 </button>
-                <div className={`collapse navbar-collapse ${showCollapsedNavClass}`} id="navbarResponsive">
+                <div className={`collapse navbar-collapse ${showCollapsedNavClass}`}>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item mx-0 mx-lg-1">
                             <a
-                                className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                                className="nav-link py-3 px-0 px-lg-3 rounded"
                                 href="#portfolio"
                                 onClick={linkClickHandler}
                             >
                                 Portfolio
                             </a>
+                            <LinkWithScroll content="Projects" scrollTo="contactBlock" onClick={linkClickHandler} />
                         </li>
                         <li className="nav-item mx-0 mx-lg-1">
-                            <a
-                                className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                href="#about"
-                                onClick={linkClickHandler}
-                            >
-                                About
-                            </a>
+                            <LinkWithScroll content="About" scrollTo="aboutBlock" onClick={linkClickHandler} />
                         </li>
                         <li className="nav-item mx-0 mx-lg-1">
-                            {/* <a */}
-                            {/*    className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" */}
-                            {/*    href="#contact" */}
-                            {/*    onClick={linkClickHandler} */}
-                            {/* > */}
-                            {/*    Contact */}
-                            {/* </a> */}
-
-                            <ScrollLink
-                                activeClass="active"
-                                className="nav-link py-3 px-0 px-lg-3 rounded"
-                                to="test1"
-                                spy={true}
-                                // smooth={true}
-                                smooth="easeInOutQuart"
-                                duration={1000}
-                                onClick={linkClickHandler}
-                            >
-                                Contact
-                            </ScrollLink>
+                            <LinkWithScroll content="Contact" scrollTo="contactBlock" onClick={linkClickHandler} />
                         </li>
                     </ul>
                 </div>
