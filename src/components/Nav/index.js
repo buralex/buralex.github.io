@@ -42,36 +42,68 @@ const getHiddenNavClass = ({scrollingUp, isNavHidden, currentScrollY}) => {
     return '';
 };
 
+
 const Header = ({siteTitle}) => {
     const prevNavBgClassRef = useRef(NAV_TRANSPARENT_CLASS);
     const prevHiddenClassRef = useRef('');
-    const isNavClicked = useRef(false);
+    const isScrollingByNavClickRef = useRef(false);
+    const isScrollingByClickFinishedRef = useRef(false);
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
     const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
 
     useEffect(() => {
-        console.log('______use_after_nav_clicked', isNavClicked.current);
-        if (isNavClicked.current) {
-            setNavHiddenClass(NAV_HIDDEN_CLASS);
-            prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
-            setShowCollapsedNavClass('');
-            isNavClicked.current = false;
+        console.log('______use_after_nav_clicked', isScrollingByNavClickRef.current);
+        if (isScrollingByNavClickRef.current) {
+            // setNavHiddenClass(NAV_HIDDEN_CLASS);
+            // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+            // setShowCollapsedNavClass('');
+            // // isScrollingByNavClickRef.current = false;
         }
 
-        // const nav = navElem.current;
-        // const scrollHandler = makeScrollHandler(nav);
-        // const THROTTLE_MS = 50;
-        // window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        // return () => {
-        //     window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
-        // };
-    });
+        Events.scrollEvent.register('end', function(to, element) {
+            console.log("end", arguments);
+            // isScrollingByNavClickRef.current = false;
+            isScrollingByClickFinishedRef.current = true;
+
+            // setNavHiddenClass(NAV_HIDDEN_CLASS);
+            // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+            // setShowCollapsedNavClass('');
+        });
+
+    }, []);
+
+    // useEffect(() => {
+    //     console.log('________________useEffect_after_nav_clicked', isScrollingByNavClickRef.current);
+    //     if (isScrollingByNavClickRef.current) {
+    //         // setNavHiddenClass(NAV_HIDDEN_CLASS);
+    //         // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+    //         // setShowCollapsedNavClass('');
+    //         // isScrollingByNavClickRef.current = false;
+    //     }
+    //
+    // });
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
+        console.log('__usewindow_is_clicked', isScrollingByNavClickRef.current);
+
+        if (isScrollingByClickFinishedRef.current) {
+            isScrollingByClickFinishedRef.current = false;
+            isScrollingByNavClickRef.current = false;
+            return;
+        }
+        if (isScrollingByNavClickRef.current) {
+            console.log('__i_');
+            // clearPrevScrollY();
+            // isScrollingByClickFinishedRef.current = false;
+
+            return;
+        }
+
         const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
+
 
         if (prevNavBgClassRef.current !== nextNavBgClass) {
             setNavBgClass(nextNavBgClass);
@@ -102,13 +134,14 @@ const Header = ({siteTitle}) => {
     };
 
     const linkClickHandler = () => {
-        isNavClicked.current = true;
+        isScrollingByNavClickRef.current = true;
+        // isScrollingByClickFinishedRef.current = true;
 
 
         console.log('HHHHHHHHHHHH_____');
-        // setNavHiddenClass(NAV_HIDDEN_CLASS);
-        // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
-        // setShowCollapsedNavClass('');
+        setNavHiddenClass(NAV_HIDDEN_CLASS);
+        prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+        setShowCollapsedNavClass('');
     };
 
     // console.log('RENDER______NAV__', navBgClass);
@@ -174,8 +207,9 @@ const Header = ({siteTitle}) => {
                                 // smooth={true}
                                 smooth="easeInOutQuart"
                                 duration={1000}
+                                onClick={linkClickHandler}
                             >
-                                Test 1
+                                Contact
                             </ScrollLink>
                         </li>
                     </ul>
