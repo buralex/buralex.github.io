@@ -15,6 +15,7 @@ import {
 } from 'react-scroll';
 
 import './styles.scss';
+import throttle from "lodash/throttle";
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
@@ -50,6 +51,24 @@ const Header = ({siteTitle}) => {
     const [navHiddenClass, setNavHiddenClass] = useState('');
     const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
 
+    useEffect(() => {
+        console.log('______use_after_nav_clicked', isNavClicked.current);
+        if (isNavClicked.current) {
+            setNavHiddenClass(NAV_HIDDEN_CLASS);
+            prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+            setShowCollapsedNavClass('');
+            isNavClicked.current = false;
+        }
+
+        // const nav = navElem.current;
+        // const scrollHandler = makeScrollHandler(nav);
+        // const THROTTLE_MS = 50;
+        // window.addEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+        // return () => {
+        //     window.removeEventListener('scroll', throttle(scrollHandler, THROTTLE_MS));
+        // };
+    });
+
     useWindowScroll(({currentScrollY, scrollingUp}) => {
         const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
@@ -67,6 +86,7 @@ const Header = ({siteTitle}) => {
     const toggleCollapsedNav = () => {
         console.log('TTTTTTOOOGGGGGLE');
 
+        // todo refactor
         const positionClass = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS;
         setShowCollapsedNavClass(positionClass);
 
@@ -83,6 +103,12 @@ const Header = ({siteTitle}) => {
 
     const linkClickHandler = () => {
         isNavClicked.current = true;
+
+
+        console.log('HHHHHHHHHHHH_____');
+        // setNavHiddenClass(NAV_HIDDEN_CLASS);
+        // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+        // setShowCollapsedNavClass('');
     };
 
     // console.log('RENDER______NAV__', navBgClass);
