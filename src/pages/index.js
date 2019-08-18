@@ -64,7 +64,9 @@ const IndexPage = () => (
                 <ScrollAnimation animateIn="fadeIn" animateOnce>
                     <div className="container">
                         {/* Portfolio Section Heading */}
-                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">test</h2>
+                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
+                            projects
+                        </h2>
 
                         {/* Icon Divider */}
                         <div className="divider-custom">
