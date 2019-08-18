@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import {isClient, getScrollPosition} from 'src/utils';
-import AnimateHeight from 'react-animate-height';
 import useWindowScroll from 'src/hooks/useWindowScroll';
 import {
     Link as ScrollLink,
@@ -14,6 +13,7 @@ import {
     scrollSpy,
     scroller,
 } from 'react-scroll';
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 
 import './styles.scss';
 import throttle from 'lodash/throttle';
@@ -171,6 +171,29 @@ const Header = ({siteTitle}) => {
     // console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY, 'isUp = ', scrollingUp, 'navCls=', navBgClass);
     console.log('RENDER______NAV__', 'navCls=', navBgClass);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
+
+
+    return (
+        <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="#link">Link</Nav.Link>
+                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+    )
+
+
     return (
         <nav
             className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
