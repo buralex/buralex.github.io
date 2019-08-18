@@ -15,9 +15,11 @@ import {
     scroller,
 } from 'react-scroll';
 import {Navbar, NavDropdown, Nav, Container} from 'react-bootstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import './styles.scss';
 import throttle from 'lodash/throttle';
+import divWithClassName from 'react-bootstrap/es/utils/divWithClassName';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
@@ -33,12 +35,11 @@ const getNavBgClass = ({currentScrollY}) => {
     return NAV_TRANSPARENT_CLASS;
 };
 
-const getHiddenNavClass = ({scrollingUp, isNavHidden, currentScrollY}) => {
+const getHiddenNavClass = ({scrollingUp, currentScrollY}) => {
     if (scrollingUp) {
-        if (isNavHidden) {
-            return '';
-        }
-    } else if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
+        return '';
+    }
+    if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
         return NAV_HIDDEN_CLASS;
     }
     return '';
@@ -68,11 +69,18 @@ const Header = ({siteTitle}) => {
     const isScrollingByClickFinishedRef = useRef(false);
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
+    // const [navBgClass, setNavBgClass] = useState(
+    //     isClient && window.location.hash ? NAV_HIDDEN_CLASS : NAV_TRANSPARENT_CLASS,
+    // );
     const [navHiddenClass, setNavHiddenClass] = useState('');
-    // todo remove next
+    // const [navHiddenClass, setNavHiddenClass] = useState(()=>{
+    //     const hiddenClassName = isClient && window.location.hash ? NAV_HIDDEN_CLASS : ''
+    //     prevHiddenClassRef.current = hiddenClassName;
+    //     return hiddenClassName
+    //
+    // });
+    // todo refactor to boolean
     const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
-    // const [heightCollapsibleNav, setHeightCollapsibleNav] = useState(0);
-    const [heightCollapsibleNav, setHeightCollapsibleNav] = useState(0);
 
     useEffect(() => {
         console.log('______use_after_nav_clicked', isScrollingByNavClickRef.current);
@@ -92,6 +100,13 @@ const Header = ({siteTitle}) => {
             // prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
             // setShowCollapsedNavClass('');
         });
+
+        if (isClient && window.location.hash) {
+            console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA_______IIII');
+            //prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+            setNavHiddenClass(NAV_HIDDEN_CLASS);
+
+        }
     }, []);
 
     // useEffect(() => {
@@ -124,18 +139,21 @@ const Header = ({siteTitle}) => {
         const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
 
-        const setNavbarClass = () => {};
 
         if (prevNavBgClassRef.current !== nextNavBgClass) {
+            console.log('AAAAA________EEEEEEEE_not_nav_bg', prevNavBgClassRef.current === NAV_BG_CLASS, nextNavBgClass);
             setNavBgClass(nextNavBgClass);
-            console.log('AAAAA________EEEEEEEE', prevNavBgClassRef.current === NAV_BG_CLASS);
             if (prevNavBgClassRef.current === NAV_BG_CLASS) {
                 // todo refactor next - change classname to boolean
                 setShowCollapsedNavClass('');
             }
             prevNavBgClassRef.current = nextNavBgClass;
         }
+        console.log('_________________NEED__________HIDDEN_____next', nextHideNavClass, 'prev', prevHiddenClassRef.current);
+
+        // todo bug when load page with hash
         if (prevHiddenClassRef.current !== nextHideNavClass) {
+            console.log('_______________________!!!____HIDDEN_____next', nextHideNavClass);
             setNavHiddenClass(nextHideNavClass);
             prevHiddenClassRef.current = nextHideNavClass;
         }
@@ -180,48 +198,55 @@ const Header = ({siteTitle}) => {
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
 
     return (
-        <Navbar
-            expand="lg"
-            fixed="top"
-            className={`${navBgClass} ${navHiddenClass} text-uppercase`}
-            onToggle={toggleCollapsedNav}
-            // expanded={navBgClass === NAV_TRANSPARENT_CLASS ? false : undefined}
-            // expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? true : undefined}
-            expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS}
-        >
-            <Container>
-                <Navbar.Brand href="#home">AB</Navbar.Brand>
-                <Navbar.Toggle
-                    aria-controls="basic-navbar-nav"
-                    className="navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
-                >
-                    Menu
-                </Navbar.Toggle>
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav as="ul" className="ml-auto">
-                        <li className="nav-item mx-0 mx-lg-1">
-                            <LinkWithScroll
-                                content="Projects"
-                                scrollTo={pageBlocks.projects}
-                                onClick={linkClickHandler}
-                            />
-                        </li>
-                        <li className="nav-item mx-0 mx-lg-1">
-                            <LinkWithScroll content="About" scrollTo={pageBlocks.about} onClick={linkClickHandler} />
-                        </li>
-                        <li className="nav-item mx-0 mx-lg-1">
-                            <LinkWithScroll
-                                content="Contact"
-                                scrollTo={pageBlocks.contact}
-                                onClick={linkClickHandler}
-                            />
-                        </li>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <div>
+            <Navbar
+                expand="lg"
+                fixed="top"
+                className={`${navBgClass} ${navHiddenClass} text-uppercase`}
+                onToggle={toggleCollapsedNav}
+                // expanded={navBgClass === NAV_TRANSPARENT_CLASS ? false : undefined}
+                // expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? true : undefined}
+                expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS}
+            >
+                <Container>
+                    <Navbar.Brand href="#home">AB</Navbar.Brand>
+                    <Navbar.Toggle
+                        aria-controls="basic-navbar-nav"
+                        className="navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                    >
+                        Menu
+                    </Navbar.Toggle>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav as="ul" className="ml-auto">
+                            <li className="nav-item mx-0 mx-lg-1">
+                                <LinkWithScroll
+                                    content="Projects"
+                                    scrollTo={pageBlocks.projects}
+                                    onClick={linkClickHandler}
+                                />
+                            </li>
+                            <li className="nav-item mx-0 mx-lg-1">
+                                <LinkWithScroll
+                                    content="About"
+                                    scrollTo={pageBlocks.about}
+                                    onClick={linkClickHandler}
+                                />
+                            </li>
+                            <li className="nav-item mx-0 mx-lg-1">
+                                <LinkWithScroll
+                                    content="Contact"
+                                    scrollTo={pageBlocks.contact}
+                                    onClick={linkClickHandler}
+                                />
+                            </li>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </div>
     );
 
+    // todo remove next
     return (
         <nav
             className={`${navBgClass} ${navHiddenClass} navbar fixed-top navbar-expand-lg text-uppercase`}
