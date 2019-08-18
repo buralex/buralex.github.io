@@ -1,6 +1,6 @@
 // Styling for the navbar
 $navTransition: all 0.3s;
-#mainNav {
+.navbar {
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-family: $headings-font-family;
@@ -52,7 +52,7 @@ $navTransition: all 0.3s;
 //}
 
 @include media-breakpoint-up(lg) {
-  #mainNav {
+  .navbar {
     transition: $navTransition;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -79,7 +79,7 @@ $navTransition: all 0.3s;
       }
     }
   }
-  //#mainNav.navbar-shrink {
+  //.navbar.navbar-shrink {
   //  padding-top: 0.5rem;
   //  padding-bottom: 0.5rem;
   //  .navbar-brand {
