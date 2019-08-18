@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import {isClient, getScrollPosition} from 'src/utils';
+import {pageBlocks} from 'src/constants';
 import useWindowScroll from 'src/hooks/useWindowScroll';
 import {
     Link as ScrollLink,
@@ -13,7 +14,7 @@ import {
     scrollSpy,
     scroller,
 } from 'react-scroll';
-import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
+import {Navbar, NavDropdown, Nav, Container} from 'react-bootstrap';
 
 import './styles.scss';
 import throttle from 'lodash/throttle';
@@ -50,6 +51,7 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
             className="nav-link py-3 px-0 px-lg-3 rounded"
             to={scrollTo}
             spy={true}
+            hashSpy={true}
             smooth="easeInOutQuart"
             duration={1000}
             onClick={onClick}
@@ -126,6 +128,11 @@ const Header = ({siteTitle}) => {
 
         if (prevNavBgClassRef.current !== nextNavBgClass) {
             setNavBgClass(nextNavBgClass);
+            console.log('AAAAA________EEEEEEEE', prevNavBgClassRef.current === NAV_BG_CLASS);
+            if (prevNavBgClassRef.current === NAV_BG_CLASS) {
+                // todo refactor next - change classname to boolean
+                setShowCollapsedNavClass('');
+            }
             prevNavBgClassRef.current = nextNavBgClass;
         }
         if (prevHiddenClassRef.current !== nextHideNavClass) {
@@ -141,10 +148,10 @@ const Header = ({siteTitle}) => {
         const positionClass = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS;
         setShowCollapsedNavClass(positionClass);
 
-        const navHeight = heightCollapsibleNav === 0 ? 'auto' : 0;
-        // const navHeight = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? 'auto' : 0;
-        // const navHeight = 'auto' ;
-        setHeightCollapsibleNav(navHeight);
+        // const navHeight = heightCollapsibleNav === 0 ? 'auto' : 0;
+        // // const navHeight = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? 'auto' : 0;
+        // // const navHeight = 'auto' ;
+        // setHeightCollapsibleNav(navHeight);
 
         const bgClass = navBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS;
         console.log('_______________set_bgClass', bgClass);
@@ -172,27 +179,48 @@ const Header = ({siteTitle}) => {
     console.log('RENDER______NAV__', 'navCls=', navBgClass);
     // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
 
-
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-            </Navbar.Collapse>
+        <Navbar
+            expand="lg"
+            fixed="top"
+            className={`${navBgClass} ${navHiddenClass} text-uppercase`}
+            onToggle={toggleCollapsedNav}
+            // expanded={navBgClass === NAV_TRANSPARENT_CLASS ? false : undefined}
+            // expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? true : undefined}
+            expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS}
+        >
+            <Container>
+                <Navbar.Brand href="#home">AB</Navbar.Brand>
+                <Navbar.Toggle
+                    aria-controls="basic-navbar-nav"
+                    className="navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                >
+                    Menu
+                </Navbar.Toggle>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav as="ul" className="ml-auto">
+                        <li className="nav-item mx-0 mx-lg-1">
+                            <LinkWithScroll
+                                content="Projects"
+                                scrollTo={pageBlocks.projects}
+                                onClick={linkClickHandler}
+                            />
+                        </li>
+                        <li className="nav-item mx-0 mx-lg-1">
+                            <LinkWithScroll content="About" scrollTo={pageBlocks.about} onClick={linkClickHandler} />
+                        </li>
+                        <li className="nav-item mx-0 mx-lg-1">
+                            <LinkWithScroll
+                                content="Contact"
+                                scrollTo={pageBlocks.contact}
+                                onClick={linkClickHandler}
+                            />
+                        </li>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
         </Navbar>
-    )
-
+    );
 
     return (
         <nav
@@ -214,13 +242,6 @@ const Header = ({siteTitle}) => {
                 <div className={`collapse navbar-collapse ${showCollapsedNavClass}`}>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item mx-0 mx-lg-1">
-                            <a
-                                className="nav-link py-3 px-0 px-lg-3 rounded"
-                                href="#portfolio"
-                                onClick={linkClickHandler}
-                            >
-                                Portfolio
-                            </a>
                             <LinkWithScroll content="Projects" scrollTo="contactBlock" onClick={linkClickHandler} />
                         </li>
                         <li className="nav-item mx-0 mx-lg-1">
