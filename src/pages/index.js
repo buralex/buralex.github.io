@@ -39,7 +39,7 @@ import Drawing from '../images/drawing111.svg';
 // );
 
 const IndexPage = (props) => {
-    console.log('index_props', props);
+    // console.log('index_props', props);
     const {location} = props
 
     return (
