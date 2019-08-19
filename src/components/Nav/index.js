@@ -148,7 +148,6 @@ const Header = ({siteTitle, isHashInUrl}) => {
         const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY});
 
-
         if (prevNavBgClassRef.current !== nextNavBgClass) {
             console.log('AAAAA________EEEEEEEE_not_nav_bg', prevNavBgClassRef.current === NAV_BG_CLASS, nextNavBgClass);
             setNavBgClass(nextNavBgClass);
