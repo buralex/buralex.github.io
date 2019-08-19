@@ -69,7 +69,7 @@ const Header = ({siteTitle, isHashInUrl}) => {
     const isScrollingByNavClickRef = useRef(false);
     const isScrollingByClickFinishedRef = useRef(false);
 
-    console.log('new_method_isHash', isHashInUrl);
+    console.log('new_method_isHash_local_!!!', isHashInUrl);
     console.log('old_method', isClient && window.location.hash);
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
