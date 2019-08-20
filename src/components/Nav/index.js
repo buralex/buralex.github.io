@@ -65,7 +65,7 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
 
 const Header = ({siteTitle, isHashInUrl}) => {
     const prevNavBgClassRef = useRef(NAV_TRANSPARENT_CLASS);
-    const prevHiddenClassRef = useRef('');
+    const prevHiddenClassRef = useRef(isHashInUrl ? NAV_HIDDEN_CLASS : '');
     const isScrollingByNavClickRef = useRef(false);
     const isScrollingByClickFinishedRef = useRef(false);
 
@@ -135,13 +135,14 @@ const Header = ({siteTitle, isHashInUrl}) => {
         if (isScrollingByClickFinishedRef.current) {
             isScrollingByClickFinishedRef.current = false;
             isScrollingByNavClickRef.current = false;
+            console.log('isScrolling_finished_return');
             return;
         }
         if (isScrollingByNavClickRef.current) {
             console.log('__i_');
             // clearPrevScrollY();
             // isScrollingByClickFinishedRef.current = false;
-
+            console.log('isScrollingByNavClickRef.current_return');
             return;
         }
 
