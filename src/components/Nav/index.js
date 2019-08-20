@@ -65,7 +65,7 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
 
 const Header = ({siteTitle, isHashInUrl}) => {
     const prevNavBgClassRef = useRef(NAV_TRANSPARENT_CLASS);
-    const prevHiddenClassRef = useRef(isHashInUrl ? NAV_HIDDEN_CLASS : '');
+    const prevHiddenClassRef = useRef('');
     const isScrollingByNavClickRef = useRef(false);
     const isScrollingByClickFinishedRef = useRef(false);
 
@@ -77,7 +77,7 @@ const Header = ({siteTitle, isHashInUrl}) => {
     //     isClient && window.location.hash ? NAV_HIDDEN_CLASS : NAV_TRANSPARENT_CLASS,
     // );
     // const [navHiddenClass, setNavHiddenClass] = useState('');
-    const [navHiddenClass, setNavHiddenClass] = useState(isHashInUrl ? NAV_HIDDEN_CLASS : '');
+    const [navHiddenClass, setNavHiddenClass] = useState('');
     // const [navHiddenClass, setNavHiddenClass] = useState(()=>{
     //     const hiddenClassName = isClient && window.location.hash ? NAV_HIDDEN_CLASS : ''
     //     prevHiddenClassRef.current = hiddenClassName;
@@ -106,7 +106,8 @@ const Header = ({siteTitle, isHashInUrl}) => {
             // setShowCollapsedNavClass('');
         });
 
-        if (isHashInUrl && navHiddenClass === '') {
+        console.log('__________ONCE_IF_ISHASH');
+        if (isHashInUrl) {
             console.log('______________________________MAKE_HIDDEN_AGAIN');
             setNavHiddenClass(NAV_HIDDEN_CLASS);
             prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
