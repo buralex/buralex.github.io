@@ -106,6 +106,12 @@ const Header = ({siteTitle, isHashInUrl}) => {
             // setShowCollapsedNavClass('');
         });
 
+        if (isHashInUrl && navHiddenClass === '') {
+            console.log('______________________________MAKE_HIDDEN_AGAIN');
+            setNavHiddenClass(NAV_HIDDEN_CLASS);
+            prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+        }
+
         // if (isClient && window.location.hash) {
         //     console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA_______IIII');
         //     //prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
