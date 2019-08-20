@@ -36,12 +36,9 @@ const getNavBgClass = ({currentScrollY}) => {
     return NAV_TRANSPARENT_CLASS;
 };
 
-const getHiddenNavClass = ({scrollingUp, currentScrollY, isScrollingByNavClick}) => {
-
-
-
-    if (isScrollingByNavClick) {
-        console.log('getHiddenNavClass_isScrollingByNavClick', isScrollingByNavClick);
+const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrolling}) => {
+    if (isAutoScrolling) {
+        console.log('getHiddenNavClass_isAutoScrolling', isAutoScrolling);
         return NAV_HIDDEN_CLASS;
     }
     if (scrollingUp) {
@@ -75,80 +72,70 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
 };
 
 const Header = ({siteTitle, isHashInUrl}) => {
-    let {current: prevNavBgClass} = useRef(NAV_TRANSPARENT_CLASS);
-    let {current: isScrollingByNavClick} = useRef(false);
-    let {current: isScrollingByClickFinished} = useRef(false);
-
-    console.log('new_method_isHash_local_!!!', isHashInUrl);
-    console.log('old_method', isClient && window.location.hash);
+    let {current: isAutoScrolling} = useRef(false);
+    let {current: isAutoScrollingFinished} = useRef(false);
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
-
     const [navHiddenClass, setNavHiddenClass] = useState('');
-
-    // todo refactor to boolean
-    const [showCollapsedNavClass, setShowCollapsedNavClass] = useState('');
+    const [showNavBar, setShowNavBar] = useState(false);
 
     useEffect(() => {
         Events.scrollEvent.register('begin', function(to, element) {
-            isScrollingByNavClick = true;
-            isScrollingByClickFinished = false;
+            isAutoScrolling = true;
+            isAutoScrollingFinished = false;
         });
 
         Events.scrollEvent.register('end', function(to, element) {
-            isScrollingByNavClick = false;
-            isScrollingByClickFinished = true;
+            isAutoScrolling = false;
+            isAutoScrollingFinished = true;
         });
 
         if (isHashInUrl) {
             setNavHiddenClass(NAV_HIDDEN_CLASS);
             setNavBgClass(NAV_BG_CLASS);
-            prevNavBgClass = NAV_BG_CLASS;
         }
     }, []);
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
-
         // to hide menu during auto scrolling after link click
-        if (isScrollingByClickFinished) {
-            isScrollingByClickFinished = false;
+        if (isAutoScrollingFinished) {
+            isAutoScrollingFinished = false;
 
-            setShowCollapsedNavClass('');
+            setShowNavBar(false);
             setNavHiddenClass(NAV_HIDDEN_CLASS);
             return;
         }
-        if (isScrollingByNavClick) {
+        if (isAutoScrolling) {
             return;
         }
 
         const nextNavBgClass = getNavBgClass({currentScrollY});
-        const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY, isScrollingByNavClick});
+        const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY, isAutoScrolling});
+
+        if (nextHideNavClass === NAV_HIDDEN_CLASS) {
+            setShowNavBar(false);
+        }
+        if (scrollingUp && currentScrollY === 0) {
+            setShowNavBar(false);
+        }
 
         setNavBgClass(nextNavBgClass);
         setNavHiddenClass(nextHideNavClass);
     });
 
     const toggleCollapsedNav = () => {
-
-        // todo refactor
-        const positionClass = showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS ? '' : SHOW_COLLAPSED_NAV_CLASS;
-        setShowCollapsedNavClass(positionClass);
+        setShowNavBar(!showNavBar);
 
         const bgClass = navBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS;
-        console.log('_______________set_bgClass', bgClass);
-        console.log('_______________navBgClass', navBgClass);
         setNavBgClass(bgClass);
     };
 
     const linkClickHandler = () => {
         setNavHiddenClass(NAV_HIDDEN_CLASS);
-        setShowCollapsedNavClass('');
+        setShowNavBar(false);
     };
 
-    // console.log('RENDER______NAV__', navBgClass);
-    // console.log('RENDER______NAV__', 'currentScrollY=', currentScrollY, 'isUp = ', scrollingUp, 'navCls=', navBgClass);
     console.log('RENDER______NAV__', 'navCls=', navBgClass, 'hidden_class', navHiddenClass);
-    // <nav ref={navElem} className="navbar fixed-top navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
 
     return (
         <div>
@@ -157,8 +144,7 @@ const Header = ({siteTitle, isHashInUrl}) => {
                 fixed="top"
                 className={`${navBgClass} ${navHiddenClass} text-uppercase`}
                 onToggle={toggleCollapsedNav}
-                //todo refactor to boolean
-                expanded={showCollapsedNavClass === SHOW_COLLAPSED_NAV_CLASS}
+                expanded={showNavBar}
             >
                 <Container>
                     <Navbar.Brand onClick={scroll.scrollToTop}>AB</Navbar.Brand>
