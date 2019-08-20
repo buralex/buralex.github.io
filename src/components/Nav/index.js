@@ -111,6 +111,9 @@ const Header = ({siteTitle, isHashInUrl}) => {
             console.log('______________________________MAKE_HIDDEN_AGAIN');
             setNavHiddenClass(NAV_HIDDEN_CLASS);
             prevHiddenClassRef.current = NAV_HIDDEN_CLASS;
+
+            setNavBgClass(NAV_BG_CLASS);
+            prevNavBgClassRef.current = NAV_BG_CLASS;
         }
 
         // if (isClient && window.location.hash) {
@@ -159,13 +162,14 @@ const Header = ({siteTitle, isHashInUrl}) => {
         if (prevNavBgClassRef.current !== nextNavBgClass) {
             console.log('AAAAA________EEEEEEEE_not_nav_bg', prevNavBgClassRef.current === NAV_BG_CLASS, nextNavBgClass);
             setNavBgClass(nextNavBgClass);
+            prevNavBgClassRef.current = nextNavBgClass;
 
             // if navbar is open and we scroll to top, - collapse navbar
             if (prevNavBgClassRef.current === NAV_BG_CLASS) {
                 // todo refactor next - change classname to boolean
                 setShowCollapsedNavClass('');
             }
-            prevNavBgClassRef.current = nextNavBgClass;
+
         }
         console.log('_________________NEED__________HIDDEN_____next', nextHideNavClass, 'prev', prevHiddenClassRef.current);
 
