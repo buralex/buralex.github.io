@@ -54,13 +54,25 @@ const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrolling}) => {
 };
 
 const LinkWithScroll = ({content, onClick, scrollTo}) => {
-    console.log('RENDER_LINKSCROLL');
+    const SPACE = ' ';
+    const [activeClass, setActiveClass] = useState('');
+
+    // because native logic sometimes highlights two links simultaneously
+    useWindowScroll(() => {
+        if (isClient) {
+            if (window.location.hash.includes(scrollTo)) {
+                setActiveClass('active');
+            } else {
+                setActiveClass('');
+            }
+        }
+    });
+
     return (
         <ScrollLink
-            activeClass="active"
-            className="nav-link py-3 px-0 px-lg-3 rounded"
+            activeClass={SPACE}
+            className={`nav-link py-3 px-0 px-lg-3 rounded ${activeClass}`}
             to={scrollTo}
-            spy={true}
             hashSpy={true}
             smooth="easeInOutQuart"
             duration={1000}
@@ -75,7 +87,8 @@ const Header = ({siteTitle, isHashInUrl}) => {
     let {current: isAutoScrolling} = useRef(false);
     let {current: isAutoScrollingFinished} = useRef(false);
 
-    const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
+    // const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
+    const [navBgClass, setNavBgClass] = useState(NAV_BG_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
     const [showNavBar, setShowNavBar] = useState(false);
 
