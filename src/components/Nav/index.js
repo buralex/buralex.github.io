@@ -57,7 +57,7 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
     const SPACE = ' ';
     const [activeClass, setActiveClass] = useState('');
 
-    // because native logic sometimes highlights two links simultaneously
+    // because native 'react-scroll' logic sometimes highlights two links simultaneously
     useWindowScroll(() => {
         if (isClient) {
             if (window.location.hash.includes(scrollTo)) {
@@ -87,18 +87,17 @@ const Header = ({siteTitle, isHashInUrl}) => {
     let {current: isAutoScrolling} = useRef(false);
     let {current: isAutoScrollingFinished} = useRef(false);
 
-    // const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
-    const [navBgClass, setNavBgClass] = useState(NAV_BG_CLASS);
+    const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
     const [showNavBar, setShowNavBar] = useState(false);
 
     useEffect(() => {
-        Events.scrollEvent.register('begin', function(to, element) {
+        Events.scrollEvent.register('begin', function() {
             isAutoScrolling = true;
             isAutoScrollingFinished = false;
         });
 
-        Events.scrollEvent.register('end', function(to, element) {
+        Events.scrollEvent.register('end', function() {
             isAutoScrolling = false;
             isAutoScrollingFinished = true;
         });
@@ -167,6 +166,7 @@ const Header = ({siteTitle, isHashInUrl}) => {
                     >
                         Menu
                     </Navbar.Toggle>
+
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav as="ul" className="ml-auto">
                             <li className="nav-item mx-0 mx-lg-1">
@@ -193,6 +193,16 @@ const Header = ({siteTitle, isHashInUrl}) => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
+                {navBgClass !== NAV_TRANSPARENT_CLASS && navHiddenClass === NAV_HIDDEN_CLASS && (
+                    <div
+                        className="nav-bookmark"
+                        onMouseEnter={() => {
+                            setNavHiddenClass('');
+                        }}
+                    >
+                        <FontAwesomeIcon size="2x" icon="bookmark" className="nav-bookmark_icon" />
+                    </div>
+                )}
             </Navbar>
         </div>
     );
