@@ -27,7 +27,6 @@ const SCROLL_OFFSET_TO_HIDE_NAV = 100;
 const NAV_BG_CLASS = 'bg-secondary';
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 const NAV_HIDDEN_CLASS = 'hidden';
-const SHOW_COLLAPSED_NAV_CLASS = 'show';
 
 const getNavBgClass = ({currentScrollY}) => {
     if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
@@ -46,7 +45,7 @@ const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrolling}) => {
         return '';
     }
     if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
-        console.log('getHiddenNavClass_currentScrollY', currentScrollY);
+        console.log('getHiddenNavClass_currentScrollY__MORE_THAN', currentScrollY);
         return NAV_HIDDEN_CLASS;
     }
     console.log('________getHiddenNavClass________default_return');
@@ -57,6 +56,7 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
     const SPACE = ' ';
     const [activeClass, setActiveClass] = useState('');
 
+    // todo maybe remove next
     // because native 'react-scroll' logic sometimes highlights two links simultaneously
     useWindowScroll(() => {
         if (isClient) {
@@ -114,7 +114,7 @@ const Header = ({siteTitle, isHashInUrl}) => {
             isAutoScrollingFinished = false;
 
             setShowNavBar(false);
-            setNavHiddenClass(NAV_HIDDEN_CLASS);
+            // setNavHiddenClass(NAV_HIDDEN_CLASS);
             return;
         }
         if (isAutoScrolling) {
@@ -127,9 +127,10 @@ const Header = ({siteTitle, isHashInUrl}) => {
         if (nextHideNavClass === NAV_HIDDEN_CLASS) {
             setShowNavBar(false);
         }
-        if (scrollingUp && currentScrollY === 0) {
-            setShowNavBar(false);
-        }
+        // todo remove next
+        // if (scrollingUp && currentScrollY === 0) {
+        //     setShowNavBar(false);
+        // }
 
         setNavBgClass(nextNavBgClass);
         setNavHiddenClass(nextHideNavClass);
