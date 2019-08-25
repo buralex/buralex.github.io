@@ -30,6 +30,10 @@ $navTransition: all 0.3s;
 
   .navbar-brand {
     color: $white;
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+    }
   }
 
   .navbar-nav {
@@ -37,6 +41,7 @@ $navTransition: all 0.3s;
     li.nav-item {
       a.nav-link {
         color: $white;
+        cursor: pointer;
         &:hover {
           color: $primary;
         }

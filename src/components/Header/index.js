@@ -84,7 +84,7 @@ const oldHeader = () => {
 
 const Header = ({siteTitle}) => {
     return (
-        <header className="masthead bg-primary text-white text-center">
+        <header className="masthead text-white text-center">
             <div className="header-bg" />
             <div className="header-sub-bg" />
 
