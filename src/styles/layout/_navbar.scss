@@ -56,18 +56,6 @@ $navTransition: all 0.3s;
   }
 }
 
-//.animated-up {
-//  animation: example 0.3s forwards;
-//}
-//
-//@keyframes example {
-//  0%   {background-color: transparent; top:0px;}
-//  25%  {background-color: transparent; top:0px;}
-//  50%  {background-color: transparent; top:0px;}
-//  75%  {background-color: transparent; top:-105px;}
-//  100% {background-color: red; top:-105px;}
-//}
-
 @include media-breakpoint-up(lg) {
   .navbar {
     transition: $navTransition;
@@ -96,11 +84,4 @@ $navTransition: all 0.3s;
       }
     }
   }
-  //.navbar.navbar-shrink {
-  //  padding-top: 0.5rem;
-  //  padding-bottom: 0.5rem;
-  //  .navbar-brand {
-  //    font-size: 1.5em;
-  //  }
-  //}
 }
