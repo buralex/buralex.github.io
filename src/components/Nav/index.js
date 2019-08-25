@@ -18,6 +18,7 @@ import {
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
 import './styles.scss';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
@@ -45,7 +46,7 @@ const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrollingEvent}) 
         console.log('getHiddenNavClass_currentScrollY__MORE_THAN', currentScrollY);
         return NAV_HIDDEN_CLASS;
     }
-    console.log('________getHiddenNavClass________default_return');
+    console.log('________getHiddenNavClass________default_return', currentScrollY);
     return '';
 };
 
@@ -85,6 +86,7 @@ const Header = ({siteTitle, isHashInUrl}) => {
     const isAutoScrollingFinished = useRef(false);
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
+    const [showToTopBtn, setShowToTopBtn] = useState(false);
     const [navHiddenClass, setNavHiddenClass] = useState('');
     const [showNavBar, setShowNavBar] = useState(false);
 
@@ -102,10 +104,18 @@ const Header = ({siteTitle, isHashInUrl}) => {
         if (isHashInUrl) {
             setNavHiddenClass(NAV_HIDDEN_CLASS);
             setNavBgClass(NAV_BG_CLASS);
+            isAutoScrollingFinished.current = true;
         }
     }, []);
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
+        if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
+            console.log('WTF', currentScrollY);
+            setShowToTopBtn(true);
+        } else {
+            setShowToTopBtn(false);
+        }
+
         // to hide menu during auto scrolling after link click
         if (isAutoScrollingFinished.current) {
             isAutoScrollingFinished.current = false;
@@ -160,6 +170,18 @@ const Header = ({siteTitle, isHashInUrl}) => {
                     >
                         Menu
                     </Navbar.Toggle>
+
+                    {showToTopBtn && (
+                        <div className="scroll-to-top position-fixed ">
+                            <a
+                                className="js-scroll-trigger d-block text-center text-white rounded"
+                                onClick={scroll.scrollToTop}
+                            >
+                                <i className="fa fa-chevron-up" />
+                                <FontAwesomeIcon size="2x" icon="angle-up" />
+                            </a>
+                        </div>
+                    )}
 
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav as="ul" className="ml-auto">

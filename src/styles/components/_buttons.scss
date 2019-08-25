@@ -20,7 +20,10 @@
   z-index: 1042;
   right: 1rem;
   bottom: 1rem;
-  display: none;
+  display: block;
+  svg {
+    margin-top: 10px;
+  }
   a {
     width: 3.5rem;
     height: 3.5rem;
