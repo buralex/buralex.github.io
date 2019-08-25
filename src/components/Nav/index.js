@@ -15,19 +15,15 @@ import {
     scrollSpy,
     scroller,
 } from 'react-scroll';
-import {Navbar, NavDropdown, Nav, Container} from 'react-bootstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Navbar, Nav, Container} from 'react-bootstrap';
 
 import './styles.scss';
-import throttle from 'lodash/throttle';
-import divWithClassName from 'react-bootstrap/es/utils/divWithClassName';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
 const NAV_BG_CLASS = 'bg-secondary';
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 const NAV_HIDDEN_CLASS = 'hidden';
-const SHOW_COLLAPSED_NAV_CLASS = 'show';
 
 const getNavBgClass = ({currentScrollY}) => {
     if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
@@ -193,16 +189,6 @@ const Header = ({siteTitle, isHashInUrl}) => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-                {navBgClass !== NAV_TRANSPARENT_CLASS && navHiddenClass === NAV_HIDDEN_CLASS && (
-                    <div
-                        className="nav-bookmark"
-                        onMouseEnter={() => {
-                            setNavHiddenClass('');
-                        }}
-                    >
-                        <FontAwesomeIcon size="2x" icon="bookmark" className="nav-bookmark_icon" />
-                    </div>
-                )}
             </Navbar>
         </div>
     );
