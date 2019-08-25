@@ -32,9 +32,9 @@ const getNavBgClass = ({currentScrollY}) => {
     return NAV_TRANSPARENT_CLASS;
 };
 
-const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrolling}) => {
-    if (isAutoScrolling) {
-        console.log('getHiddenNavClass_isAutoScrolling', isAutoScrolling);
+const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrollingEvent}) => {
+    if (isAutoScrollingEvent) {
+        console.log('getHiddenNavClass_isAutoScrollingEvent', isAutoScrollingEvent);
         return NAV_HIDDEN_CLASS;
     }
     if (scrollingUp) {
@@ -81,8 +81,8 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
 };
 
 const Header = ({siteTitle, isHashInUrl}) => {
-    let {current: isAutoScrolling} = useRef(false);
-    let {current: isAutoScrollingFinished} = useRef(false);
+    const isAutoScrolling = useRef(false);
+    const isAutoScrollingFinished = useRef(false);
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [navHiddenClass, setNavHiddenClass] = useState('');
@@ -90,13 +90,13 @@ const Header = ({siteTitle, isHashInUrl}) => {
 
     useEffect(() => {
         Events.scrollEvent.register('begin', function() {
-            isAutoScrolling = true;
-            isAutoScrollingFinished = false;
+            isAutoScrolling.current = true;
+            isAutoScrollingFinished.current = false;
         });
 
         Events.scrollEvent.register('end', function() {
-            isAutoScrolling = false;
-            isAutoScrollingFinished = true;
+            isAutoScrolling.current = false;
+            isAutoScrollingFinished.current = true;
         });
 
         if (isHashInUrl) {
@@ -107,37 +107,33 @@ const Header = ({siteTitle, isHashInUrl}) => {
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
         // to hide menu during auto scrolling after link click
-        if (isAutoScrollingFinished) {
-            isAutoScrollingFinished = false;
-
+        if (isAutoScrollingFinished.current) {
+            isAutoScrollingFinished.current = false;
             setShowNavBar(false);
-            // setNavHiddenClass(NAV_HIDDEN_CLASS);
             return;
         }
-        if (isAutoScrolling) {
+        if (isAutoScrolling.current) {
             return;
         }
 
         const nextNavBgClass = getNavBgClass({currentScrollY});
-        const nextHideNavClass = getHiddenNavClass({scrollingUp, currentScrollY, isAutoScrolling});
+        const nextHideNavClass = getHiddenNavClass({
+            scrollingUp,
+            currentScrollY,
+            isAutoScrollingEvent: isAutoScrolling.current,
+        });
 
         if (nextHideNavClass === NAV_HIDDEN_CLASS) {
             setShowNavBar(false);
         }
-        // todo remove next
-        // if (scrollingUp && currentScrollY === 0) {
-        //     setShowNavBar(false);
-        // }
 
         setNavBgClass(nextNavBgClass);
         setNavHiddenClass(nextHideNavClass);
     });
 
     const toggleCollapsedNav = () => {
-        setShowNavBar(!showNavBar);
-
-        const bgClass = navBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS;
-        setNavBgClass(bgClass);
+        setShowNavBar(prevShowNavBar => !prevShowNavBar);
+        setNavBgClass(prevNavBgClass => (prevNavBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS));
     };
 
     const linkClickHandler = () => {
