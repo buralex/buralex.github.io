@@ -54,7 +54,6 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
     const SPACE = ' ';
     const [activeClass, setActiveClass] = useState('');
 
-    // todo maybe remove next
     // because native 'react-scroll' logic sometimes highlights two links simultaneously
     useWindowScroll(() => {
         if (isClient) {
@@ -104,13 +103,18 @@ const Header = ({siteTitle, isHashInUrl}) => {
         if (isHashInUrl) {
             setNavHiddenClass(NAV_HIDDEN_CLASS);
             setNavBgClass(NAV_BG_CLASS);
+            // to NOT invoke computing className depending on scroll (when load page with hash in url)
             isAutoScrollingFinished.current = true;
         }
+
+        return () => {
+            Events.scrollEvent.remove('begin');
+            Events.scrollEvent.remove('end');
+        };
     }, []);
 
     useWindowScroll(({currentScrollY, scrollingUp}) => {
         if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
-            console.log('WTF', currentScrollY);
             setShowToTopBtn(true);
         } else {
             setShowToTopBtn(false);
