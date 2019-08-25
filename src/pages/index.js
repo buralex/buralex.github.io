@@ -4,6 +4,8 @@ import {Link} from 'gatsby';
 import Layout from 'src/layouts_old';
 import Header from 'src/components/Header';
 import Nav from 'src/components/Nav';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import ScrollAnimation from 'react-animate-on-scroll';
 import {
     Link as ScrollLink,
@@ -375,14 +377,6 @@ const IndexPage = (props) => {
                 </div>
             </section>
 
-            {/* Scroll to Top Button (Only visible on small and extra-small screen sizes) */}
-            <div className="scroll-to-top d-lg-none position-fixed ">
-                <a className="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-                    <i className="fa fa-chevron-up" />
-                </a>
-            </div>
-
-            {/* Portfolio Modals */}
 
             {/* Portfolio Modal 1 */}
             <div
