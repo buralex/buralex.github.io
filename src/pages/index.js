@@ -192,7 +192,7 @@ const IndexPage = (props) => {
             </ScrollToElement>
 
             <ScrollToElement name={pageBlocks.about}>
-                <section className="page-section bg-primary text-white mb-0">
+                <section className="page-section bg-gradient text-white mb-0">
                     <div className="container">
                         {/* About Section Heading */}
                         <h2 className="page-section-heading text-center text-uppercase text-white">About</h2>
