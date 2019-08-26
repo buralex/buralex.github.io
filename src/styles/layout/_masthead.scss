@@ -74,7 +74,7 @@
     }
 
     .header-bg {
-      background: radial-gradient(circle at top left, #415DE0, #1F3CCF);
+      background: $bgRadial;
       border-bottom-right-radius: 105% 110%;
       z-index: 2;
 

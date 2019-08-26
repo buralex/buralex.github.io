@@ -1,6 +1,6 @@
-// Styling for page sections
 .page-section {
   padding: 6rem 0;
+
   .page-section-heading {
     font-size: 2.25rem;
     line-height: 2rem;
@@ -11,4 +11,9 @@
       line-height: 2.5rem;
     }
   }
+}
+.bg-gradient {
+  //background-color: #255ddb;
+  //background-image: linear-gradient(45deg, #2d73db 0%, #2755db 100%);
+  background: $bgRadial;
 }
