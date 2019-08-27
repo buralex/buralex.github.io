@@ -13,20 +13,36 @@ import Img from 'gatsby-image';
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
+export const fluidImage = graphql`
+    fragment fluidImage on File {
+        childImageSharp {
+            fluid(maxWidth: 1000) {
+                ...GatsbyImageSharpFluid
+            }
+        }
+    }
+`;
+
 const Image = () => (
     <StaticQuery
         query={graphql`
             query {
-                placeholderImage: file(relativePath: {eq: "gatsby-astronaut.png"}) {
-                    childImageSharp {
-                        fluid(maxWidth: 300) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
+                placeholderImage1: file(relativePath: {eq: "gatsby-astronaut.png"}) {
+                    ...fluidImage
+                }
+                placeholderImage2: file(relativePath: {eq: "favicon.png"}) {
+                    ...fluidImage
                 }
             }
         `}
-        render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+        render={data => {
+            return (
+                <div>
+                    <Img fluid={data.placeholderImage1.childImageSharp.fluid} />
+                    <Img fluid={data.placeholderImage2.childImageSharp.fluid} />
+                </div>
+            );
+        }}
     />
 );
 export default Image;

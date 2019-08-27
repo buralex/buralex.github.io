@@ -74,6 +74,8 @@ const IndexPage = (props) => {
                                 projects
                             </h2>
 
+                            <Image />
+
                             {/* Icon Divider */}
                             <div className="divider-custom">
                                 <div className="divider-custom-line" />
