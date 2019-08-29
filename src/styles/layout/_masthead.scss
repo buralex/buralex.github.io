@@ -58,7 +58,7 @@
 
 
 
-    //----------------------- header-bg ------------------------------
+    //============================== header-bg ===============================
     .header-bg,
     .header-sub-bg {
       position: absolute;
@@ -89,7 +89,7 @@
 
       z-index: 1;
     }
-    //----------------------- header-bg ------------------------------
+    //============================== header-bg ===============================
 
 
     .masthead-heading {
@@ -101,4 +101,13 @@
     }
 
   }
+}
+
+.slider-component {
+  position: relative;
+  background: #419be0;
+  padding: 40px;
+}
+.slick-slide img {
+  margin: auto;
 }

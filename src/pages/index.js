@@ -17,6 +17,7 @@ import {
     scroller,
 } from 'react-scroll';
 import {pageBlocks} from 'src/constants';
+import Slider from 'react-slick';
 import Image from '../components/image';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
@@ -40,10 +41,13 @@ import Drawing from '../images/drawing111.svg';
 //     </header>
 // );
 
-const IndexPage = (props) => {
+const IndexPage = props => {
     // console.log('index_props', props);
-    const {location} = props
+    const {location} = props;
     console.log('location', location);
+    const settings = {
+        dots: true,
+    };
     return (
         <div>
             <SEO title="Home" />
@@ -65,9 +69,29 @@ const IndexPage = (props) => {
 
             <Header />
 
+
+
             <ScrollToElement name={pageBlocks.projects}>
                 <section className="page-section portfolio">
                     <ScrollAnimation animateIn="fadeIn" animateOnce>
+
+                        <div className="slider-component text-center" style={{zIndex: 100}}>
+                            <Slider {...settings}>
+                                <div>
+                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
+                                </div>
+                                <div>
+                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
+                                </div>
+                                <div>
+                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
+                                </div>
+                                <div>
+                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
+                                </div>
+                            </Slider>
+                        </div>
+
                         <div className="container">
                             {/* Portfolio Section Heading */}
                             <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
@@ -212,15 +236,16 @@ const IndexPage = (props) => {
                         <div className="row">
                             <div className="col-lg-4 ml-auto">
                                 <p className="lead">
-                                    Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes
-                                    the complete source files including HTML, CSS, and JavaScript as well as optional SASS
-                                    stylesheets for easy customization.
+                                    Freelancer is a free bootstrap theme created by Start Bootstrap. The download
+                                    includes the complete source files including HTML, CSS, and JavaScript as well as
+                                    optional SASS stylesheets for easy customization.
                                 </p>
                             </div>
                             <div className="col-lg-4 mr-auto">
                                 <p className="lead">
-                                    You can create your own custom avatar for the masthead, change the icon in the dividers,
-                                    and add your email address to the contact form to make it fully functional!
+                                    You can create your own custom avatar for the masthead, change the icon in the
+                                    dividers, and add your email address to the contact form to make it fully
+                                    functional!
                                 </p>
                             </div>
                         </div>
@@ -243,7 +268,9 @@ const IndexPage = (props) => {
                 <section className="page-section">
                     <div className="container">
                         {/* Contact Section Heading */}
-                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
+                            Contact Me
+                        </h2>
 
                         {/* Icon Divider */}
                         <div className="divider-custom">
@@ -379,7 +406,6 @@ const IndexPage = (props) => {
                 </div>
             </section>
 
-
             {/* Portfolio Modal 1 */}
             <div
                 className="portfolio-modal modal fade"
@@ -392,9 +418,9 @@ const IndexPage = (props) => {
                 <div className="modal-dialog modal-xl" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i className="fas fa-times" />
-                        </span>
+                            <span aria-hidden="true">
+                                <i className="fas fa-times" />
+                            </span>
                         </button>
                         <div className="modal-body text-center">
                             <div className="container">
@@ -417,9 +443,9 @@ const IndexPage = (props) => {
                                         {/* Portfolio Modal - Text */}
                                         <p className="mb-5">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                            velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque.
-                                            Nam.
+                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
+                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                                            consequuntur itaque. Nam.
                                         </p>
                                         <button className="btn btn-primary" href="#" data-dismiss="modal">
                                             <i className="fas fa-times fa-fw" />
@@ -445,9 +471,9 @@ const IndexPage = (props) => {
                 <div className="modal-dialog modal-xl" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i className="fas fa-times" />
-                        </span>
+                            <span aria-hidden="true">
+                                <i className="fas fa-times" />
+                            </span>
                         </button>
                         <div className="modal-body text-center">
                             <div className="container">
@@ -470,9 +496,9 @@ const IndexPage = (props) => {
                                         {/* Portfolio Modal - Text */}
                                         <p className="mb-5">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                            velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque.
-                                            Nam.
+                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
+                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                                            consequuntur itaque. Nam.
                                         </p>
                                         <button className="btn btn-primary" href="#" data-dismiss="modal">
                                             <i className="fas fa-times fa-fw" />
@@ -498,9 +524,9 @@ const IndexPage = (props) => {
                 <div className="modal-dialog modal-xl" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i className="fas fa-times" />
-                        </span>
+                            <span aria-hidden="true">
+                                <i className="fas fa-times" />
+                            </span>
                         </button>
                         <div className="modal-body text-center">
                             <div className="container">
@@ -523,9 +549,9 @@ const IndexPage = (props) => {
                                         {/* Portfolio Modal - Text */}
                                         <p className="mb-5">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                            velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque.
-                                            Nam.
+                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
+                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                                            consequuntur itaque. Nam.
                                         </p>
                                         <button className="btn btn-primary" href="#" data-dismiss="modal">
                                             <i className="fas fa-times fa-fw" />
@@ -551,9 +577,9 @@ const IndexPage = (props) => {
                 <div className="modal-dialog modal-xl" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i className="fas fa-times" />
-                        </span>
+                            <span aria-hidden="true">
+                                <i className="fas fa-times" />
+                            </span>
                         </button>
                         <div className="modal-body text-center">
                             <div className="container">
@@ -576,9 +602,9 @@ const IndexPage = (props) => {
                                         {/* Portfolio Modal - Text */}
                                         <p className="mb-5">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                            velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque.
-                                            Nam.
+                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
+                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                                            consequuntur itaque. Nam.
                                         </p>
                                         <button className="btn btn-primary" href="#" data-dismiss="modal">
                                             <i className="fas fa-times fa-fw" />
@@ -604,9 +630,9 @@ const IndexPage = (props) => {
                 <div className="modal-dialog modal-xl" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i className="fas fa-times" />
-                        </span>
+                            <span aria-hidden="true">
+                                <i className="fas fa-times" />
+                            </span>
                         </button>
                         <div className="modal-body text-center">
                             <div className="container">
@@ -629,9 +655,9 @@ const IndexPage = (props) => {
                                         {/* Portfolio Modal - Text */}
                                         <p className="mb-5">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                            velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque.
-                                            Nam.
+                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
+                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                                            consequuntur itaque. Nam.
                                         </p>
                                         <button className="btn btn-primary" href="#" data-dismiss="modal">
                                             <i className="fas fa-times fa-fw" />
@@ -657,9 +683,9 @@ const IndexPage = (props) => {
                 <div className="modal-dialog modal-xl" role="document">
                     <div className="modal-content">
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">
-                            <i className="fas fa-times" />
-                        </span>
+                            <span aria-hidden="true">
+                                <i className="fas fa-times" />
+                            </span>
                         </button>
                         <div className="modal-body text-center">
                             <div className="container">
@@ -678,13 +704,17 @@ const IndexPage = (props) => {
                                             <div className="divider-custom-line" />
                                         </div>
                                         {/* Portfolio Modal - Image */}
-                                        <img className="img-fluid rounded mb-5" src="img/portfolio/submarine.png" alt="" />
+                                        <img
+                                            className="img-fluid rounded mb-5"
+                                            src="img/portfolio/submarine.png"
+                                            alt=""
+                                        />
                                         {/* Portfolio Modal - Text */}
                                         <p className="mb-5">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                            velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque.
-                                            Nam.
+                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
+                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
+                                            consequuntur itaque. Nam.
                                         </p>
                                         <button className="btn btn-primary" href="#" data-dismiss="modal">
                                             <i className="fas fa-times fa-fw" />
@@ -698,7 +728,7 @@ const IndexPage = (props) => {
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default IndexPage;
