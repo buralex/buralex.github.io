@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import throttle from 'lodash/throttle';
+import Slider from 'react-slick';
 
 import './styles.scss';
 
@@ -83,6 +84,9 @@ const oldHeader = () => {
 };
 
 const Header = ({siteTitle}) => {
+    const settings = {
+        dots: true,
+    };
     return (
         <header className="masthead text-white text-center">
             <div className="header-bg" />
@@ -105,6 +109,8 @@ const Header = ({siteTitle}) => {
                     Graphic Artist - Web Designer - Illustrator
                 </p>
             </div>
+
+
             {/* <div className="header-wrap"> */}
             {/*    <div className="header-image" /> */}
             {/*    <div className="header-sub-image" /> */}
