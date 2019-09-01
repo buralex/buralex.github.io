@@ -17,7 +17,6 @@ import {
 } from 'react-scroll';
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
-import './styles.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
@@ -89,6 +88,13 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
     const [navHiddenClass, setNavHiddenClass] = useState('');
     const [showNavBar, setShowNavBar] = useState(false);
 
+    const hideTopNav = () => {
+        setNavHiddenClass(NAV_HIDDEN_CLASS);
+    };
+    const showTopNav = () => {
+        setNavHiddenClass('');
+    };
+
     useEffect(() => {
         Events.scrollEvent.register('begin', function() {
             isAutoScrolling.current = true;
@@ -101,7 +107,7 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
         });
 
         if (isHashInUrl) {
-            setNavHiddenClass(NAV_HIDDEN_CLASS);
+            hideTopNav();
             setNavBgClass(NAV_BG_CLASS);
             // to NOT invoke computing className depending on scroll (when load page with hash in url)
             isAutoScrollingFinished.current = true;
@@ -123,6 +129,10 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
         // to hide menu during auto scrolling after link click
         if (isAutoScrollingFinished.current) {
             isAutoScrollingFinished.current = false;
+            if (currentScrollY < SCROLL_OFFSET_TO_HIDE_NAV) {
+                showTopNav();
+                setNavBgClass(NAV_TRANSPARENT_CLASS);
+            }
             setShowNavBar(false);
             return;
         }
@@ -151,7 +161,7 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
     };
 
     const linkClickHandler = () => {
-        setNavHiddenClass(NAV_HIDDEN_CLASS);
+        hideTopNav();
         setShowNavBar(false);
     };
 

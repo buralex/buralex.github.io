@@ -5,7 +5,6 @@ import Logo from 'src/images/logo.svg';
 import throttle from 'lodash/throttle';
 import Slider from 'react-slick';
 
-// import './styles.scss';
 
 const Header = ({siteTitle}) => {
     const settings = {

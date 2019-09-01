@@ -49,7 +49,7 @@ const IndexPage = props => {
         dots: true,
     };
     return (
-        <Layout>
+        <Layout location={location}>
             <SEO title="Home" />
             {/* <h1>About</h1> */}
             {/* <p>I am a developer.</p> */}

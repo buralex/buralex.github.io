@@ -1,21 +1,6 @@
-// Styling for the navbar
-$navTransition: all 0.3s;
-.nav-bookmark {
-  position: absolute;
-  top: 100%;
-  right: 20px;
-  z-index: 1;
-  overflow: hidden;
-  width: 50px;
-  height: 50px;
 
-  &_icon {
-    position: absolute;
-    color: #2c3e50;
-    top: -5px;
-    right: 0;
-  }
-}
+$navTransition: all 0.3s;
+
 .navbar {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -25,7 +10,7 @@ $navTransition: all 0.3s;
   z-index: 20;
 
   &.hidden {
-    top: -73px;
+    top: -75px;
   }
 
   .navbar-brand {
@@ -68,7 +53,7 @@ $navTransition: all 0.3s;
     padding-bottom: 1.5rem;
 
     &.hidden {
-      top: -105px;
+      top: -156px;
     }
 
     .navbar-brand {
