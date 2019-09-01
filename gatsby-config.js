@@ -1,10 +1,8 @@
-const path = require('path');
-
 module.exports = {
     siteMetadata: {
         title: `Alexandr Burlachenko`,
         description: `Personal page.`,
-        author: `@alexandr`,
+        author: `@buralex`,
     },
     plugins: [
         `gatsby-plugin-sass`,
@@ -16,7 +14,6 @@ module.exports = {
                 analyzerPort: '3010',
             },
         },
-        // `gatsby-plugin-layout`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
@@ -32,8 +29,8 @@ module.exports = {
                 name: `alexandr burlachenko`,
                 short_name: `personal page`,
                 start_url: `/`,
-                background_color: `#1d4299`,
-                theme_color: `#1d4299`,
+                background_color: `#2755db`,
+                theme_color: `#2755db`,
                 display: `minimal-ui`,
                 icon: `src/images/favicon.png`, // This path is relative to the root of the site.
             },

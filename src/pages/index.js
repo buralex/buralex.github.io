@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-import Layout from 'src/layouts_old';
-import Header from 'src/components/Header';
-import Nav from 'src/components/Nav';
+import Layout from 'src/components/layout';
+
+import Nav from 'src/components/TopNav';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -49,7 +49,7 @@ const IndexPage = props => {
         dots: true,
     };
     return (
-        <div>
+        <Layout>
             <SEO title="Home" />
             {/* <h1>About</h1> */}
             {/* <p>I am a developer.</p> */}
@@ -65,9 +65,9 @@ const IndexPage = props => {
             {/* /> */}
             {/* <Link to="/contact/">Go to contact</Link> */}
 
-            <Nav isHashInUrl={location.hash} />
 
-            <Header />
+
+
 
 
 
@@ -355,56 +355,6 @@ const IndexPage = props => {
                     </div>
                 </section>
             </ScrollToElement>
-
-            {/* Footer */}
-            <footer className="footer text-center">
-                <div className="container">
-                    <div className="row">
-                        {/* Footer Location */}
-                        <div className="col-lg-4 mb-5 mb-lg-0">
-                            <h4 className="text-uppercase mb-4">Location</h4>
-                            <p className="lead mb-0">
-                                2215 John Daniel Drive
-                                <br />
-                                Clark, MO 65243
-                            </p>
-                        </div>
-
-                        {/* Footer Social Icons */}
-                        <div className="col-lg-4 mb-5 mb-lg-0">
-                            <h4 className="text-uppercase mb-4">Around the Web</h4>
-                            <a className="btn btn-outline-light btn-social mx-1" href="#">
-                                <i className="fab fa-fw fa-facebook-f" />
-                            </a>
-                            <a className="btn btn-outline-light btn-social mx-1" href="#">
-                                <i className="fab fa-fw fa-twitter" />
-                            </a>
-                            <a className="btn btn-outline-light btn-social mx-1" href="#">
-                                <i className="fab fa-fw fa-linkedin-in" />
-                            </a>
-                            <a className="btn btn-outline-light btn-social mx-1" href="#">
-                                <i className="fab fa-fw fa-dribbble" />
-                            </a>
-                        </div>
-
-                        {/* Footer About Text */}
-                        <div className="col-lg-4">
-                            <h4 className="text-uppercase mb-4">About Freelancer</h4>
-                            <p className="lead mb-0">
-                                Freelance is a free to use, MIT licensed Bootstrap theme created by
-                                <a href="http://startbootstrap.com">Start Bootstrap</a>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-            {/* Copyright Section */}
-            <section className="copyright py-4 text-center text-white">
-                <div className="container">
-                    <small>Copyright &copy; Your Website 2019</small>
-                </div>
-            </section>
 
             {/* Portfolio Modal 1 */}
             <div
@@ -727,7 +677,7 @@ const IndexPage = props => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 
