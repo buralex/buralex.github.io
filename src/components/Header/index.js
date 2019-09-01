@@ -89,11 +89,11 @@ const Header = ({siteTitle}) => {
     };
     return (
         <header className="masthead text-white text-center">
-            <div className="header-bg" />
-            <div className="header-sub-bg" />
+            {/*<div className="header-bg" />*/}
+            {/*<div className="header-sub-bg" />*/}
 
             <div className="container d-flex align-items-center flex-column">
-                <img className="masthead-avatar mb-5" src="img/avataaars.svg" alt="" />
+                {/*<img className="masthead-avatar mb-5" src="img/avataaars.svg" alt="" />*/}
 
                 <h1 className="masthead-heading text-uppercase mb-0">Alex Burlachenko</h1>
 
