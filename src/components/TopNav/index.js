@@ -119,27 +119,33 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
         };
     }, []);
 
+    // useEffect(()=>{
+    //     console.log('PPPPPPPPPPPPPPPPP');
+    // })
+
     useWindowScroll(({currentScrollY, scrollingUp}) => {
-        if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
+        const ADDITIONAL_SCROLL_OFSET = 500;
+        if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV + ADDITIONAL_SCROLL_OFSET) {
             setShowToTopBtn(true);
         } else {
             setShowToTopBtn(false);
         }
-
+        console.log('before_isAutoScrollingFinished_________________');
         // to hide menu during auto scrolling after link click
         if (isAutoScrollingFinished.current) {
             isAutoScrollingFinished.current = false;
-            if (currentScrollY < SCROLL_OFFSET_TO_HIDE_NAV) {
-                showTopNav();
-                setNavBgClass(NAV_TRANSPARENT_CLASS);
-            }
+            // if (currentScrollY < SCROLL_OFFSET_TO_HIDE_NAV) {
+            //     showTopNav();
+            //     setNavBgClass(NAV_TRANSPARENT_CLASS);
+            // }
+            console.log('isAutoScrollingFinished', isAutoScrollingFinished);
             setShowNavBar(false);
             return;
         }
         if (isAutoScrolling.current) {
             return;
         }
-
+        console.log('after_isAutoScrolling_________________');
         const nextNavBgClass = getNavBgClass({currentScrollY});
         const nextHideNavClass = getHiddenNavClass({
             scrollingUp,
