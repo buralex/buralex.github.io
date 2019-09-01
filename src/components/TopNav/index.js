@@ -32,15 +32,31 @@ const getNavBgClass = ({currentScrollY}) => {
 };
 
 const LinkWithScroll = ({content, onClick, scrollTo}) => {
+    const SPACE = ' ';
+    const [activeClass, setActiveClass] = useState('');
+
+    // because native 'react-scroll' logic sometimes highlights two links simultaneously
+    useWindowScroll(() => {
+        if (isClient) {
+            console.log('___window.location.hash.includes(scrollTo)',scrollTo, window.location.hash.includes(scrollTo));
+            if (window.location.hash.includes(scrollTo)) {
+                setActiveClass('active');
+            } else {
+                setActiveClass('');
+            }
+        }
+    });
+
     return (
         <ScrollLink
-            className="nav-link py-3 px-0 px-lg-3 rounded"
+            activeClass={SPACE}
+            className={`nav-link py-3 px-0 px-lg-3 rounded ${activeClass}`}
             to={scrollTo}
             hashSpy={true}
-            spy={true}
             smooth="easeInOutQuart"
             duration={1000}
             onClick={onClick}
+            offset={-50}
         >
             {content}
         </ScrollLink>
@@ -96,6 +112,10 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
             setShowToTopBtn(true);
         } else {
             setShowToTopBtn(false);
+        }
+
+        if (isAutoScrolling.current) {
+            return;
         }
 
         const nextNavBgClass = getNavBgClass({currentScrollY});
