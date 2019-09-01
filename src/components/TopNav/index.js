@@ -21,9 +21,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
-const NAV_BG_CLASS = 'bg-secondary';
+const NAV_BG_CLASS = 'bg-secondary navbar-shrink';
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
-const NAV_HIDDEN_CLASS = 'hidden';
 
 const getNavBgClass = ({currentScrollY}) => {
     if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
@@ -32,44 +31,13 @@ const getNavBgClass = ({currentScrollY}) => {
     return NAV_TRANSPARENT_CLASS;
 };
 
-const getHiddenNavClass = ({scrollingUp, currentScrollY, isAutoScrollingEvent}) => {
-    if (isAutoScrollingEvent) {
-        console.log('getHiddenNavClass_isAutoScrollingEvent', isAutoScrollingEvent);
-        return NAV_HIDDEN_CLASS;
-    }
-    if (scrollingUp) {
-        console.log('getHiddenNavClass_scrollingUp', scrollingUp);
-        return '';
-    }
-    if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
-        console.log('getHiddenNavClass_currentScrollY__MORE_THAN', currentScrollY);
-        return NAV_HIDDEN_CLASS;
-    }
-    console.log('________getHiddenNavClass________default_return', currentScrollY);
-    return '';
-};
-
 const LinkWithScroll = ({content, onClick, scrollTo}) => {
-    const SPACE = ' ';
-    const [activeClass, setActiveClass] = useState('');
-
-    // because native 'react-scroll' logic sometimes highlights two links simultaneously
-    useWindowScroll(() => {
-        if (isClient) {
-            if (window.location.hash.includes(scrollTo)) {
-                setActiveClass('active');
-            } else {
-                setActiveClass('');
-            }
-        }
-    });
-
     return (
         <ScrollLink
-            activeClass={SPACE}
-            className={`nav-link py-3 px-0 px-lg-3 rounded ${activeClass}`}
+            className="nav-link py-3 px-0 px-lg-3 rounded"
             to={scrollTo}
             hashSpy={true}
+            spy={true}
             smooth="easeInOutQuart"
             duration={1000}
             onClick={onClick}
@@ -85,102 +53,75 @@ const TopNav = ({siteTitle, isHashInUrl}) => {
 
     const [navBgClass, setNavBgClass] = useState(NAV_TRANSPARENT_CLASS);
     const [showToTopBtn, setShowToTopBtn] = useState(false);
-    const [navHiddenClass, setNavHiddenClass] = useState('');
-    const [showNavBar, setShowNavBar] = useState(false);
+    // const [navHiddenClass, setNavHiddenClass] = useState('');
+    const [showNavBarMenu, setShowNavBarMenu] = useState(false);
 
-    const hideTopNav = () => {
-        setNavHiddenClass(NAV_HIDDEN_CLASS);
-    };
-    const showTopNav = () => {
-        setNavHiddenClass('');
-    };
+    // const hideTopNav = () => {
+    //     setNavHiddenClass(NAV_HIDDEN_CLASS);
+    // };
+    // const showTopNav = () => {
+    //     setNavHiddenClass('');
+    // };
 
-    useEffect(() => {
-        Events.scrollEvent.register('begin', function() {
-            isAutoScrolling.current = true;
-            isAutoScrollingFinished.current = false;
-        });
-
-        Events.scrollEvent.register('end', function() {
-            isAutoScrolling.current = false;
-            isAutoScrollingFinished.current = true;
-        });
-
-        if (isHashInUrl) {
-            hideTopNav();
-            setNavBgClass(NAV_BG_CLASS);
-            // to NOT invoke computing className depending on scroll (when load page with hash in url)
-            isAutoScrollingFinished.current = true;
-        }
-
-        return () => {
-            Events.scrollEvent.remove('begin');
-            Events.scrollEvent.remove('end');
-        };
-    }, []);
+    // useEffect(() => {
+    //     Events.scrollEvent.register('begin', function() {
+    //         isAutoScrolling.current = true;
+    //         isAutoScrollingFinished.current = false;
+    //     });
+    //
+    //     Events.scrollEvent.register('end', function() {
+    //         isAutoScrolling.current = false;
+    //         isAutoScrollingFinished.current = true;
+    //     });
+    //
+    //     if (isHashInUrl) {
+    //         hideTopNav();
+    //         setNavBgClass(NAV_BG_CLASS);
+    //         // to NOT invoke computing className depending on scroll (when load page with hash in url)
+    //         isAutoScrollingFinished.current = true;
+    //     }
+    //
+    //     return () => {
+    //         Events.scrollEvent.remove('begin');
+    //         Events.scrollEvent.remove('end');
+    //     };
+    // }, []);
 
     // useEffect(()=>{
     //     console.log('PPPPPPPPPPPPPPPPP');
     // })
 
-    useWindowScroll(({currentScrollY, scrollingUp}) => {
-        const ADDITIONAL_SCROLL_OFSET = 500;
-        if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV + ADDITIONAL_SCROLL_OFSET) {
+    useWindowScroll(({currentScrollY}) => {
+        if (currentScrollY > SCROLL_OFFSET_TO_HIDE_NAV) {
             setShowToTopBtn(true);
         } else {
             setShowToTopBtn(false);
         }
-        console.log('before_isAutoScrollingFinished_________________');
-        // to hide menu during auto scrolling after link click
-        if (isAutoScrollingFinished.current) {
-            isAutoScrollingFinished.current = false;
-            // if (currentScrollY < SCROLL_OFFSET_TO_HIDE_NAV) {
-            //     showTopNav();
-            //     setNavBgClass(NAV_TRANSPARENT_CLASS);
-            // }
-            console.log('isAutoScrollingFinished', isAutoScrollingFinished);
-            setShowNavBar(false);
-            return;
-        }
-        if (isAutoScrolling.current) {
-            return;
-        }
-        console.log('after_isAutoScrolling_________________');
+
         const nextNavBgClass = getNavBgClass({currentScrollY});
-        const nextHideNavClass = getHiddenNavClass({
-            scrollingUp,
-            currentScrollY,
-            isAutoScrollingEvent: isAutoScrolling.current,
-        });
-
-        if (nextHideNavClass === NAV_HIDDEN_CLASS) {
-            setShowNavBar(false);
-        }
-
         setNavBgClass(nextNavBgClass);
-        setNavHiddenClass(nextHideNavClass);
     });
 
     const toggleCollapsedNav = () => {
-        setShowNavBar(prevShowNavBar => !prevShowNavBar);
+        setShowNavBarMenu(prevShowNavBar => !prevShowNavBar);
         setNavBgClass(prevNavBgClass => (prevNavBgClass === NAV_TRANSPARENT_CLASS ? NAV_BG_CLASS : NAV_BG_CLASS));
     };
 
     const linkClickHandler = () => {
-        hideTopNav();
-        setShowNavBar(false);
+        setShowNavBarMenu(false);
     };
 
-    console.log('RENDER______NAV__', 'navCls=', navBgClass, 'hidden_class', navHiddenClass);
+    console.log('RENDER______NAV__', 'navCls=', navBgClass, 'hidden_class');
 
     return (
         <div>
             <Navbar
                 expand="lg"
                 fixed="top"
-                className={`${navBgClass} ${navHiddenClass} text-uppercase`}
+                // className={`${navBgClass} ${navHiddenClass} text-uppercase`}
+                className={`${navBgClass} text-uppercase`}
                 onToggle={toggleCollapsedNav}
-                expanded={showNavBar}
+                expanded={showNavBarMenu}
             >
                 <Container>
                     <Navbar.Brand onClick={scroll.scrollToTop}>AB</Navbar.Brand>
