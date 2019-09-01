@@ -30,7 +30,7 @@ const Layout = props => {
             `}
             render={data => (
                 <>
-                    <TopNav isHashInUrl={location.hash} />
+                    <TopNav isHashInUrl={location && location.hash} />
                     <Header siteTitle={data.site.siteMetadata.title} />
                     <div>
                         <main>{children}</main>
