@@ -65,16 +65,9 @@ const IndexPage = props => {
             {/* /> */}
             {/* <Link to="/contact/">Go to contact</Link> */}
 
-
-
-
-
-
-
-            <ScrollToElement name={pageBlocks.projects}>
-                <section className="page-section portfolio">
+            <section className="page-section portfolio">
+                <ScrollToElement name={pageBlocks.projects}>
                     <ScrollAnimation animateIn="fadeIn" animateOnce>
-
                         <div className="slider-component text-center" style={{zIndex: 100}}>
                             <Slider {...settings}>
                                 <div>
@@ -214,13 +207,14 @@ const IndexPage = props => {
                             {/* /.row */}
                         </div>
                     </ScrollAnimation>
-                </section>
-            </ScrollToElement>
+                </ScrollToElement>
+            </section>
 
-            <ScrollToElement name={pageBlocks.about}>
-                <section className="page-section bg-gradient text-white mb-0">
+            <section className="page-section bg-gradient text-white mb-0">
+                <ScrollToElement name={pageBlocks.about}>
                     <div className="container">
                         {/* About Section Heading */}
+
                         <h2 className="page-section-heading text-center text-uppercase text-white">About</h2>
 
                         {/* Icon Divider */}
@@ -261,11 +255,11 @@ const IndexPage = props => {
                             </a>
                         </div>
                     </div>
-                </section>
-            </ScrollToElement>
+                </ScrollToElement>
+            </section>
 
-            <ScrollToElement name={pageBlocks.contact}>
-                <section className="page-section">
+            <section className="page-section">
+                <ScrollToElement name={pageBlocks.contact}>
                     <div className="container">
                         {/* Contact Section Heading */}
                         <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
@@ -353,8 +347,8 @@ const IndexPage = props => {
                             </div>
                         </div>
                     </div>
-                </section>
-            </ScrollToElement>
+                </ScrollToElement>
+            </section>
 
             {/* Portfolio Modal 1 */}
             <div
