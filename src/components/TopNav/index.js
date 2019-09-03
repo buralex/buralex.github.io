@@ -116,6 +116,11 @@ const TopNav = ({siteTitle}) => {
         setShowNavBarMenu(false);
     };
 
+    const scrollToTopHandler = () => {
+        setShowNavBarMenu(false);
+        scroll.scrollToTop();
+    };
+
     console.log('RENDER______NAV__', 'navCls=', navBgClass, 'hidden_class');
 
     return (
@@ -123,13 +128,12 @@ const TopNav = ({siteTitle}) => {
             <Navbar
                 expand="lg"
                 fixed="top"
-                // className={`${navBgClass} ${navHiddenClass} text-uppercase`}
                 className={`${navBgClass} text-uppercase`}
                 onToggle={toggleCollapsedNav}
                 expanded={showNavBarMenu}
             >
                 <Container>
-                    <Navbar.Brand onClick={scroll.scrollToTop}>AB</Navbar.Brand>
+                    <Navbar.Brand onClick={scrollToTopHandler}>AB</Navbar.Brand>
                     <Navbar.Toggle
                         aria-controls="basic-navbar-nav"
                         className="navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
@@ -141,7 +145,7 @@ const TopNav = ({siteTitle}) => {
                         <div className="scroll-to-top position-fixed ">
                             <a
                                 className="js-scroll-trigger d-block text-center text-white rounded"
-                                onClick={scroll.scrollToTop}
+                                onClick={scrollToTopHandler}
                             >
                                 <i className="fa fa-chevron-up" />
                                 <FontAwesomeIcon size="2x" icon="angle-up" />
