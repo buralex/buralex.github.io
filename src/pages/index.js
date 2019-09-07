@@ -45,9 +45,7 @@ const IndexPage = props => {
     // console.log('index_props', props);
     const {location} = props;
     console.log('location', location);
-    const settings = {
-        dots: true,
-    };
+
     return (
         <Layout location={location}>
             <SEO title="Home" />
@@ -68,22 +66,7 @@ const IndexPage = props => {
             <section className="page-section portfolio">
                 <ScrollToElement name={pageBlocks.projects}>
                     <ScrollAnimation animateIn="fadeIn" animateOnce>
-                        <div className="slider-component text-center" style={{zIndex: 100}}>
-                            <Slider {...settings}>
-                                <div>
-                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
-                                </div>
-                                <div>
-                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
-                                </div>
-                                <div>
-                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
-                                </div>
-                                <div>
-                                    <img src="http://placekitten.com/g/400/200" alt="cat" />
-                                </div>
-                            </Slider>
-                        </div>
+
 
                         <div className="container">
                             {/* Portfolio Section Heading */}

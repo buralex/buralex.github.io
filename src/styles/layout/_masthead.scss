@@ -5,7 +5,7 @@
   overflow: hidden;
   position: relative;
   z-index: 3;
-  background: $bgRadial;
+  background: $mainBgRadial;
 
   .masthead-heading {
     font-size: 2.75rem;
@@ -37,7 +37,7 @@
 
 .slider-component {
   position: relative;
-  background: #419be0;
+  background: transparent;
   padding: 40px;
 }
 .slick-slide img {
