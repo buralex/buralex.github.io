@@ -21,7 +21,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 const SCROLL_OFFSET_TO_HIDE_NAV = 100;
-const NAV_BG_CLASS = 'bg-secondary navbar-shrink';
+const NAV_BG_CLASS = 'navbar-shrink';
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 
 const getNavBgClass = ({currentScrollY}) => {

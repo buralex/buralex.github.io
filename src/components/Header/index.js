@@ -4,6 +4,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import throttle from 'lodash/throttle';
 import Slider from 'react-slick';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 const Header = ({siteTitle}) => {
@@ -21,6 +22,7 @@ const Header = ({siteTitle}) => {
                     <div className="divider-custom-line" />
                     <div className="divider-custom-icon">
                         <i className="fas fa-star" />
+                        <FontAwesomeIcon icon="star" />
                     </div>
                     <div className="divider-custom-line" />
                 </div>
