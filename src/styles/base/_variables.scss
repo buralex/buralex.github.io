@@ -50,12 +50,12 @@ $light_bg:      #fafbfc !default;
 $mainBgStop1: #2d89f2;
 $mainBgStop2: #2755db;
 
-$mainBgStop3: #63f2c6;
-$mainBgStop4: #dba20b;
+//$mainBgStop3: #63f2c6;
+//$mainBgStop4: #dba20b;
 
 //$bgLinear: linear-gradient(45deg, $mainBgStop1 0%, $mainBgStop2 100%);
-$bgRadial: radial-gradient(circle at top left, $mainBgStop1, $mainBgStop2);
-$bgRadial2: radial-gradient(circle at bottom left, $mainBgStop3, $mainBgStop4);
+$mainBgRadial: radial-gradient(circle at top left, $mainBgStop1, $mainBgStop2);
+//$bgRadial2: radial-gradient(circle at bottom left, $mainBgStop3, $mainBgStop4);
 //=============================== COLORS ===============================================
 
 // Override Bootstrap font variables

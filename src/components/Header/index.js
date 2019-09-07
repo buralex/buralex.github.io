@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
 import throttle from 'lodash/throttle';
-import Slider from 'react-slick';
+import HeaderSlider from 'src/components/HeaderSlider';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
@@ -30,7 +30,10 @@ const Header = ({siteTitle}) => {
                 <p className="masthead-subheading font-weight-light mb-0">
                     Web Developer
                 </p>
+
+
             </div>
+            <HeaderSlider />
         </header>
     );
 };
