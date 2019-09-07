@@ -16,6 +16,7 @@ import {
     faShoppingCart,
     faListUl,
     faBookmark,
+    faStar,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -34,4 +35,5 @@ library.add(
     faYoutube,
     faListUl,
     faBookmark,
+    faStar,
 );
