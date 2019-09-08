@@ -5,7 +5,8 @@
  */
 
 import 'animate.css/animate.min.css';
-import './src/styles/index.scss';
-import './src/fontawesome';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+import './src/fontawesome';
+import './src/styles/index.scss';
