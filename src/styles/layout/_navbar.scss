@@ -10,10 +10,8 @@ $navTransition: all 0.3s;
   z-index: 20;
 
   &.navbar-shrink {
-    $topNavBgStop1: #2166e5;
-    $topNavBgStop2: #444bf0;
-    $topNavBgRadial: radial-gradient(circle at top left, $topNavBgStop1, $topNavBgStop2);
-    background: $topNavBgRadial;
+    background: $topNavBg;
+    border-bottom: 1px solid black;
   }
 
   .navbar-brand {

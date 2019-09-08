@@ -45,17 +45,18 @@ $amazon:        #f0c14b !default;
 $youtube:       #ff0001 !default;
 $light_bg:      #fafbfc !default;
 
-//$mainBgStop1: #415DE0;
-//$mainBgStop2: #1F3CCF;
+$topNavBgStop1: #2166e5;
+$topNavBgStop2: #444bf0;
+$topNavBg: radial-gradient(circle at top left, $topNavBgStop1, $topNavBgStop2);
+
 $mainBgStop1: #2d89f2;
 $mainBgStop2: #2755db;
 
-//$mainBgStop3: #63f2c6;
-//$mainBgStop4: #dba20b;
-
+$mainBg: radial-gradient(circle at top right, #2166e5, #444bf0),
+          radial-gradient(circle at top left, $mainBgStop1, $mainBgStop2);
 //$bgLinear: linear-gradient(45deg, $mainBgStop1 0%, $mainBgStop2 100%);
-$mainBgRadial: radial-gradient(circle at top left, $mainBgStop1, $mainBgStop2);
 //$bgRadial2: radial-gradient(circle at bottom left, $mainBgStop3, $mainBgStop4);
+
 //=============================== COLORS ===============================================
 
 // Override Bootstrap font variables
