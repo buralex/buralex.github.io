@@ -13,7 +13,7 @@ const Header = ({siteTitle}) => {
         dots: true,
     };
     return (
-        <header className="masthead text-white text-center">
+        <header className="masthead bg-main text-white text-center">
             <div className="container d-flex align-items-center flex-column">
                 {/*<img className="masthead-avatar mb-5" src="img/avataaars.svg" alt="" />*/}
 
