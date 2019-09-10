@@ -1,6 +1,7 @@
 
 .masthead {
-  padding-top: calc(6rem + 74px);
+  //padding-top: calc(6rem + 74px);
+  padding-top: calc(6rem + 10px);
   padding-bottom: 6rem;
   overflow: hidden;
   position: relative;
@@ -20,7 +21,7 @@
 
 @include media-breakpoint-up(lg) {
   .masthead {
-    padding-top: calc(6rem + 104px);
+    //padding-top: calc(6rem + 104px);
     padding-bottom: 30rem;
 
     .masthead-heading {
