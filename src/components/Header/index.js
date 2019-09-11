@@ -35,7 +35,7 @@ const Header = ({siteTitle}) => {
                 </p>
             </div>
 
-            <h2 className="mt-5">What I do</h2>
+            <h2 className="mt-5">What I do:</h2>
             <HeaderSlider />
         </header>
     );

@@ -18,7 +18,8 @@ import {
 } from 'react-scroll';
 import {pageBlocks} from 'src/constants';
 import Slider from 'react-slick';
-import Image from '../components/image';
+// import Image from '../components/image';
+import Gallery from '../components/Gallery';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
 // const Header = () => (
@@ -74,8 +75,6 @@ const IndexPage = props => {
                                 projects
                             </h2>
 
-                            <Image />
-
                             {/* Icon Divider */}
                             <div className="divider-custom">
                                 <div className="divider-custom-line" />
@@ -87,6 +86,9 @@ const IndexPage = props => {
 
                             {/* Portfolio Grid Items */}
                             <div className="row">
+
+                                <Gallery />
+
                                 {/* Portfolio Item 1 */}
                                 <div className="col-md-6 col-lg-4">
                                     <div

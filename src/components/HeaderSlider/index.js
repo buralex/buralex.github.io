@@ -5,8 +5,8 @@ import './styles.scss';
 
 const Slide = () => (
     <div>
-        <img className="mb-5" width={700} height="auto" src={Dashboard} alt="dashboard" />
         <h3>Real-time dashboards</h3>
+        <img className="mb-5" width={700} height="auto" src={Dashboard} alt="dashboard" />
     </div>
 );
 
