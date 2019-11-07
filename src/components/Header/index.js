@@ -5,8 +5,8 @@ import Logo from 'src/images/logo.svg';
 import Dashboard from 'src/images/dashboard.png';
 import throttle from 'lodash/throttle';
 import HeaderSlider from 'src/components/HeaderSlider';
+import Divider from 'src/components/Divider';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
 
 const Header = ({siteTitle}) => {
     const settings = {
@@ -15,27 +15,13 @@ const Header = ({siteTitle}) => {
     return (
         <header className="masthead bg-main text-white text-center">
             <div className="container d-flex align-items-center flex-column">
-                {/*<img className="masthead-avatar mb-5" src="img/avataaars.svg" alt="" />*/}
+                <p className="masthead-subheading font-weight-light mb-2">Alex Burlachenko</p>
 
+                <h1 className="masthead-heading text-uppercase mb-0">Digitalize your business</h1>
 
-                <h1 className="masthead-heading text-uppercase mb-0">Alex Burlachenko</h1>
-
-                <div className="divider-custom divider-light">
-                    <div className="divider-custom-line" />
-                    <div className="divider-custom-icon">
-                        {/*<i className="fas fa-star" />*/}
-                        &#9733;
-                        {/*<FontAwesomeIcon icon="star" />*/}
-                    </div>
-                    <div className="divider-custom-line" />
-                </div>
-
-                <p className="masthead-subheading font-weight-light mb-0">
-                    Web Developer
-                </p>
+                <Divider light />
             </div>
 
-            <h2 className="mt-5">What I do:</h2>
             <HeaderSlider />
         </header>
     );

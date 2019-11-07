@@ -41,7 +41,7 @@ const LinkWithScroll = ({content, onClick, scrollTo}) => {
             smooth="easeInOutQuart"
             duration={1000}
             onClick={onClick}
-            offset={-80}
+            offset={-100}
         >
             {content}
         </ScrollLink>

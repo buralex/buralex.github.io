@@ -11,7 +11,9 @@ $navTransition: all 0.3s;
 
   &.navbar-shrink {
     background: $topNavBg;
+    border-top: 1px solid black;
     border-bottom: 1px solid black;
+    box-shadow: 0px 0px 20px -5px black;
   }
 
   .navbar-brand {

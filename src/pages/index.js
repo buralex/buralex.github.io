@@ -22,6 +22,7 @@ import Slider from 'react-slick';
 import Gallery from '../components/Gallery';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
+import Divider from "src/components/Divider";
 // const Header = () => (
 //     <header className="masthead bg-primary text-white text-center">
 //         <div className="container d-flex align-items-center flex-column">
@@ -75,14 +76,7 @@ const IndexPage = props => {
                                 projects
                             </h2>
 
-                            {/* Icon Divider */}
-                            <div className="divider-custom">
-                                <div className="divider-custom-line" />
-                                <div className="divider-custom-icon">
-                                    <i className="fas fa-star" />
-                                </div>
-                                <div className="divider-custom-line" />
-                            </div>
+                            <Divider />
 
                             {/* Portfolio Grid Items */}
                             <div className="row">
@@ -202,14 +196,7 @@ const IndexPage = props => {
 
                         <h2 className="page-section-heading text-center text-uppercase text-white">About</h2>
 
-                        {/* Icon Divider */}
-                        <div className="divider-custom divider-light">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                                <i className="fas fa-star" />
-                            </div>
-                            <div className="divider-custom-line" />
-                        </div>
+                        <Divider light />
 
                         {/* About Section Content */}
                         <div className="row">
