@@ -3,12 +3,18 @@ import Slider from 'react-slick';
 import Dashboard from 'src/images/dashboard.png';
 import './styles.scss';
 
-const Slide = () => (
+const Slide = ({title, imgSrc, altText}) => (
     <div>
-        <h3>Real-time dashboards</h3>
-        <img className="mb-5" width={700} height="auto" src={Dashboard} alt="dashboard" />
+        <h3>{title}</h3>
+        <img className="mb-5" width={700} height="auto" src={imgSrc} alt={altText} />
     </div>
 );
+
+const slides = [
+    {title: 'Real-time dashboards', imgSrc: Dashboard, altText: 'dashboard'},
+    {title: 'E-commerce', imgSrc: Dashboard, altText: 'dashboard'},
+    {title: 'Social Media Platforms', imgSrc: Dashboard, altText: 'dashboard'},
+];
 
 const HeaderSlider = props => {
     const settings = {
@@ -18,9 +24,9 @@ const HeaderSlider = props => {
     return (
         <div className="slider-component text-center" style={{zIndex: 100}}>
             <Slider {...settings}>
-                <Slide />
-                <Slide />
-                <Slide />
+                {slides.map(slide => (
+                    <Slide title={slide.title} imgSrc={slide.imgSrc} altText={slide.altText} />
+                ))}
             </Slider>
         </div>
     );
