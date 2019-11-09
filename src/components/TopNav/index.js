@@ -2,10 +2,11 @@ import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 // import { Location } from '@reach/router';
-import Logo from 'src/images/logo.svg';
+
 import {isClient, getScrollPosition} from 'src/utils';
 import {pageBlocks} from 'src/constants';
 import useWindowScroll from 'src/hooks/useWindowScroll';
+import Logo from 'src/images/logo_new_light_min.svg';
 import {
     Link as ScrollLink,
     DirectLink,
@@ -34,14 +35,13 @@ const getNavBgClass = ({currentScrollY}) => {
 const LinkWithScroll = ({content, onClick, scrollTo}) => {
     return (
         <ScrollLink
-            className="nav-link py-3 px-0 px-lg-3 rounded"
+            className="nav-link py-2 px-0 px-lg-3 rounded"
             to={scrollTo}
-            hashSpy={true}
             spy={true}
             smooth="easeInOutQuart"
             duration={1000}
             onClick={onClick}
-            offset={-100}
+            offset={-80}
         >
             {content}
         </ScrollLink>
@@ -133,12 +133,14 @@ const TopNav = ({siteTitle}) => {
                 expanded={showNavBarMenu}
             >
                 <Container>
-                    <Navbar.Brand onClick={scrollToTopHandler}>AB</Navbar.Brand>
-                    <Navbar.Toggle
-                        aria-controls="basic-navbar-nav"
-                        className="navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
-                    >
-                        Menu
+                    <Navbar.Brand onClick={scrollToTopHandler}>
+                        <img className="img-fluid" src={Logo} alt="alex logo" width="35" />
+                    </Navbar.Brand>
+
+                    <Navbar.Toggle aria-controls="basic-navbar-nav">
+                        <div className="icon-bar" />
+                        <div className="icon-bar" />
+                        <div className="icon-bar" />
                     </Navbar.Toggle>
 
                     {showToTopBtn && (
