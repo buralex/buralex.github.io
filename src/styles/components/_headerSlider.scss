@@ -1,9 +1,13 @@
 .slider-component {
-  width: 50%;
-  margin: auto;
+  //width: 90%;
+  margin: 0 30px;
   position: relative;
   background: transparent;
   padding: 15px 40px 40px 40px;
+
+  .caption {
+    position: absolute;
+  }
 
   .slick-next,
   .slick-prev {
@@ -12,7 +16,7 @@
     z-index: 10;
 
     &:before {
-      font-size: 50px;
+      font-size: 30px;
     }
   }
 
@@ -25,5 +29,17 @@
 
   .slick-slide img {
     margin: auto;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .slider-component {
+
+    .slick-next,
+    .slick-prev {
+      &:before {
+        font-size: 50px;
+      }
+    }
   }
 }

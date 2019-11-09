@@ -50,7 +50,7 @@ const IndexPage = props => {
 
     return (
         <Layout location={location}>
-            <SEO title="Home" />
+            {/*<SEO title="Home" />*/}
             {/* <h1>About</h1> */}
             {/* <p>I am a developer.</p> */}
 
@@ -311,7 +311,7 @@ const IndexPage = props => {
                                     <br />
                                     <div id="success" />
                                     <div className="form-group">
-                                        <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">
+                                        <button type="submit" className="btn btn-primary" id="sendMessageButton">
                                             Send
                                         </button>
                                     </div>

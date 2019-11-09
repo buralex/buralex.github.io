@@ -10,8 +10,9 @@ $navTransition: all 0.3s;
   z-index: 20;
 
   &.navbar-shrink {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     background: $topNavBg;
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
     box-shadow: 0px 0px 20px -5px black;
   }
@@ -45,7 +46,16 @@ $navTransition: all 0.3s;
   }
   .navbar-toggler {
     font-size: 80%;
-    padding: 0.8rem;
+    border: none;
+    outline: none;
+
+    .icon-bar {
+      width: 33px;
+      height: 4px;
+      border-radius: 3px;
+      background-color: $white;
+      margin: 5px 0;
+    }
   }
 }
 

@@ -1,8 +1,9 @@
+$distanceForTopNav: 10px;
+$distanceForTopNavLg: 100px;
 
 .masthead {
-  //padding-top: calc(6rem + 74px);
-  padding-top: calc(6rem + 10px);
-  padding-bottom: 6rem;
+  padding-top: calc(4rem + #{$distanceForTopNav});
+  padding-bottom: 10rem;
   overflow: hidden;
   position: relative;
   z-index: 3;
@@ -21,8 +22,8 @@
 
 @include media-breakpoint-up(lg) {
   .masthead {
-    //padding-top: calc(6rem + 104px);
-    padding-bottom: 30rem;
+    padding-top: calc(4rem + #{$distanceForTopNavLg});
+    padding-bottom: 10rem;
 
     .masthead-heading {
       font-size: 4rem;

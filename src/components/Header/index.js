@@ -9,9 +9,7 @@ import Divider from 'src/components/Divider';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Header = ({siteTitle}) => {
-    const settings = {
-        dots: true,
-    };
+
     return (
         <header className="masthead bg-main text-white text-center">
             <div className="container d-flex align-items-center flex-column">
