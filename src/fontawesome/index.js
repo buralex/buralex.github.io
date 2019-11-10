@@ -1,6 +1,6 @@
 import {library} from '@fortawesome/fontawesome-svg-core';
 
-import {faAmazon, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import {faAmazon, faYoutube, faSkype, faGithub} from '@fortawesome/free-brands-svg-icons';
 
 import {
     faCheckSquare,
@@ -17,6 +17,7 @@ import {
     faListUl,
     faBookmark,
     faStar,
+    faMobile,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -36,4 +37,7 @@ library.add(
     faListUl,
     faBookmark,
     faStar,
+    faSkype,
+    faMobile,
+    faGithub,
 );

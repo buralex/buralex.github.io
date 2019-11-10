@@ -1,10 +1,11 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import {Link, useStaticQuery, graphql} from 'gatsby';
 
 import Layout from 'src/components/layout';
 
 import Nav from 'src/components/TopNav';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import CV_PDF from 'src/documents/burlachenko_cv_2019.pdf';
 
 // todo maybe remove
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -21,7 +22,7 @@ import {pageBlocks} from 'src/constants';
 import Slider from 'react-slick';
 // import Image from '../components/image';
 import Divider from 'src/components/Divider';
-import Gallery from '../components/Gallery';
+import Portfolio from '../components/Portfolio';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
 // const Header = () => (
@@ -49,141 +50,23 @@ const IndexPage = props => {
     const {location} = props;
     console.log('location', location);
 
+    const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-3 text-center mt-5';
+
     return (
         <Layout location={location}>
-            {/* <SEO title="Home" /> */}
-            {/* <h1>About</h1> */}
-            {/* <p>I am a developer.</p> */}
-
-            {/* /!*<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>*!/ */}
-            {/* /!*    <Image />*!/ */}
-            {/* /!*</div>*!/ */}
-            {/* <img */}
-            {/*    src={Drawing} */}
-            {/*    width="500" */}
-            {/*    height="500" */}
-            {/*    alt="logo" */}
-            {/* /> */}
-            {/* <Link to="/contact/">Go to contact</Link> */}
+            <SEO title="★" />
 
             <section className="page-section portfolio">
                 <ScrollToElement name={pageBlocks.projects}>
-                    <ScrollAnimation animateIn="fadeIn" animateOnce>
-                        <div className="container">
-                            {/* Portfolio Section Heading */}
-                            <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
-                                projects
-                            </h2>
+                    <div className="container">
+                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
+                            projects
+                        </h2>
 
-                            <Divider />
+                        <Divider />
 
-                            {/* Portfolio Grid Items */}
-                            <div className="row">
-                                <Gallery />
-
-                                {/* Portfolio Item 1 */}
-                                <div className="col-md-6 col-lg-4">
-                                    <div
-                                        className="portfolio-item mx-auto"
-                                        data-toggle="modal"
-                                        data-target="#portfolioModal1"
-                                    >
-                                        <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div className="portfolio-item-caption-content text-center text-white">
-                                                <i className="fas fa-plus fa-3x" />
-                                            </div>
-                                        </div>
-                                        projects
-                                        <img className="img-fluid" src="img/portfolio/cabin.png" alt="" />
-                                    </div>
-                                </div>
-
-                                {/* Portfolio Item 2 */}
-                                <div className="col-md-6 col-lg-4">
-                                    <div
-                                        className="portfolio-item mx-auto"
-                                        data-toggle="modal"
-                                        data-target="#portfolioModal2"
-                                    >
-                                        <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div className="portfolio-item-caption-content text-center text-white">
-                                                <i className="fas fa-plus fa-3x" />
-                                            </div>
-                                        </div>
-                                        test2
-                                        <img className="img-fluid" src="img/portfolio/cake.png" alt="" />
-                                    </div>
-                                </div>
-
-                                {/* Portfolio Item 3 */}
-                                <div className="col-md-6 col-lg-4">
-                                    <div
-                                        className="portfolio-item mx-auto"
-                                        data-toggle="modal"
-                                        data-target="#portfolioModal3"
-                                    >
-                                        <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div className="portfolio-item-caption-content text-center text-white">
-                                                <i className="fas fa-plus fa-3x" />
-                                            </div>
-                                        </div>
-                                        {/* <img className="img-fluid" src={Drawing} alt="" /> */}
-                                        test3
-                                        <img className="img-fluid" src="img/portfolio/game.png" alt="" />
-                                    </div>
-                                </div>
-
-                                {/* Portfolio Item 4 */}
-                                <div className="col-md-6 col-lg-4">
-                                    <div
-                                        className="portfolio-item mx-auto"
-                                        data-toggle="modal"
-                                        data-target="#portfolioModal4"
-                                    >
-                                        <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div className="portfolio-item-caption-content text-center text-white">
-                                                <i className="fas fa-plus fa-3x" />
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/game.png" alt="" />
-                                    </div>
-                                </div>
-
-                                {/* Portfolio Item 5 */}
-                                <div className="col-md-6 col-lg-4">
-                                    <div
-                                        className="portfolio-item mx-auto"
-                                        data-toggle="modal"
-                                        data-target="#portfolioModal5"
-                                    >
-                                        <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div className="portfolio-item-caption-content text-center text-white">
-                                                <i className="fas fa-plus fa-3x" />
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/safe.png" alt="" />
-                                    </div>
-                                </div>
-
-                                {/* Portfolio Item 6 */}
-                                <div className="col-md-6 col-lg-4">
-                                    <div
-                                        className="portfolio-item mx-auto"
-                                        data-toggle="modal"
-                                        data-target="#portfolioModal6"
-                                    >
-                                        <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                            <div className="portfolio-item-caption-content text-center text-white">
-                                                <i className="fas fa-plus fa-3x" />
-                                            </div>
-                                        </div>
-                                        <img className="img-fluid" src="img/portfolio/submarine.png" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                            {/* /.row */}
-                        </div>
-                    </ScrollAnimation>
+                        <Portfolio />
+                    </div>
                 </ScrollToElement>
             </section>
 
@@ -195,15 +78,19 @@ const IndexPage = props => {
                         <Divider light />
 
                         <div className="row">
-                            <p className="lead">
-                                Full Stack Web Developer able to build web applications from scratch - information
+                            <p className="lead text-center">
+                                Full Stack Developer who is able to build web applications from scratch - information
                                 gathering, planning, development, testing, delivery and maintenance.
                             </p>
                         </div>
 
                         <div className="text-center mt-4">
-                            <a className="btn btn-xl btn-outline-light" href="../docs/burlachenko_cv_2019.pdf" target="_blank">
-                                &nbsp;open a CV
+                            <a
+                                className="btn btn-xl btn-outline-light"
+                                href={CV_PDF}
+                                download="burlachenko_cv_2019.pdf"
+                            >
+                                &nbsp;download a CV
                             </a>
                         </div>
                     </div>
@@ -213,416 +100,48 @@ const IndexPage = props => {
             <section className="page-section">
                 <ScrollToElement name={pageBlocks.contact}>
                     <div className="container">
-                        {/* Contact Section Heading */}
-                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
-                            Contact Me
-                        </h2>
+                        <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Contact</h2>
 
-                        {/* Icon Divider */}
-                        <div className="divider-custom">
-                            <div className="divider-custom-line" />
-                            <div className="divider-custom-icon">
-                                <i className="fas fa-star" />
+                        <Divider />
+
+                        <div className="row contact-list">
+                            <div className={contactListItemClass}>
+                                <a className="phone" href="tel:0669220905">
+                                    <FontAwesomeIcon size="2x" icon="mobile" />
+                                    <br /> +38 (066) 922-09-05{' '}
+                                </a>
                             </div>
-                            <div className="divider-custom-line" />
-                        </div>
-
-                        {/* Contact Section Form */}
-                        <div className="row">
-                            <div className="col-lg-8 mx-auto">
-                                {/* To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. */}
-                                <form name="sentMessage" id="contactForm" noValidate="novalidate">
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Name</label>
-                                            <input
-                                                className="form-control"
-                                                id="name"
-                                                type="text"
-                                                placeholder="Name"
-                                                required="required"
-                                                data-validation-required-message="Please enter your name."
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Email Address</label>
-                                            <input
-                                                className="form-control"
-                                                id="email"
-                                                type="email"
-                                                placeholder="Email Address"
-                                                required="required"
-                                                data-validation-required-message="Please enter your email address."
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Phone Number</label>
-                                            <input
-                                                className="form-control"
-                                                id="phone"
-                                                type="tel"
-                                                placeholder="Phone Number"
-                                                required="required"
-                                                data-validation-required-message="Please enter your phone number."
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="control-group">
-                                        <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                                            <label>Message</label>
-                                            <textarea
-                                                className="form-control"
-                                                id="message"
-                                                rows="5"
-                                                placeholder="Message"
-                                                required="required"
-                                                data-validation-required-message="Please enter a message."
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
+                            <div className={contactListItemClass}>
+                                <a className="email" href="mailto:buralex89@gmail.com">
+                                    <FontAwesomeIcon size="2x" icon="envelope" />
                                     <br />
-                                    <div id="success" />
-                                    <div className="form-group">
-                                        <button type="submit" className="btn btn-primary" id="sendMessageButton">
-                                            Send
-                                        </button>
-                                    </div>
-                                </form>
+                                    buralex89@gmail.com
+                                </a>
+                            </div>
+                            <div className={contactListItemClass}>
+                                <a className="skype" href="skype:alexandr_bur?chat">
+                                    <FontAwesomeIcon size="2x" icon={['fab', 'skype']} />
+                                    <br />
+                                    alexandr_bur
+                                </a>
+                            </div>
+                            <div className={contactListItemClass}>
+                                <a
+                                    href="https://github.com/buralex"
+                                    className=""
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FontAwesomeIcon size="2x" icon={['fab', 'github']} />
+                                    <br />
+                                    buralex
+                                </a>
                             </div>
                         </div>
                     </div>
                 </ScrollToElement>
             </section>
 
-            {/* Portfolio Modal 1 */}
-            <div
-                className="portfolio-modal modal fade"
-                id="portfolioModal1"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="portfolioModal1Label"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i className="fas fa-times" />
-                            </span>
-                        </button>
-                        <div className="modal-body text-center">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="col-lg-8">
-                                        {/* Portfolio Modal - Title */}
-                                        <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                            Log Cabin
-                                        </h2>
-                                        {/* Icon Divider */}
-                                        <div className="divider-custom">
-                                            <div className="divider-custom-line" />
-                                            <div className="divider-custom-icon">
-                                                <i className="fas fa-star" />
-                                            </div>
-                                            <div className="divider-custom-line" />
-                                        </div>
-                                        {/* Portfolio Modal - Image */}
-                                        <img className="img-fluid rounded mb-5" src="img/portfolio/cabin.png" alt="" />
-                                        {/* Portfolio Modal - Text */}
-                                        <p className="mb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
-                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
-                                            consequuntur itaque. Nam.
-                                        </p>
-                                        <button className="btn btn-primary" href="#" data-dismiss="modal">
-                                            <i className="fas fa-times fa-fw" />
-                                            Close Window
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Portfolio Modal 2 */}
-            <div
-                className="portfolio-modal modal fade"
-                id="portfolioModal2"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="portfolioModal2Label"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i className="fas fa-times" />
-                            </span>
-                        </button>
-                        <div className="modal-body text-center">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="col-lg-8">
-                                        {/* Portfolio Modal - Title */}
-                                        <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                            Tasty Cake
-                                        </h2>
-                                        {/* Icon Divider */}
-                                        <div className="divider-custom">
-                                            <div className="divider-custom-line" />
-                                            <div className="divider-custom-icon">
-                                                <i className="fas fa-star" />
-                                            </div>
-                                            <div className="divider-custom-line" />
-                                        </div>
-                                        {/* Portfolio Modal - Image */}
-                                        <img className="img-fluid rounded mb-5" src="img/portfolio/cake.png" alt="" />
-                                        {/* Portfolio Modal - Text */}
-                                        <p className="mb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
-                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
-                                            consequuntur itaque. Nam.
-                                        </p>
-                                        <button className="btn btn-primary" href="#" data-dismiss="modal">
-                                            <i className="fas fa-times fa-fw" />
-                                            Close Window
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Portfolio Modal 3 */}
-            <div
-                className="portfolio-modal modal fade"
-                id="portfolioModal3"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="portfolioModal3Label"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i className="fas fa-times" />
-                            </span>
-                        </button>
-                        <div className="modal-body text-center">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="col-lg-8">
-                                        {/* Portfolio Modal - Title */}
-                                        <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                            Circus Tent
-                                        </h2>
-                                        {/* Icon Divider */}
-                                        <div className="divider-custom">
-                                            <div className="divider-custom-line" />
-                                            <div className="divider-custom-icon">
-                                                <i className="fas fa-star" />
-                                            </div>
-                                            <div className="divider-custom-line" />
-                                        </div>
-                                        {/* Portfolio Modal - Image */}
-                                        <img className="img-fluid rounded mb-5" src="img/portfolio/circus.png" alt="" />
-                                        {/* Portfolio Modal - Text */}
-                                        <p className="mb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
-                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
-                                            consequuntur itaque. Nam.
-                                        </p>
-                                        <button className="btn btn-primary" href="#" data-dismiss="modal">
-                                            <i className="fas fa-times fa-fw" />
-                                            Close Window
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Portfolio Modal 4 */}
-            <div
-                className="portfolio-modal modal fade"
-                id="portfolioModal4"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="portfolioModal4Label"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i className="fas fa-times" />
-                            </span>
-                        </button>
-                        <div className="modal-body text-center">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="col-lg-8">
-                                        {/* Portfolio Modal - Title */}
-                                        <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                            Controller
-                                        </h2>
-                                        {/* Icon Divider */}
-                                        <div className="divider-custom">
-                                            <div className="divider-custom-line" />
-                                            <div className="divider-custom-icon">
-                                                <i className="fas fa-star" />
-                                            </div>
-                                            <div className="divider-custom-line" />
-                                        </div>
-                                        {/* Portfolio Modal - Image */}
-                                        <img className="img-fluid rounded mb-5" src="img/portfolio/game.png" alt="" />
-                                        {/* Portfolio Modal - Text */}
-                                        <p className="mb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
-                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
-                                            consequuntur itaque. Nam.
-                                        </p>
-                                        <button className="btn btn-primary" href="#" data-dismiss="modal">
-                                            <i className="fas fa-times fa-fw" />
-                                            Close Window
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Portfolio Modal 5 */}
-            <div
-                className="portfolio-modal modal fade"
-                id="portfolioModal5"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="portfolioModal5Label"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i className="fas fa-times" />
-                            </span>
-                        </button>
-                        <div className="modal-body text-center">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="col-lg-8">
-                                        {/* Portfolio Modal - Title */}
-                                        <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                            Locked Safe
-                                        </h2>
-                                        {/* Icon Divider */}
-                                        <div className="divider-custom">
-                                            <div className="divider-custom-line" />
-                                            <div className="divider-custom-icon">
-                                                <i className="fas fa-star" />
-                                            </div>
-                                            <div className="divider-custom-line" />
-                                        </div>
-                                        {/* Portfolio Modal - Image */}
-                                        <img className="img-fluid rounded mb-5" src="img/portfolio/safe.png" alt="" />
-                                        {/* Portfolio Modal - Text */}
-                                        <p className="mb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
-                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
-                                            consequuntur itaque. Nam.
-                                        </p>
-                                        <button className="btn btn-primary" href="#" data-dismiss="modal">
-                                            <i className="fas fa-times fa-fw" />
-                                            Close Window
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Portfolio Modal 6 */}
-            <div
-                className="portfolio-modal modal fade"
-                id="portfolioModal6"
-                tabIndex="-1"
-                role="dialog"
-                aria-labelledby="portfolioModal6Label"
-                aria-hidden="true"
-            >
-                <div className="modal-dialog modal-xl" role="document">
-                    <div className="modal-content">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">
-                                <i className="fas fa-times" />
-                            </span>
-                        </button>
-                        <div className="modal-body text-center">
-                            <div className="container">
-                                <div className="row justify-content-center">
-                                    <div className="col-lg-8">
-                                        {/* Portfolio Modal - Title */}
-                                        <h2 className="portfolio-modal-title text-secondary text-uppercase mb-0">
-                                            Submarine
-                                        </h2>
-                                        {/* Icon Divider */}
-                                        <div className="divider-custom">
-                                            <div className="divider-custom-line" />
-                                            <div className="divider-custom-icon">
-                                                <i className="fas fa-star" />
-                                            </div>
-                                            <div className="divider-custom-line" />
-                                        </div>
-                                        {/* Portfolio Modal - Image */}
-                                        <img
-                                            className="img-fluid rounded mb-5"
-                                            src="img/portfolio/submarine.png"
-                                            alt=""
-                                        />
-                                        {/* Portfolio Modal - Text */}
-                                        <p className="mb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                            assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore
-                                            quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod
-                                            consequuntur itaque. Nam.
-                                        </p>
-                                        <button className="btn btn-primary" href="#" data-dismiss="modal">
-                                            <i className="fas fa-times fa-fw" />
-                                            Close Window
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </Layout>
     );
 };

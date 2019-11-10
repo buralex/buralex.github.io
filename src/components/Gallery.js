@@ -1,6 +1,7 @@
 import React from 'react';
 import {StaticQuery, graphql} from 'gatsby';
 import Img from 'gatsby-image';
+import Coming from 'src/images/portfolio/coming.png';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -72,6 +73,17 @@ const GalleryItem = props => {
     );
 };
 
+const GalleryItemComingSoon = props => {
+    const {imgFluid} = props;
+    return (
+        <div className="col-md-6 col-lg-4 mb-3 mt-3">
+            <div className="soon-project">
+                <img className="img-fluid" src={Coming} alt="coming soon" />
+            </div>
+        </div>
+    );
+};
+
 const Image = () => (
     <StaticQuery
         query={graphql`
@@ -89,8 +101,12 @@ const Image = () => (
             const getFluid = element => element.childImageSharp.fluid;
             return (
                 <>
-                    <GalleryItem imgFluid={getFluid(cabin)} />
-                    <GalleryItem imgFluid={getFluid(cake)} />
+                    {/*<GalleryItem imgFluid={getFluid(cabin)} />*/}
+                    {/*<GalleryItem imgFluid={getFluid(cake)} />*/}
+                    {/*<GalleryItem imgFluid={getFluid(cake)} />*/}
+                    <GalleryItemComingSoon />
+                    <GalleryItemComingSoon />
+                    <GalleryItemComingSoon />
                 </>
             );
         }}
