@@ -6,6 +6,7 @@ import Layout from 'src/components/layout';
 import Nav from 'src/components/TopNav';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+// todo maybe remove
 import ScrollAnimation from 'react-animate-on-scroll';
 import {
     Link as ScrollLink,
@@ -19,10 +20,10 @@ import {
 import {pageBlocks} from 'src/constants';
 import Slider from 'react-slick';
 // import Image from '../components/image';
+import Divider from 'src/components/Divider';
 import Gallery from '../components/Gallery';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
-import Divider from "src/components/Divider";
 // const Header = () => (
 //     <header className="masthead bg-primary text-white text-center">
 //         <div className="container d-flex align-items-center flex-column">
@@ -50,7 +51,7 @@ const IndexPage = props => {
 
     return (
         <Layout location={location}>
-            {/*<SEO title="Home" />*/}
+            {/* <SEO title="Home" /> */}
             {/* <h1>About</h1> */}
             {/* <p>I am a developer.</p> */}
 
@@ -68,8 +69,6 @@ const IndexPage = props => {
             <section className="page-section portfolio">
                 <ScrollToElement name={pageBlocks.projects}>
                     <ScrollAnimation animateIn="fadeIn" animateOnce>
-
-
                         <div className="container">
                             {/* Portfolio Section Heading */}
                             <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">
@@ -80,7 +79,6 @@ const IndexPage = props => {
 
                             {/* Portfolio Grid Items */}
                             <div className="row">
-
                                 <Gallery />
 
                                 {/* Portfolio Item 1 */}
@@ -192,38 +190,20 @@ const IndexPage = props => {
             <section className="page-section bg-main text-white mb-0">
                 <ScrollToElement name={pageBlocks.about}>
                     <div className="container">
-                        {/* About Section Heading */}
-
                         <h2 className="page-section-heading text-center text-uppercase text-white">About</h2>
 
                         <Divider light />
 
-                        {/* About Section Content */}
                         <div className="row">
-                            <div className="col-lg-4 ml-auto">
-                                <p className="lead">
-                                    Freelancer is a free bootstrap theme created by Start Bootstrap. The download
-                                    includes the complete source files including HTML, CSS, and JavaScript as well as
-                                    optional SASS stylesheets for easy customization.
-                                </p>
-                            </div>
-                            <div className="col-lg-4 mr-auto">
-                                <p className="lead">
-                                    You can create your own custom avatar for the masthead, change the icon in the
-                                    dividers, and add your email address to the contact form to make it fully
-                                    functional!
-                                </p>
-                            </div>
+                            <p className="lead">
+                                Full Stack Web Developer able to build web applications from scratch - information
+                                gathering, planning, development, testing, delivery and maintenance.
+                            </p>
                         </div>
 
-                        {/* About Section Button */}
                         <div className="text-center mt-4">
-                            <a
-                                className="btn btn-xl btn-outline-light"
-                                href="https://startbootstrap.com/themes/freelancer/"
-                            >
-                                <i className="fas fa-download mr-2" />
-                                Free Download!
+                            <a className="btn btn-xl btn-outline-light" href="../docs/burlachenko_cv_2019.pdf" target="_blank">
+                                &nbsp;open a CV
                             </a>
                         </div>
                     </div>

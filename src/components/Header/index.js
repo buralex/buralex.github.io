@@ -2,7 +2,6 @@ import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React, {useRef, useEffect, useState} from 'react';
 import Logo from 'src/images/logo.svg';
-import Dashboard from 'src/images/dashboard.png';
 import throttle from 'lodash/throttle';
 import HeaderSlider from 'src/components/HeaderSlider';
 import Divider from 'src/components/Divider';
