@@ -1,9 +1,11 @@
+// to not overlap slider images, when switching
+$buttonsOffset: 30px;
+
 .slider-component {
-  //width: 90%;
-  margin: 0 30px;
+  margin: auto;
   position: relative;
   background: transparent;
-  padding: 15px 40px 40px 40px;
+  padding: 15px $buttonsOffset * 2 $buttonsOffset * 2;
 
   .caption {
     position: absolute;
@@ -21,10 +23,10 @@
   }
 
   .slick-prev {
-    margin-left: -30px;
+    margin-left: -$buttonsOffset;
   }
   .slick-next {
-    margin-right: -30px;
+    margin-right: -$buttonsOffset;
   }
 
   .slick-slide img {
@@ -34,6 +36,8 @@
 
 @include media-breakpoint-up(lg) {
   .slider-component {
+    max-width: 1000px;
+    margin: auto;
 
     .slick-next,
     .slick-prev {
