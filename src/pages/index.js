@@ -77,10 +77,18 @@ const IndexPage = props => {
                         <Divider light />
 
                         <div className="row">
-                            <p className="lead text-center">
-                                Full Stack Developer who is able to build web applications from scratch - information
-                                gathering, planning, development, testing, delivery and maintenance.
-                            </p>
+                            <div className="col-lg-4 ml-auto">
+                                <p className="lead">
+                                    Full Stack Developer who is able to build web applications from scratch -
+                                    information gathering, planning, development, testing, delivery and maintenance.
+                                </p>
+                            </div>
+                            <div className="col-lg-4 mr-auto">
+                                <p className="lead">
+                                    An energetic and imaginative person. I continually upgrade my skills to stay at the
+                                    cutting edge of web development and solve challenges effectively.
+                                </p>
+                            </div>
                         </div>
 
                         <div className="text-center mt-4">
@@ -140,7 +148,6 @@ const IndexPage = props => {
                     </div>
                 </ScrollToElement>
             </section>
-
         </Layout>
     );
 };
