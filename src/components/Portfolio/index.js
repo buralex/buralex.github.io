@@ -17,11 +17,20 @@ import {
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import Layout from "src/components/layout";
-import Gallery from "src/components/Gallery";
-
+import Layout from 'src/components/layout';
+import Gallery from 'src/components/Gallery';
 
 const Portfolio = props => {
+    return (
+        <div>
+            <div className="row">
+                <Gallery />
+            </div>
+        </div>
+    );
+
+    // todo make modals
+    // eslint-disable-next-line no-unreachable
     return (
         <div className="">
             <div className="row">
