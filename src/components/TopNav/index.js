@@ -121,8 +121,6 @@ const TopNav = ({siteTitle}) => {
         scroll.scrollToTop();
     };
 
-    console.log('RENDER______NAV__', 'navCls=', navBgClass, 'hidden_class');
-
     return (
         <div>
             <Navbar

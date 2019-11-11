@@ -16,7 +16,7 @@ import TopNav from 'src/components/TopNav';
 
 const Layout = props => {
     const {children, location} = props;
-    console.log('props__', props);
+
     return (
         <StaticQuery
             query={graphql`
