@@ -48,7 +48,6 @@ import Drawing from '../images/drawing111.svg';
 const IndexPage = props => {
     // console.log('index_props', props);
     const {location} = props;
-    console.log('location', location);
 
     const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-3 text-center mt-5';
 
