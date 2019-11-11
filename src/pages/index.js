@@ -22,9 +22,13 @@ import {pageBlocks} from 'src/constants';
 import Slider from 'react-slick';
 // import Image from '../components/image';
 import Divider from 'src/components/Divider';
+import ReactIcon from 'src/images/tools/react.svg';
+import NodeIcon from 'src/images/tools/node.svg';
+
 import Portfolio from '../components/Portfolio';
 import SEO from '../components/seo';
 import Drawing from '../images/drawing111.svg';
+
 // const Header = () => (
 //     <header className="masthead bg-primary text-white text-center">
 //         <div className="container d-flex align-items-center flex-column">
@@ -49,7 +53,8 @@ const IndexPage = props => {
     // console.log('index_props', props);
     const {location} = props;
 
-    const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-3 text-center mt-5';
+    const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-4 text-center mt-5';
+    const toolsListItemClass = 'col-xs-12 col-sm-6 text-center mt-5';
 
     return (
         <Layout location={location}>
@@ -140,13 +145,53 @@ const IndexPage = props => {
                                     rel="noopener noreferrer"
                                 >
                                     <FontAwesomeIcon size="2x" icon={['fab', 'github']} />
-                                    <br />
-                                    buralex
+                                </a>
+                            </div>
+                            <div className={contactListItemClass}>
+                                <a
+                                    href="https://www.linkedin.com/in/buralex"
+                                    className=""
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FontAwesomeIcon size="2x" icon={['fab', 'linkedin']} />
+                                </a>
+                            </div>
+                            <div className={contactListItemClass}>
+                                <a
+                                    href="https://twitter.com/buralex89"
+                                    className=""
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FontAwesomeIcon size="2x" icon={['fab', 'twitter']} />
                                 </a>
                             </div>
                         </div>
                     </div>
                 </ScrollToElement>
+            </section>
+
+            <section className="page-section bg-main tools">
+                <div className="container">
+                    <h2 className="page-section-heading text-center text-uppercase text-white">Tools</h2>
+
+                    <Divider light />
+
+                    <div className="row">
+                        <div className={toolsListItemClass}>
+                            <div className="">
+                                <img className="img-fluid" src={ReactIcon} alt="react icon" />
+                            </div>
+                        </div>
+
+                        <div className={toolsListItemClass}>
+                            <div className="node">
+                                <img className="img-fluid" src={NodeIcon} alt="node icon" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </Layout>
     );

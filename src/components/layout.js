@@ -34,8 +34,8 @@ const Layout = props => {
                     <Header siteTitle={data.site.siteMetadata.title} />
                     <div>
                         <main>{children}</main>
-                        {/*<Footer />*/}
-                        <section className="copyright py-4 text-center text-white">
+                        {/* <Footer /> */}
+                        <section className="copyright bg-main text-center text-white">
                             <div className="container">
                                 <small>Copyright &copy; Alex Burlachenko 2019</small>
                             </div>
