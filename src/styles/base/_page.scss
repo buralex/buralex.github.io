@@ -20,18 +20,14 @@
 body {}
 
 .tools {
-
-  img {
+  .img-wrap {
+    text-align: center;
+    margin: auto;
     width: 300px;
-    height: 300px;
   }
-
   .node {
-    img {
-      width: 250px;
-      height: 250px;
-      margin-top: 20px;
-    }
+    width: 230px;
+    margin-top: 24px;
   }
 
 }

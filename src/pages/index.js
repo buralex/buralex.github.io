@@ -50,11 +50,10 @@ import Drawing from '../images/drawing111.svg';
 // );
 
 const IndexPage = props => {
-    // console.log('index_props', props);
     const {location} = props;
 
     const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-4 text-center mt-5';
-    const toolsListItemClass = 'col-xs-12 col-sm-6 text-center mt-5';
+    const toolsListItemClass = 'col-lg-6 text-center mt-5';
 
     return (
         <Layout location={location}>
@@ -180,13 +179,13 @@ const IndexPage = props => {
 
                     <div className="row">
                         <div className={toolsListItemClass}>
-                            <div className="">
+                            <div className="img-wrap ">
                                 <img className="img-fluid" src={ReactIcon} alt="react icon" />
                             </div>
                         </div>
 
                         <div className={toolsListItemClass}>
-                            <div className="node">
+                            <div className="img-wrap node">
                                 <img className="img-fluid" src={NodeIcon} alt="node icon" />
                             </div>
                         </div>
