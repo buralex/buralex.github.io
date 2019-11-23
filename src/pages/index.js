@@ -57,7 +57,7 @@ const IndexPage = props => {
 
     return (
         <Layout location={location}>
-            <SEO title="★" />
+            <SEO title=" " />
 
             <section className="page-section portfolio">
                 <ScrollToElement name={pageBlocks.projects}>
@@ -179,14 +179,14 @@ const IndexPage = props => {
 
                     <div className="row">
                         <div className={toolsListItemClass}>
-                            <div className="img-wrap ">
-                                <img className="img-fluid" src={ReactIcon} alt="react icon" />
+                            <div className="img-wrap">
+                                <img className="img-fluid" src={ReactIcon} alt="react icon" title="reactjs" />
                             </div>
                         </div>
 
                         <div className={toolsListItemClass}>
                             <div className="img-wrap node">
-                                <img className="img-fluid" src={NodeIcon} alt="node icon" />
+                                <img className="img-fluid" src={NodeIcon} alt="node icon" title="nodejs" />
                             </div>
                         </div>
                     </div>
