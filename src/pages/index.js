@@ -5,7 +5,7 @@ import Layout from 'src/components/layout';
 
 import Nav from 'src/components/TopNav';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import CV_PDF from 'src/documents/burlachenko_cv_2019.pdf';
+import CV_PDF from 'src/documents/burlachenko_cv_2020.pdf';
 
 // todo maybe remove
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -99,7 +99,7 @@ const IndexPage = props => {
                             <a
                                 className="btn btn-xl btn-outline-light"
                                 href={CV_PDF}
-                                download="burlachenko_cv_2019.pdf"
+                                download="burlachenko_cv_2020.pdf"
                             >
                                 &nbsp;download a CV
                             </a>
