@@ -98,7 +98,7 @@ const IndexPage = props => {
                         <div className="text-center mt-4">
                             <a
                                 className="btn btn-xl btn-outline-light"
-                                href={'../../burlachenko_oleksandr_CV_2020.docx'}
+                                href={'../../burlachenko_oleksandr_CV_2021.doc'}
                             >
                                 &nbsp;download a CV
                             </a>
