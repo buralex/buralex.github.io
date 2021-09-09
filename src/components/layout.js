@@ -37,7 +37,7 @@ const Layout = props => {
                         {/* <Footer /> */}
                         <section className="copyright bg-main text-center text-white">
                             <div className="container">
-                                <small>Copyright &copy; Alex Burlachenko 2020</small>
+                                <small>Copyright &copy; Alex Burlachenko {new Date().getFullYear()}</small>
                             </div>
                         </section>
                     </div>
