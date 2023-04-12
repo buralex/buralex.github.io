@@ -5,7 +5,6 @@ import Layout from 'src/components/layout';
 
 import Nav from 'src/components/TopNav';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-// import CV_PDF from 'src/documents/burlachenko_oleksandr_CV_2020.docx';
 
 // todo maybe remove
 import ScrollAnimation from 'react-animate-on-scroll';
@@ -19,7 +18,7 @@ import {
     scroller,
 } from 'react-scroll';
 import {pageBlocks} from 'src/constants';
-import Slider from 'react-slick';
+// import Slider from 'react-slick';
 // import Image from '../components/image';
 import Divider from 'src/components/Divider';
 import ReactIcon from 'src/images/tools/react.svg';
@@ -27,7 +26,7 @@ import NodeIcon from 'src/images/tools/node.svg';
 
 import Portfolio from '../components/Portfolio';
 import SEO from '../components/seo';
-import Drawing from '../images/drawing111.svg';
+// import Drawing from '../images/drawing111.svg';
 
 // const Header = () => (
 //     <header className="masthead bg-primary text-white text-center">
@@ -49,10 +48,12 @@ import Drawing from '../images/drawing111.svg';
 //     </header>
 // );
 
+const email = 'alexburweb@gmail.com';
+
 const IndexPage = props => {
     const {location} = props;
 
-    const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-4 text-center mt-5';
+    const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-6 text-center mt-5';
     const toolsListItemClass = 'col-lg-6 text-center mt-5';
 
     return (
@@ -98,9 +99,11 @@ const IndexPage = props => {
                         <div className="text-center mt-4">
                             <a
                                 className="btn btn-xl btn-outline-light"
-                                href={'../../burlachenko_oleksandr_CV_2021.doc'}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="../../Oleksandr_Burlachenko_CV.pdf"
                             >
-                                &nbsp;download a CV
+                                &nbsp;View CV
                             </a>
                         </div>
                     </div>
@@ -122,19 +125,13 @@ const IndexPage = props => {
                                 </a>
                             </div>
                             <div className={contactListItemClass}>
-                                <a className="email" href="mailto:buralex89@gmail.com">
+                                <a className="email" rel="noopener noreferrer" target="_blank" href={`mailto:${email}`}>
                                     <FontAwesomeIcon size="2x" icon="envelope" />
                                     <br />
-                                    buralex89@gmail.com
+                                    {email}
                                 </a>
                             </div>
-                            <div className={contactListItemClass}>
-                                <a className="skype" href="skype:alexandr_bur?chat">
-                                    <FontAwesomeIcon size="2x" icon={['fab', 'skype']} />
-                                    <br />
-                                    alexandr_bur
-                                </a>
-                            </div>
+
                             <div className={contactListItemClass}>
                                 <a
                                     href="https://github.com/buralex"
@@ -143,6 +140,8 @@ const IndexPage = props => {
                                     rel="noopener noreferrer"
                                 >
                                     <FontAwesomeIcon size="2x" icon={['fab', 'github']} />
+                                    <br />
+                                    Github
                                 </a>
                             </div>
                             <div className={contactListItemClass}>
@@ -153,16 +152,8 @@ const IndexPage = props => {
                                     rel="noopener noreferrer"
                                 >
                                     <FontAwesomeIcon size="2x" icon={['fab', 'linkedin']} />
-                                </a>
-                            </div>
-                            <div className={contactListItemClass}>
-                                <a
-                                    href="https://twitter.com/buralex89"
-                                    className=""
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <FontAwesomeIcon size="2x" icon={['fab', 'twitter']} />
+                                    <br />
+                                    Linkedin
                                 </a>
                             </div>
                         </div>
@@ -181,12 +172,14 @@ const IndexPage = props => {
                             <div className="img-wrap">
                                 <img className="img-fluid" src={ReactIcon} alt="react icon" title="reactjs" />
                             </div>
+                            <div className="text-white tool-title">React</div>
                         </div>
 
                         <div className={toolsListItemClass}>
                             <div className="img-wrap node">
                                 <img className="img-fluid" src={NodeIcon} alt="node icon" title="nodejs" />
                             </div>
+                            <div className="text-white tool-title">Node.js</div>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
   "private": true,
   "description": "Personal page",
   "version": "0.1.0",
-  "author": "Alexand Burlachenko <buralex89@gmail.com>",
+  "author": "Alexandr Burlachenko",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
