@@ -1,0 +1,37 @@
+$distanceForTopNav: 10px;
+$distanceForTopNavLg: 100px;
+
+.masthead {
+  padding-top: calc(4rem + #{$distanceForTopNav});
+  padding-bottom: 10rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+
+  .masthead-heading {
+    font-size: 2.75rem;
+    line-height: 2.75rem;
+  }
+  .masthead-subheading {
+    font-size: 1.25rem;
+  }
+  .masthead-avatar {
+    width: 15rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .masthead {
+    padding-top: calc(4rem + #{$distanceForTopNavLg});
+    padding-bottom: 10rem;
+
+    .masthead-heading {
+      font-size: 4rem;
+      line-height: 3.5rem;
+    }
+    .masthead-subheading {
+      font-size: 1.5rem;
+    }
+
+  }
+}
