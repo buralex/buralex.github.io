@@ -190,7 +190,7 @@ const IndexPage = props => {
                   title="reactjs"
                 />
               </div>
-              <div className="text-white tool-title">React.</div>
+              <div className="text-white tool-title">React</div>
             </div>
 
             <div className={toolsListItemClass}>
