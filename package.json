@@ -4,6 +4,20 @@
   "description": "Personal page",
   "version": "0.1.0",
   "author": "Alexandr Burlachenko",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "precommit": "lint-staged",
+    "build": "gatsby build",
+    "develop": "gatsby develop --port 3000",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "deploy": "gatsby build && gh-pages -d public",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
@@ -48,19 +62,5 @@
     "gh-pages": "^2.0.1",
     "lint-staged": "^8.0.4",
     "prettier": "^1.18.2"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "precommit": "lint-staged",
-    "build": "gatsby build",
-    "develop": "gatsby develop --port 3000",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "deploy": "gatsby build && gh-pages -d public",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   }
 }
