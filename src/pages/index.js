@@ -48,7 +48,7 @@ import SEO from "../components/seo"
 //     </header>
 // );
 
-const email = "alexburweb@gmail.com"
+const email = "alex.bur.contact@gmail.com"
 
 const IndexPage = props => {
   const { location } = props
