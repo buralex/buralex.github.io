@@ -28,6 +28,7 @@ import Portfolio from "../components/Portfolio"
 import SEO from "../components/seo"
 // import Drawing from '../images/drawing111.svg';
 
+// TODO rewrite to nextjs maybe?
 // const Header = () => (
 //     <header className="masthead bg-primary text-white text-center">
 //         <div className="container d-flex align-items-center flex-column">
