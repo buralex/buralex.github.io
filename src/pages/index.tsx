@@ -1,7 +1,5 @@
-// import styles from '@/components/Home/Home.module.scss';
-import Home from '@/components/Home';
-// import { getIsServer } from 'helpers';
+import About from '@/components/About';
 
 export default function IndexPage() {
-  return <Home />;
+  return <About />;
 }

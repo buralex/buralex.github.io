@@ -7,6 +7,8 @@ import { Roboto } from 'next/font/google';
 
 const robotoFont = Roboto({ subsets: ['latin'], weight: ['400', '700'] });
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import '@/styles/app.scss';
 
 type Props = AppProps & {

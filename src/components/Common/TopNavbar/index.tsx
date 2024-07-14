@@ -104,12 +104,12 @@ const TopNavbar = () => {
       ])}
     >
       <div className="container">
-        <Link
-          className="navbar-brand cool-link"
-          href="/"
-          onClick={collapseTopNav}
-        >
-          Uplium
+        <Link className="navbar-brand " href="/" onClick={collapseTopNav}>
+          <img
+            src="/images/logo/logo_new_light_min.svg"
+            alt="Alex Bur logo"
+            width="35"
+          />
         </Link>
 
         <Button
@@ -130,11 +130,7 @@ const TopNavbar = () => {
           ])}
         >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <NavLink
-              href="/products"
-              text="Products"
-              collapseTopNav={collapseTopNav}
-            />
+            <NavLink href="/" text="About" collapseTopNav={collapseTopNav} />
 
             <NavLink
               href="/contact"
@@ -146,59 +142,6 @@ const TopNavbar = () => {
       </div>
     </nav>
   );
-
-  // TODO check if it's useful
-  // return (
-  //   <Navbar bg="light" expand="lg">
-  //     <Container>
-  //       <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-  //       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  //       <Navbar.Collapse id="basic-navbar-nav">
-  //         <Nav className="me-auto">
-  //           <Nav.Link href="#home">Home</Nav.Link>
-  //           <Nav.Link href="#link">Link</Nav.Link>
-  //           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-  //             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-  //             <NavDropdown.Item href="#action/3.2">
-  //               Another action
-  //             </NavDropdown.Item>
-  //             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-  //             <NavDropdown.Divider />
-  //             <NavDropdown.Item href="#action/3.4">
-  //               Separated link
-  //             </NavDropdown.Item>
-  //           </NavDropdown>
-  //         </Nav>
-  //       </Navbar.Collapse>
-  //     </Container>
-  //   </Navbar>
-  // );
-
-  // return (
-  //   <Navbar
-  //     variant={'dark'}
-  //     // fixed="top"
-  //     expand={topNavbarExpandBreakpoint}
-  //     className={cssClasses([
-  //       'navbar-standard navbar-theme',
-  //       !navbarCollapsed && 'bg-dark',
-  //     ])}
-  //   >
-  //     <Container>
-  //       <Navbar.Brand className="text-white" as={Link} href="/">
-  //         Uplium
-  //       </Navbar.Brand>
-  //       <Navbar.Toggle onClick={() => setNavbarCollapsed(!navbarCollapsed)} />
-  //       <Navbar.Collapse className="scrollbar">
-  //         <Nav>
-  //           {/*<NavbarTopDropDownMenus setNavbarCollapsed={setNavbarCollapsed} />*/}
-  //           TODO NavbarTopDropDownMenus
-  //         </Nav>
-  //         <LandingRightSideNavItem />
-  //       </Navbar.Collapse>
-  //     </Container>
-  //   </Navbar>
-  // );
 };
 
 export default TopNavbar;

@@ -2,7 +2,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import { useState } from 'react';
 import Button from '@/components/Common/Button';
-import { CheckCircleFill } from '@/components/Common/Icons/CheckCircleFill';
+import { CheckCircleFill } from '@/components/Common/icons/CheckCircleFill';
 import { mainApiUrl } from '@/utils';
 import { CountdownTimer } from '@/components/Common/CountdownTimer';
 

@@ -1,0 +1,53 @@
+// to not overlap slider images, when switching
+$buttonsOffset: 30px;
+
+.slider-component {
+  margin: auto;
+  position: relative;
+  background: transparent;
+  padding: 0px ($buttonsOffset * 2) 30px ($buttonsOffset * 2);
+
+  .caption {
+    position: absolute;
+  }
+
+  .slick-next,
+  .slick-prev {
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+
+    &:before {
+      font-size: 30px;
+    }
+  }
+
+  .slick-prev {
+    margin-left: -$buttonsOffset;
+  }
+  .slick-next {
+    margin-right: -$buttonsOffset;
+  }
+
+  .slick-slide img {
+    margin: auto;
+  }
+
+  .slick-dots li button:before {
+    color: $white;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .slider-component {
+    max-width: 1000px;
+    margin: auto;
+
+    .slick-next,
+    .slick-prev {
+      &:before {
+        font-size: 50px;
+      }
+    }
+  }
+}
