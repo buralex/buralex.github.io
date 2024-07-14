@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
-        {/* To fix rendering content without styles in firefox https://github.com/vercel/next.js/issues/22465#issuecomment-828886583 */}
+        {/* For fixing the "rendering content without styles" in firefox https://github.com/vercel/next.js/issues/22465#issuecomment-828886583 */}
         <script>0</script>
         <Main />
         <NextScript />

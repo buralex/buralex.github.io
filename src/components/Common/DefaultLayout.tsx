@@ -13,12 +13,11 @@ const DefaultLayout = ({ children }: Props) => {
   return (
     <>
       <Head>
-        <title>Uplium</title>
+        <title>Alex Burlachenko</title>
         <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="description" content="Software for your business"></meta>
-        {/* <link rel="canonical" href="https://uplium.com" /> */}
       </Head>
 
       <TopNavbar />
