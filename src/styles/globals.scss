@@ -1,0 +1,58 @@
+:root {
+  --bs-btn-active-border-color: transparent;
+}
+
+.navbar-dark {
+  --bs-navbar-color: #fcfcfccc;
+}
+
+.icon-bar {
+  width: 25px;
+  height: 2px;
+  border-radius: 3px;
+  background-color: $white;
+  margin: 3px 0;
+}
+
+html {
+  background: $bg-main;
+}
+
+html,
+body {
+  margin: 0;
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol;
+  background-color: transparent;
+  color: $white;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cool-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cool-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: $white;
+}
+
+.cool-link:hover::after,
+.cool-link.active::after {
+  width: 100%;
+}
+
+.form-control,
+.form-control:focus {
+  color: $bg-main-stop-1;
+}

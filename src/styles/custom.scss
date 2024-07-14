@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@import 'custom-variables';
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+
+$custom-theme-colors: (
+  teal: $teal,
+  // this will allow using text-main
+  main: $bg-main-stop-1,
+);
+$theme-colors: map.merge($theme-colors, $custom-theme-colors);
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+$light-button-hover-bg: color.adjust($bg-main-stop-2, $lightness: 35%);
+
+.btn-light {
+  &:hover {
+    background: $light-button-hover-bg;
+    border-color: $light-button-hover-bg;
+  }
+}
