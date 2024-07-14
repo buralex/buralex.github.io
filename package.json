@@ -6,7 +6,7 @@
     "dev": "rm -rf .next && PORT=3005 next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "rm -rf out && next build && gh-pages -d out",
+    "deploy": "rm -rf out && next build && gh-pages -d out --nojekyll --cname buralex.github.io",
     "stylelint": "npx stylelint **/*.{css,scss}",
     "lint": "next lint"
   },
