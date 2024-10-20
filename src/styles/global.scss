@@ -8,21 +8,7 @@
 
 html {
   background: $bg-main;
-  // for firefox
   scrollbar-color: #5b69cb #3d3762; // Thumb color and track color
-}
-
-::-webkit-scrollbar-track {
-  background: #3d3762 !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #5b69cb !important;
-  border-radius: 5px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #6c7ae2 !important;
 }
 
 .icon-bar {
