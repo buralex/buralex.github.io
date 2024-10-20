@@ -9,25 +9,25 @@
 html {
   background: $bg-main;
   // for firefox
-  scrollbar-color: #5b69cb #3d3762; /* Thumb color and track color */
+  scrollbar-color: #5b69cb #3d3762; // Thumb color and track color
   scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px !important;
 }
 
 ::-webkit-scrollbar-track {
-  background: #3d3762;
+  background: #3d3762 !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #5b69cb;
-  border-radius: 6px;
+  background: #5b69cb !important;
+  border-radius: 5px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #6c7ae2 !important;
 }
 
 .icon-bar {
