@@ -1,5 +1,5 @@
 import About from '@/components/About';
 
-export default function IndexPage() {
+export default function Default() {
   return <About />;
 }

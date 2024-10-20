@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 
@@ -32,11 +33,11 @@ const slides = [
   },
 ];
 
-export const HeroSlider = (props) => {
+export const HeroSlider = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const settings = {
     dots: true,
-    beforeChange: (current, next) => setCurrentSlideIndex(next),
+    beforeChange: (_current, next) => setCurrentSlideIndex(next),
   };
   const currentSlideTitle = slides[currentSlideIndex].title;
 

@@ -5,7 +5,7 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
-  ref: any;
+  ref: React.Ref<HTMLButtonElement>;
 };
 
 const Button = React.forwardRef<HTMLButtonElement, Props>(

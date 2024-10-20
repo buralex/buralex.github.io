@@ -5,9 +5,12 @@ export const getScrollYDirection = ({ prevScrollY, currentScrollY }) => {
   return { scrollingUp };
 };
 
-const useWindowScroll = (
-  callBack: ({ currentScrollY, scrollingUp }) => void,
-) => {
+interface ScrollYResult {
+  currentScrollY: number;
+  scrollingUp: boolean;
+}
+
+const useWindowScroll = (callBack: (result: ScrollYResult) => void) => {
   const prevScrollYRef = useRef(0);
 
   const eventHandler = useCallback(() => {
