@@ -10,11 +10,6 @@ html {
   background: $bg-main;
   // for firefox
   scrollbar-color: #5b69cb #3d3762; // Thumb color and track color
-  scrollbar-width: thin;
-}
-
-::-webkit-scrollbar {
-  width: 10px !important;
 }
 
 ::-webkit-scrollbar-track {
