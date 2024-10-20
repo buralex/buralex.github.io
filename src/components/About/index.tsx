@@ -1,15 +1,9 @@
-import Head from 'next/head';
-
 import React from 'react';
 import { HeroSlider } from '@/components/Common/HeroSlider';
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>About</title>
-      </Head>
-
       <div className="header fs-5 text-justify mt-auto mb-auto">
         <div className="row align-items-center">
           <div className="col-lg-12 text-center">
