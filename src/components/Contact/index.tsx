@@ -1,6 +1,6 @@
 import { emails } from '@/constants/common';
-import { EnvelopeIcon } from '@/components/Common/Icons/EnvelopeIcon';
-import { LinkedInIcon } from '@/components/Common/Icons/LinkedInIcon';
+import { EnvelopeIcon } from '@/components/Common/icons/EnvelopeIcon';
+import { LinkedInIcon } from '@/components/Common/icons/LinkedInIcon';
 
 const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-6 text-center mt-5';
 
