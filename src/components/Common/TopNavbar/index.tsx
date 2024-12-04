@@ -137,6 +137,15 @@ const TopNavbar = () => {
               text="Contact"
               collapseTopNav={collapseTopNav}
             />
+
+            <a
+              className="nav-link text-white text-decoration-none cool-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/files/Oleksandr_Burlachenko_CV.pdf"
+            >
+              &nbsp;View CV
+            </a>
           </ul>
         </div>
       </div>
