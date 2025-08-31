@@ -1,4 +1,9 @@
-export const EnvelopeIcon = (props) => {
+export const EnvelopeIcon = (props: {
+  width?: number;
+  height?: number;
+  fill?: string;
+  style?: React.CSSProperties;
+}) => {
   return (
     <svg
       width={props.width}

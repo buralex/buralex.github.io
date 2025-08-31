@@ -1,0 +1,50 @@
+.sliderComponent {
+  margin: auto;
+  position: relative;
+  background: transparent;
+  padding: 5px 60px 30px;
+}
+
+.sliderComponent .caption {
+  position: absolute;
+}
+
+.sliderComponent :global(.slick-next),
+.sliderComponent :global(.slick-prev) {
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+
+.sliderComponent :global(.slick-next)::before,
+.sliderComponent :global(.slick-prev)::before {
+  font-size: 30px;
+}
+
+.sliderComponent :global(.slick-prev) {
+  margin-left: -30px;
+}
+
+.sliderComponent :global(.slick-next) {
+  margin-right: -30px;
+}
+
+.sliderComponent :global(.slick-slide) img {
+  margin: auto;
+}
+
+.sliderComponent :global(.slick-dots) li button::before {
+  color: #fff;
+}
+
+@media (width >= 992px) {
+  .sliderComponent {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .sliderComponent :global(.slick-next)::before,
+  .sliderComponent :global(.slick-prev)::before {
+    font-size: 50px;
+  }
+}

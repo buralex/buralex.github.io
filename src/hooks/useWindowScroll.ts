@@ -1,6 +1,12 @@
 import { useEffect, useRef, useCallback } from 'react';
 
-export const getScrollYDirection = ({ prevScrollY, currentScrollY }) => {
+export const getScrollYDirection = ({
+  prevScrollY,
+  currentScrollY,
+}: {
+  prevScrollY: number;
+  currentScrollY: number;
+}) => {
   const scrollingUp = prevScrollY > currentScrollY;
   return { scrollingUp };
 };

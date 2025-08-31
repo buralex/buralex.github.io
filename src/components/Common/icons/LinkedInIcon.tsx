@@ -1,4 +1,9 @@
-export const LinkedInIcon = (props) => {
+export const LinkedInIcon = (props: {
+  width?: number;
+  height?: number;
+  fill?: string;
+  style?: React.CSSProperties;
+}) => {
   return (
     <svg
       width={props.width}

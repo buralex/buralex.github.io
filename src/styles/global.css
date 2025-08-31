@@ -7,15 +7,15 @@
 }
 
 html {
-  background: $bg-main;
-  scrollbar-color: #5b69cb #3d3762; // Thumb color and track color
+  background: var(--bg-main);
+  scrollbar-color: #5b69cb #3d3762;
 }
 
 .icon-bar {
   width: 25px;
   height: 2px;
   border-radius: 3px;
-  background-color: $white;
+  background-color: var(--bs-white);
   margin: 3px 0;
 }
 
@@ -27,15 +27,15 @@ body {
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    Segoe UI,
+    'Segoe UI',
     Helvetica,
     Arial,
     sans-serif,
-    Apple Color Emoji,
-    Segoe UI Emoji,
-    Segoe UI Symbol;
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
   background-color: transparent;
-  color: $white;
+  color: var(--bs-white);
 }
 
 .wrapper {
@@ -54,7 +54,7 @@ body {
   display: block;
   width: 0;
   height: 2px;
-  background: $white;
+  background: var(--bs-white);
 }
 
 .cool-link:hover::after,
@@ -64,5 +64,10 @@ body {
 
 .form-control,
 .form-control:focus {
-  color: $bg-main-stop-1;
+  color: var(--bg-main-stop-1);
+}
+
+.btn-outline-light {
+  --bs-btn-hover-color: var(--bg-main-stop-1);
+  --bs-btn-active-color: var(--bg-main-stop-1);
 }
