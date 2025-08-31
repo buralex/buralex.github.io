@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import { Button } from '@/components/Button';
 import { ActiveLink } from '@/components/ActiveLink';
 
@@ -101,10 +101,12 @@ const TopNavbar = () => {
     >
       <div className="container">
         <Link className="navbar-brand pt-0" href="/" onClick={collapseTopNav}>
-          <img
+          <Image
             src="/images/logo/logo_new_light_min.svg"
             alt="Alex Bur logo"
-            width="35"
+            title="Alex Bur logo"
+            width={35}
+            height={24}
           />
         </Link>
 
