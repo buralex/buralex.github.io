@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Image from 'next/image';
 import Slider, { Settings } from 'react-slick';
 import styles from './HeroSlider.module.css';
 
@@ -7,21 +8,24 @@ const Slide = ({
   imgSrc,
   altText,
   title,
+  priority = false,
 }: {
   imgSrc: string;
   altText: string;
   title: string;
+  priority?: boolean;
+  width?: number;
+  height?: number;
 }) => (
-  <div>
-    <img
-      className="mb-1 img-fluid"
-      width={700}
-      height="auto"
-      src={imgSrc}
-      alt={altText}
-      title={title}
-    />
-  </div>
+  <Image
+    className="img-fluid"
+    src={`/${imgSrc}`}
+    alt={altText}
+    title={title}
+    width={700}
+    height={526}
+    priority={priority}
+  />
 );
 
 const slides = [
@@ -58,12 +62,13 @@ export const HeroSlider = () => {
         style={{ zIndex: 100 }}
       >
         <Slider {...settings}>
-          {slides.map((slide) => (
+          {slides.map((slide, index) => (
             <Slide
               key={slide.title}
               title={slide.title}
               imgSrc={slide.imgSrc}
               altText={slide.altText}
+              priority={index === 0}
             />
           ))}
         </Slider>
