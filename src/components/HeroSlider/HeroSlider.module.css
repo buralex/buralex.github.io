@@ -39,7 +39,7 @@
 
 @media (width >= 992px) {
   .sliderComponent {
-    max-width: 1000px;
+    max-width: 850px;
     margin: auto;
   }
 
