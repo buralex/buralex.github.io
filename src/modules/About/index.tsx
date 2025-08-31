@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroSlider } from '@/components/Common/HeroSlider';
+import { HeroSlider } from '@/components/HeroSlider';
 
 const About = () => {
   return (
@@ -16,11 +16,10 @@ const About = () => {
 
             <h2>About me</h2>
             <p>
-              Full Stack Developer who is able to build web applications from
-              scratch - information gathering, planning, development, testing,
-              delivery and maintenance. An energetic and imaginative person. I
-              am constantly improving my skills to stay on the cutting edge of
-              web development and solve challenges effectively.
+              Full Stack Developer experienced in designing and delivering web
+              applications from concept to deployment. Skilled in planning,
+              development, testing, and maintenance, with a strong focus on
+              problem-solving and continuous improvement.
             </p>
             <div className="text-center mt-4">
               <a
@@ -29,7 +28,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 href="/files/Oleksandr_Burlachenko_CV.pdf"
               >
-                &nbsp;View CV
+                View CV
               </a>
             </div>
           </div>
