@@ -1,8 +1,17 @@
 'use client';
 import React, { useState } from 'react';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
+import styles from './HeroSlider.module.css';
 
-const Slide = ({ imgSrc, altText, title }) => (
+const Slide = ({
+  imgSrc,
+  altText,
+  title,
+}: {
+  imgSrc: string;
+  altText: string;
+  title: string;
+}) => (
   <div>
     <img
       className="mb-1 img-fluid"
@@ -35,7 +44,7 @@ const slides = [
 
 export const HeroSlider = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const settings = {
+  const settings: Settings = {
     dots: true,
     beforeChange: (_current, next) => setCurrentSlideIndex(next),
   };
@@ -44,7 +53,10 @@ export const HeroSlider = () => {
   return (
     <>
       <h3 className="mb-0">{currentSlideTitle}</h3>
-      <div className="slider-component text-center" style={{ zIndex: 100 }}>
+      <div
+        className={`${styles.sliderComponent} text-center`}
+        style={{ zIndex: 100 }}
+      >
         <Slider {...settings}>
           {slides.map((slide) => (
             <Slide

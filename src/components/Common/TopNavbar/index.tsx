@@ -1,62 +1,58 @@
-import React, {
-  // useContext,
-  useCallback,
-  useState,
-} from 'react';
-// import Image from 'next/image';
+import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import Button from '@/components/Common/Button';
 import ActiveLink from '@/components/Common/ActiveLink';
 
-// import { handleTopNavbarAppearance } from 'helpers/handleTopNavbarAppearance';
-// import NavbarTopDropDownMenus from '@/components/navbar/top/NavbarTopDropDownMenus';
-
-// import { topNavbarExpandBreakpoint } from 'constants/index';
 import { cssClasses } from '@/utils';
 import useWindowScroll from '@/hooks/useWindowScroll';
-// import AppContext from 'context/Context';
-// import { getIsServer } from 'helpers';
-import styles from './TopNavbar.module.scss';
+
+import styles from './TopNavbar.module.css';
 
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;
 
-const calculateTopNavBgClass = ({ currentScrollY }) => {
-  if (currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG) {
-    return styles.navbarSmall;
-  }
-  return NAV_TRANSPARENT_CLASS;
-};
+const calculateTopNavBgClass = ({
+  currentScrollY,
+}: {
+  currentScrollY: number;
+}) =>
+  currentScrollY > SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG
+    ? styles.navbarSmall
+    : NAV_TRANSPARENT_CLASS;
 
-const NavLink = ({ collapseTopNav, href, text }) => {
-  return (
-    <li className="nav-item">
-      <ActiveLink
-        activeClassName="active"
-        className="nav-link text-white text-decoration-none cool-link"
-        aria-current="page"
-        href={href}
-        onClick={collapseTopNav}
-      >
-        {text}
-      </ActiveLink>
-    </li>
-  );
-};
+const NavLink = ({
+  collapseTopNav,
+  href,
+  text,
+}: {
+  collapseTopNav: () => void;
+  href: string;
+  text: string;
+}) => (
+  <li className="nav-item">
+    <ActiveLink
+      activeClassName="active"
+      className="nav-link text-white text-decoration-none cool-link"
+      aria-current="page"
+      href={href}
+      onClick={collapseTopNav}
+    >
+      {text}
+    </ActiveLink>
+  </li>
+);
 
 const TopNavbar = () => {
   const [topNavExpanded, setTopNavExpanded] = useState(false);
   const [topNavClass, setTopNavClass] = useState(NAV_TRANSPARENT_CLASS);
 
+  useEffect(() => {
+    setTopNavClass(calculateTopNavBgClass({ currentScrollY: window.scrollY }));
+  }, []);
+
   const changeTopNavClassIfNeeded = useCallback(() => {
-    const nextTopNavClass = calculateTopNavBgClass({
-      currentScrollY: window.scrollY,
-    });
-    setTopNavClass(nextTopNavClass);
+    setTopNavClass(calculateTopNavBgClass({ currentScrollY: window.scrollY }));
   }, []);
 
   const toggleNav = () => {
@@ -98,13 +94,13 @@ const TopNavbar = () => {
 
   return (
     <nav
-      className={cssClasses([
+      className={cssClasses(
         'navbar navbar-expand-lg navbar-dark fixed-top',
         topNavClass,
-      ])}
+      )}
     >
       <div className="container">
-        <Link className="navbar-brand " href="/" onClick={collapseTopNav}>
+        <Link className="navbar-brand pt-0" href="/" onClick={collapseTopNav}>
           <img
             src="/images/logo/logo_new_light_min.svg"
             alt="Alex Bur logo"
@@ -124,28 +120,28 @@ const TopNavbar = () => {
           </div>
         </Button>
         <div
-          className={cssClasses([
+          className={cssClasses(
             'collapse navbar-collapse',
             topNavExpanded && 'show',
-          ])}
+          )}
         >
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <NavLink href="/" text="About" collapseTopNav={collapseTopNav} />
-
             <NavLink
               href="/contact"
               text="Contact"
               collapseTopNav={collapseTopNav}
             />
-
-            <a
-              className="nav-link text-white text-decoration-none cool-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="/files/Oleksandr_Burlachenko_CV.pdf"
-            >
-              &nbsp;View CV
-            </a>
+            <li className="nav-item">
+              <a
+                className="nav-link text-white text-decoration-none cool-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/files/Oleksandr_Burlachenko_CV.pdf"
+              >
+                View CV
+              </a>
+            </li>
           </ul>
         </div>
       </div>

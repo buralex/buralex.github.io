@@ -19,10 +19,10 @@ const ActiveLink = ({
 
   return (
     <Link
-      className={cssClasses([
+      className={cssClasses(
         className,
         pathname === props.href && activeClassName,
-      ])}
+      )}
       {...props}
     >
       {children}
