@@ -1,47 +1,52 @@
 'use client';
 import React, { useState } from 'react';
-import Image from 'next/image';
+
 import Slider, { Settings } from 'react-slick';
 import styles from './HeroSlider.module.css';
 
 const Slide = ({
-  imgSrc,
+  imageName,
   altText,
   title,
-  priority = false,
+  eager = false,
 }: {
-  imgSrc: string;
+  imageName: string;
   altText: string;
   title: string;
-  priority?: boolean;
-  width?: number;
-  height?: number;
-}) => (
-  <Image
-    className="img-fluid"
-    src={`/${imgSrc}`}
-    alt={altText}
-    title={title}
-    width={700}
-    height={526}
-    priority={priority}
-  />
-);
+  eager?: boolean;
+}) => {
+  const base = `/images/${imageName}`;
+  return (
+    <img
+      className="img-fluid"
+      width={650}
+      height={488}
+      src={`${base}-650.webp`}
+      srcSet={`${base}-650.webp 650w, ${base}-1065.webp 1065w`}
+      sizes="(max-width: 650px) 100vw, 650px"
+      loading={eager ? 'eager' : 'lazy'}
+      decoding={eager ? 'auto' : 'async'}
+      {...(eager ? { fetchPriority: 'high' as const } : {})}
+      alt={altText}
+      title={title}
+    />
+  );
+};
 
 const slides = [
   {
     title: 'Real-time dashboards',
-    imgSrc: 'images/dashboard.png',
-    altText: 'dashboards',
+    imageName: 'dashboard',
+    altText: 'dashboard',
   },
   {
     title: 'E-commerce',
-    imgSrc: 'images/e-commerce.png',
+    imageName: 'e-commerce',
     altText: 'e-commerce',
   },
   {
     title: 'Social Media Platforms',
-    imgSrc: 'images/social.png',
+    imageName: 'social',
     altText: 'social media',
   },
 ];
@@ -66,9 +71,9 @@ export const HeroSlider = () => {
             <Slide
               key={slide.title}
               title={slide.title}
-              imgSrc={slide.imgSrc}
+              imageName={slide.imageName}
               altText={slide.altText}
-              priority={index === 0}
+              eager={index === 0}
             />
           ))}
         </Slider>
