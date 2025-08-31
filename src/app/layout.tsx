@@ -9,7 +9,7 @@ import '@/styles/bootstrap-variables.css';
 import '@/styles/custom-variables.css';
 import '@/styles/global.css';
 
-import { ClientLayout } from '@/app/clientLayout';
+import { ClientSideLayout } from '@/app/ClientSideLayout';
 
 const robotoFont = Roboto({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={robotoFont.className}>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientSideLayout>{children}</ClientSideLayout>
       </body>
     </html>
   );

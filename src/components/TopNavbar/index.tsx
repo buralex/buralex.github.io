@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import Button from '@/components/Common/Button';
-import ActiveLink from '@/components/Common/ActiveLink';
+import { Button } from '@/components/Button';
+import { ActiveLink } from '@/components/ActiveLink';
 
-import { cssClasses } from '@/utils';
+import { cssClass } from '@/utils';
 import useWindowScroll from '@/hooks/useWindowScroll';
 
 import styles from './TopNavbar.module.css';
@@ -94,7 +94,7 @@ const TopNavbar = () => {
 
   return (
     <nav
-      className={cssClasses(
+      className={cssClass(
         'navbar navbar-expand-lg navbar-dark fixed-top',
         topNavClass,
       )}
@@ -109,7 +109,7 @@ const TopNavbar = () => {
         </Link>
 
         <Button
-          className="navbar-toggler shadow-none border-0"
+          className={`navbar-toggler shadow-none border-0 ${styles.navbarToggler}`}
           aria-label="Toggle navigation"
           onClick={toggleNav}
         >
@@ -120,7 +120,7 @@ const TopNavbar = () => {
           </div>
         </Button>
         <div
-          className={cssClasses(
+          className={cssClass(
             'collapse navbar-collapse',
             topNavExpanded && 'show',
           )}

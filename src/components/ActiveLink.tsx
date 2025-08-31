@@ -2,14 +2,14 @@
 import { usePathname } from 'next/navigation';
 import Link, { LinkProps } from 'next/link';
 import React, { PropsWithChildren } from 'react';
-import { cssClasses } from '@/utils';
+import { cssClass } from '@/utils';
 
-type ActiveLinkProps = LinkProps & {
+interface ActiveLinkProps extends LinkProps {
   className?: string;
   activeClassName: string;
-};
+}
 
-const ActiveLink = ({
+export const ActiveLink = ({
   children,
   activeClassName,
   className,
@@ -19,7 +19,7 @@ const ActiveLink = ({
 
   return (
     <Link
-      className={cssClasses(
+      className={cssClass(
         className,
         pathname === props.href && activeClassName,
       )}
@@ -29,5 +29,3 @@ const ActiveLink = ({
     </Link>
   );
 };
-
-export default ActiveLink;

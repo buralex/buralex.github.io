@@ -1,6 +1,6 @@
 import { clsx } from 'clsx/lite';
 
-export const cssClasses = clsx;
+export const cssClass = clsx;
 
 export const isServer = () => typeof window === 'undefined';
 

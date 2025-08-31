@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "rm -rf .next && PORT=3005 next dev",
-    "build": "rm -rf out && next build",
+    "build": "npm run lint && rm -rf out && next build",
     "preview": "npx serve@latest out",
     "deploy": "gh-pages -d out --nojekyll --cname buralex.github.io",
     "lint:ts": "tsc --noEmit --pretty",

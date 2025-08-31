@@ -1,5 +1,5 @@
-import About from '@/components/About';
+import About from '@/modules/About';
 
-export default function Default() {
+export default function DefaultPage() {
   return <About />;
 }

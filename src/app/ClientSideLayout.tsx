@@ -1,9 +1,9 @@
 'use client';
-import Footer from '@/components/Common/Footer';
-import TopNavbar from '@/components/Common/TopNavbar';
+import Footer from '@/components/Footer';
+import TopNavbar from '@/components/TopNavbar';
 import React from 'react';
 
-export function ClientLayout({ children }: { children: React.ReactNode }) {
+export function ClientSideLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="wrapper container">
       <TopNavbar />

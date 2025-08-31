@@ -1,6 +1,7 @@
-import type { Config } from 'stylelint';
+// @ts-check
 
-const stylelintConfig: Config = {
+/** @type {import('stylelint').Config} */
+const stylelintConfig = {
   extends: ['stylelint-config-standard', 'stylelint-config-css-modules'],
   rules: {},
   overrides: [
