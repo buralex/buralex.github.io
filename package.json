@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next && PORT=3005 next dev",
-    "build": "npm run lint && rm -rf out && next build",
+    "dev": "rm -rf .next && PORT=3005 next dev --turbopack",
+    "build": "npm run lint && rm -rf out && next build --turbopack",
     "preview": "npx serve@latest out",
     "deploy": "gh-pages -d out --nojekyll --cname buralex.github.io",
     "lint:ts": "tsc --noEmit --pretty",
