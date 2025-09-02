@@ -16,7 +16,7 @@ interface ScrollYResult {
   scrollingUp: boolean;
 }
 
-const useWindowScroll = (callBack: (result: ScrollYResult) => void) => {
+export const useWindowScroll = (callBack: (result: ScrollYResult) => void) => {
   const prevScrollYRef = useRef(0);
 
   const eventHandler = useCallback(() => {
@@ -40,5 +40,3 @@ const useWindowScroll = (callBack: (result: ScrollYResult) => void) => {
     };
   }, [eventHandler]);
 };
-
-export default useWindowScroll;

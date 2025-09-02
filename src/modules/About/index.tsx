@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroSlider } from '@/components/HeroSlider';
 
-const About = () => {
+export const About = () => {
   return (
     <>
       <div className="header fs-5 text-justify mt-auto mb-auto">
@@ -37,5 +37,3 @@ const About = () => {
     </>
   );
 };
-
-export default About;

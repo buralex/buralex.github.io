@@ -1,6 +1,6 @@
 'use client';
-import Footer from '@/components/Footer';
-import TopNavbar from '@/components/TopNavbar';
+import { Footer } from '@/components/Footer';
+import { TopNavbar } from '@/components/TopNavbar';
 import React from 'react';
 
 export function ClientSideLayout({ children }: { children: React.ReactNode }) {

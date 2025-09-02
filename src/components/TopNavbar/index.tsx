@@ -4,7 +4,7 @@ import { Button } from '@/components/Button';
 import { ActiveLink } from '@/components/ActiveLink';
 
 import { cssClass } from '@/utils';
-import useWindowScroll from '@/hooks/useWindowScroll';
+import { useWindowScroll } from '@/hooks/useWindowScroll';
 
 import styles from './TopNavbar.module.css';
 
@@ -42,7 +42,7 @@ const NavLink = ({
   </li>
 );
 
-const TopNavbar = () => {
+export const TopNavbar = () => {
   const [topNavExpanded, setTopNavExpanded] = useState(false);
   const [topNavClass, setTopNavClass] = useState(NAV_TRANSPARENT_CLASS);
 
@@ -148,5 +148,3 @@ const TopNavbar = () => {
     </nav>
   );
 };
-
-export default TopNavbar;
