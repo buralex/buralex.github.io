@@ -1,5 +1,6 @@
 'use client';
 
+import { ProgressProvider } from '@bprogress/next/app';
 import { Footer } from '@/components/Footer';
 import { TopNavbar } from '@/components/TopNavbar';
 import React from 'react';
@@ -9,9 +10,14 @@ export function ClientSideLayout({ children }: { children: React.ReactNode }) {
     <div className="wrapper container">
       <TopNavbar />
 
-      <div className="pt-5 pb-5" />
-      {children}
-      <div className="pt-5 pb-5" />
+      <ProgressProvider
+        height="1px"
+        color="#fcfcfcec"
+        options={{ showSpinner: false }}
+        shallowRouting
+      >
+        {children}
+      </ProgressProvider>
 
       <Footer />
     </div>

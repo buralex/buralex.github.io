@@ -92,12 +92,7 @@ export const TopNavbar = () => {
   });
 
   return (
-    <nav
-      className={cssClass(
-        'navbar navbar-expand-lg navbar-dark fixed-top',
-        topNavClass,
-      )}
-    >
+    <nav className={cssClass('navbar navbar-expand-lg fixed-top', topNavClass)}>
       <div className="container">
         <Link className="navbar-brand pt-0" href="/" onClick={collapseTopNav}>
           <img
