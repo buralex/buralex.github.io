@@ -6,7 +6,7 @@ const contactListItemClass = 'col-xs-12 col-sm-6 col-lg-6 text-center mt-5';
 
 export function Contact() {
   return (
-    <div className="container col-xl-10 col-xxl-8">
+    <div className="inner container col-xl-10 col-xxl-8">
       <h1 className="text-center">Contact</h1>
 
       <div className="row">

@@ -2,10 +2,6 @@
   --bs-btn-active-border-color: transparent;
 }
 
-.navbar-dark {
-  --bs-navbar-color: #fcfcfccc;
-}
-
 html {
   background: var(--bg-main);
   scrollbar-color: #5b69cb #3d3762;
@@ -42,6 +38,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.inner {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .cool-link {
