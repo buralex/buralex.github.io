@@ -6,7 +6,7 @@ import { ActiveLink } from '@/components/ActiveLink';
 import { cssClass } from '@/utils';
 import { useWindowScroll } from '@/hooks/useWindowScroll';
 
-import styles from './TopNavbar.module.scss';
+import styles from './TopNavbar.module.css';
 
 const NAV_TRANSPARENT_CLASS = 'bg-transparent';
 const SCROLL_TOP_LIMIT_TO_CHANGE_NAV_BG = 10;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { HeroSlider } from '@/components/HeroSlider';
-import { Button } from '@/components/Button';
 
 export const About = () => {
   return (

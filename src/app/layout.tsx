@@ -4,8 +4,10 @@ import { Roboto } from 'next/font/google';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-import '@/styles/app.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@/styles/bootstrap-variables.css';
+import '@/styles/custom-variables.css';
+import '@/styles/global.css';
 
 import { ClientSideLayout } from '@/app/ClientSideLayout';
 

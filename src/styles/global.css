@@ -1,7 +1,9 @@
-@import 'src/styles/variables';
+:root {
+  --bs-btn-active-border-color: transparent;
+}
 
 html {
-  background: $bg-main;
+  background: var(--bg-main);
   scrollbar-color: #5b69cb #3d3762;
 }
 
@@ -9,7 +11,7 @@ html {
   width: 25px;
   height: 2px;
   border-radius: 3px;
-  background-color: $white;
+  background-color: var(--bs-white);
   margin: 3px 0;
 }
 
@@ -29,7 +31,7 @@ body {
     'Segoe UI Emoji',
     'Segoe UI Symbol';
   background-color: transparent;
-  color: $white;
+  color: var(--bs-white);
 }
 
 .wrapper {
@@ -53,10 +55,20 @@ body {
   display: block;
   width: 0;
   height: 2px;
-  background: $white;
+  background: var(--bs-white);
 }
 
 .cool-link:hover::after,
 .cool-link.active::after {
   width: 100%;
+}
+
+.form-control,
+.form-control:focus {
+  color: var(--bg-main-stop-1);
+}
+
+.btn-outline-light {
+  --bs-btn-hover-color: var(--bg-main-stop-1);
+  --bs-btn-active-color: var(--bg-main-stop-1);
 }
