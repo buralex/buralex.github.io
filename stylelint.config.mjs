@@ -2,7 +2,11 @@
 
 /** @type {import('stylelint').Config} */
 const stylelintConfig = {
-  extends: ['stylelint-config-standard', 'stylelint-config-css-modules'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-standard-scss',
+    'stylelint-config-css-modules',
+  ],
   rules: {},
   overrides: [
     {

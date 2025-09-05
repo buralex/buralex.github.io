@@ -1,7 +1,9 @@
+@import 'src/styles/variables';
+
 .navbarSmall {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  background: var(--bg-top-nav);
+  background: $bg-top-nav;
   box-shadow: 0 0 20px -5px black;
 }
 
@@ -15,6 +17,6 @@
   background: rgb(255 255 255 / 10%);
 }
 
-.navbarToggler:active {
-  background: rgb(255 255 255 / 15%) !important;
+:global(.navbar-toggler).navbarToggler:active {
+  background: rgb(255 255 255 / 15%);
 }
