@@ -2,18 +2,18 @@
 import React, { useState } from 'react';
 
 import Slider, { Settings } from 'react-slick';
-import styles from './HeroSlider.module.css';
+import styles from './HeroSlider.module.scss';
 
 const Slide = ({
   imageName,
   altText,
   title,
-  eager = false,
+  isFirst = false,
 }: {
   imageName: string;
   altText: string;
   title: string;
-  eager?: boolean;
+  isFirst?: boolean;
 }) => {
   const base = `/images/${imageName}`;
   return (
@@ -24,9 +24,8 @@ const Slide = ({
       src={`${base}-650.webp`}
       srcSet={`${base}-650.webp 650w, ${base}-1065.webp 1065w`}
       sizes="(max-width: 650px) 100vw, 650px"
-      loading={eager ? 'eager' : 'lazy'}
-      decoding={eager ? 'auto' : 'async'}
-      {...(eager ? { fetchPriority: 'high' as const } : {})}
+      decoding={isFirst ? 'auto' : 'async'}
+      {...(isFirst ? { fetchPriority: 'high' as const } : {})}
       alt={altText}
       title={title}
     />
@@ -73,7 +72,7 @@ export const HeroSlider = () => {
               title={slide.title}
               imageName={slide.imageName}
               altText={slide.altText}
-              eager={index === 0}
+              isFirst={index === 0}
             />
           ))}
         </Slider>
