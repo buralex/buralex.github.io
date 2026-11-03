@@ -132,7 +132,7 @@ export const TopNavbar = () => {
                 className="nav-link text-white text-decoration-none cool-link"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/files/Oleksandr_Burlachenko_CV.pdf"
+                href={process.env.NEXT_PUBLIC_CV_URL}
               >
                 View CV
               </a>

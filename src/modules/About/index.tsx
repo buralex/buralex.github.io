@@ -26,7 +26,7 @@ export const About = () => {
               className="btn btn-outline-light btn-lg fw-bold"
               target="_blank"
               rel="noopener noreferrer"
-              href="/files/Oleksandr_Burlachenko_CV.pdf"
+              href={process.env.NEXT_PUBLIC_CV_URL}
             >
               View CV
             </a>
