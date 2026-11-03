@@ -1,0 +1,27 @@
+src/modules/About/index.tsx
+  s_bef3f5ba83ac61::t_332e49e5281f07 4
+  s_bef3f5ba83ac61::t_ac63cac7dc573c 30
+src/components/TopNavbar/index.tsx
+  s_bef3f5ba83ac61::t_dd341b7221c907 5
+  s_bef3f5ba83ac61::t_8bd2f7a29d89e9 136
+README.md
+  s_bef3f5ba83ac61::t_3e3ba3b7a5179e 9-11
+src/constants/common.ts
+  s_bef3f5ba83ac61::t_0711a682befb83 1-2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "46256caca09c002eeda4d79eb85899b43c54427e",
+  "prompts": {},
+  "sessions": {
+    "s_bef3f5ba83ac61": {
+      "agent_id": {
+        "tool": "github-copilot-cli",
+        "id": "b551f281-dc6f-4f3b-9e47-6053d251af6f",
+        "model": "customendpoint/CodeMie/gpt-6.1-sol"
+      },
+      "human_author": "Oleksandr Burlachenko <oleksandr.burlachenk@eckoh.com>"
+    }
+  }
+}
