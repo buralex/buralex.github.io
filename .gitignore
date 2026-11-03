@@ -13,7 +13,6 @@
 # next.js
 /.next/
 /out/
-/public/files/Oleksandr_Burlachenko_CV.*.pdf
 
 # production
 /build

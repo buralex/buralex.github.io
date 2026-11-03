@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroSlider } from '@/components/HeroSlider';
 import { Button } from '@/components/Button';
+import { CV_URL } from '@/constants/common';
 
 export const About = () => {
   return (
@@ -26,7 +27,7 @@ export const About = () => {
               className="btn btn-outline-light btn-lg fw-bold"
               target="_blank"
               rel="noopener noreferrer"
-              href={process.env.NEXT_PUBLIC_CV_URL}
+              href={CV_URL}
             >
               View CV
             </a>

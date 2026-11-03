@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { ActiveLink } from '@/components/ActiveLink';
+import { CV_URL } from '@/constants/common';
 
 import { cssClass } from '@/utils';
 import { useWindowScroll } from '@/hooks/useWindowScroll';
@@ -132,7 +133,7 @@ export const TopNavbar = () => {
                 className="nav-link text-white text-decoration-none cool-link"
                 target="_blank"
                 rel="noopener noreferrer"
-                href={process.env.NEXT_PUBLIC_CV_URL}
+                href={CV_URL}
               >
                 View CV
               </a>
