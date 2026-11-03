@@ -1,0 +1,24 @@
+404.html
+  h_a61b0f2ccf17e6 1,122
+_next/static/chunks/110c0b04cd4c378e.css
+  h_a61b0f2ccf17e6 1
+contact.html
+  h_a61b0f2ccf17e6 1,122
+contact.txt
+  h_a61b0f2ccf17e6 11,13
+index.html
+  h_a61b0f2ccf17e6 1,122
+index.txt
+  h_a61b0f2ccf17e6 12,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "60210abb11b4e88efa57689f84133e7b2e7e0981",
+  "prompts": {},
+  "humans": {
+    "h_a61b0f2ccf17e6": {
+      "author": "Oleksandr Burlachenko <oleksandr.burlachenk@eckoh.com>"
+    }
+  }
+}
